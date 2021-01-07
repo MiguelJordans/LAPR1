@@ -5,7 +5,7 @@
 set timefmt '%Y-%m-%d %H:%M:%S'
 
 set term png
-set output "%y-%m-%d-%H-%M.png"
+set output "Gnuplot/1.png"
 
 
 set title "Modelo"
