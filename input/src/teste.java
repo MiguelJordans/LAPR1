@@ -2,8 +2,8 @@ import java.io.FileNotFoundException;
 import  java.util.*;
 import java.io.File;
 
-public class teste {
-    public static int[][] lerMatriz() throws FileNotFoundException {
+public class teste<matriz> {
+    public static void lerMatriz() throws FileNotFoundException {
         String nomeMatriz = "";
         int matrizLinhaAtual = 0;
 
@@ -15,9 +15,9 @@ public class teste {
             Scanner ficheiro;
             int dimensao;
             //falta definir como vai ser o tamanho da matriz
-            int matriz[][] = new int[][];
+        int[][] matriz = new int[5][5];
 
-                ficheiro = new Scanner(main);
+        ficheiro = new Scanner(main);
                 nomeMatriz = ficheiro.nextLine();
                 System.out.println("Nome: " + nomeMatriz);
                 dimensao = Integer.parseInt(ficheiro.nextLine());
@@ -38,7 +38,6 @@ public class teste {
             }
             ficheiro.close();
         }
-        return matriz;
     }
 
 

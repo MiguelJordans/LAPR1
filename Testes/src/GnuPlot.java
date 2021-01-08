@@ -67,8 +67,12 @@ public class GnuPlot {
         File ficheiro = new File("GnuPlot\\1.png");
         // Isto pode ser melhorado de certeza
         while (!ficheiro.exists()) {
-        }
+            while (!ficheiro.canRead()){
 
+            }
+       }
+
+//
         try {
 
             Date data = new Date();
