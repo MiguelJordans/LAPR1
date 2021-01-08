@@ -2,21 +2,20 @@
 
 # To print on a PostScript printer:
 
-set timefmt '%Y-%m-%d %H:%M:%S'
-
 set term png
 set output "Gnuplot/1.png"
 
 
 set title "Modelo"
-set xlabel "X"
-set ylabel "Y"
+set xlabel "Geração"
+set ylabel "Número total de Femeas"
+
+set border 3
+set tics nomirror
 
 set style data linespoints
 
-f(x) = 2 * sin(x)
-g(x) = 2 * cos(x)
+
 
 # Plot
-plot f(x) title 'sin(x)' with lines linestyle 1, \
-     g(x) title 'cos(x)' with lines linestyle 2
+plot "Output\\Data.txt" title "Evolução de nº de Femeas" with linespoints
