@@ -2,13 +2,9 @@ import java.io.FileNotFoundException;
 import  java.util.*;
 import java.io.File;
 
-<<<<<<< HEAD
-public class teste {
-    public static int[][] lerMatriz() throws FileNotFoundException {
-=======
+
 public class teste<matriz> {
     public static void lerMatriz() throws FileNotFoundException {
->>>>>>> Problem_with_generating_the_file_.png
         String nomeMatriz = "";
         int matrizLinhaAtual = 0;
 
@@ -20,15 +16,12 @@ public class teste<matriz> {
             Scanner ficheiro;
             int dimensao;
             //falta definir como vai ser o tamanho da matriz
-<<<<<<< HEAD
-            int matriz[][] = new int[][];
+            int matriz[][] = new int[4][2];
 
                 ficheiro = new Scanner(main);
-=======
-        int[][] matriz = new int[5][5];
+        matriz = new int[5][5];
 
         ficheiro = new Scanner(main);
->>>>>>> Problem_with_generating_the_file_.png
                 nomeMatriz = ficheiro.nextLine();
                 System.out.println("Nome: " + nomeMatriz);
                 dimensao = Integer.parseInt(ficheiro.nextLine());
@@ -49,11 +42,9 @@ public class teste<matriz> {
             }
             ficheiro.close();
         }
-<<<<<<< HEAD
         return matriz;
-=======
->>>>>>> Problem_with_generating_the_file_.png
-    }
+
+}
 
 
 

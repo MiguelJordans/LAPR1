@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GnuPlot {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         CriaGrafico();
         MudaNomeFicheiro();
     }
@@ -24,8 +24,7 @@ public class GnuPlot {
         location[1] = "GnuPlot\\1.gp";
 
         try {
-
-            Process run = Runtime.getRuntime().exec(location);
+            Runtime.getRuntime().exec(location);
 
         } catch (IOException e) {
 
@@ -40,6 +39,7 @@ public class GnuPlot {
 
 
     public static void MudaNomeFicheiro() {
+
         File ficheiro = new File("GnuPlot\\1.png");
         // Isto pode ser melhorado de certeza
         System.out.println("A criar o ficheiro ...");
@@ -49,7 +49,7 @@ public class GnuPlot {
             }
         }
 
-//
+
         try {
 
             Date data = new Date();
