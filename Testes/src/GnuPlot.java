@@ -16,59 +16,40 @@ public class GnuPlot {
 
     public static void CriaGrafico() {
 
-        Runtime run = Runtime.getRuntime();
-        String[] location = new String[2];
 
-        location[0] = "C:\\Program Files\\gnuplot\\bin\\wgnuplot.exe";
+        String[] location = new String[2];
+//      localização do programa
+        location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
+//      localização do gnuplot
         location[1] = "GnuPlot\\1.gp";
 
         try {
 
-            run.exec(location);
+            Process run = Runtime.getRuntime().exec(location);
 
         } catch (IOException e) {
+
+            System.out.println("Algo está errado");
 
             e.printStackTrace();
 
         }
 
+
     }
 
-    
+
     public static void MudaNomeFicheiro() {
-/*
-
-        Calendar datahora = Calendar.getInstance();
-        Date data = new Date();
-
-        DateFormat f = new SimpleDateFormat("dd/MM/yyyy_HH:mm:ss");
-
-        String date = f.format(data);
-
-        File oldfile = new File("C:\\Users\\eduar\\Documents\\Projeto_Lapr\\GnuPlot\\1.png");
-        File newfile = new File( "C:\\Users\\eduar\\Documents\\Projeto_Lapr\\GnuPlot\\"+ date + ".png");
-
-        System.out.println(newfile);
-
-        boolean success = oldfile.renameTo(newfile);
-
-        if (success) {
-
-            System.out.println("File renamed");
-
-        } else {
-
-            System.out.println("Sorry! the file can't be renamed");
-
-        }
-
-
-*/
         File ficheiro = new File("GnuPlot\\1.png");
         // Isto pode ser melhorado de certeza
+        System.out.println("A criar o ficheiro ...");
         while (!ficheiro.exists()) {
+            while (!ficheiro.canRead()) {
+
+            }
         }
 
+//
         try {
 
             Date data = new Date();
@@ -76,10 +57,10 @@ public class GnuPlot {
             String date = f.format(data);
 
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\1.png");
-            Path newname = FileSystems.getDefault().getPath(date+".png");
+            Path newname = FileSystems.getDefault().getPath(date + ".png");
 
-            Files.move( oldname, oldname.resolveSibling(newname));
-            Path path = FileSystems.getDefault().getPath("Gnuplot\\"+date+".png");
+            Files.move(oldname, oldname.resolveSibling(newname));
+            Path path = FileSystems.getDefault().getPath("Gnuplot\\" + date + ".png");
 
             Path newdir = FileSystems.getDefault().getPath("Output");
 
