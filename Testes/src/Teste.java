@@ -36,7 +36,7 @@ public class Teste {
                 Matrix [] mattD= eigenD.decompose();
 
 
-
+                System.out.println("aa");
                 for(int i=0; i<2;i++)
 
                 {
@@ -54,7 +54,7 @@ public class Teste {
                 double matB [][]= mattD[1].toDenseMatrix().toArray();
 
 
-
+                System.out.println("a");
 
 
                 for(int i=0; i<2;i++)
