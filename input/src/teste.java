@@ -6,30 +6,33 @@ import java.util.Scanner;
 public class teste {
 
     public static void main(String[] args)  {
+        if (args==null){
 
-        Scanner ficheiro = null;
+        }else {
+            Scanner ficheiro = null;
 
-        Scanner ler = new Scanner(System.in);
+            Scanner ler = new Scanner(System.in);
 
-        try {
+            try {
 
-            String nomeEspecie = args[0];
-            File myObj = new File(nomeEspecie);
-            ficheiro = new Scanner(myObj);
+                String nomeEspecie = args[0];
+                File myObj = new File(nomeEspecie);
+                ficheiro = new Scanner(myObj);
 
-        } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
 
-            e.printStackTrace();
-            System.exit(0);
+                e.printStackTrace();
+                System.exit(0);
+            }
+            double[] vectorDistribPop = lerDistribPop(ficheiro);
+            double[][] matrixLeslie = lerMatriz(ficheiro);
+
+            ImprimirMatriz(matrixLeslie);
+
+            ImprimirVetor(vectorDistribPop);
+
+            ficheiro.close();
         }
-        double[] vectorDistribPop = lerDistribPop(ficheiro);
-        double[][] matrixLeslie = lerMatriz(ficheiro);
-
-        ImprimirMatriz(matrixLeslie);
-
-        ImprimirVetor(vectorDistribPop);
-
-        ficheiro.close();
     }
 
     private static double[] lerDistribPop(Scanner fx) {
