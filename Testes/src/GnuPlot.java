@@ -167,8 +167,7 @@ public class GnuPlot {
 
 
         try {
-
-
+            
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\"+nomepng+"."+formato);
             Path newname = FileSystems.getDefault().getPath(nome + "_" + ObtemData() +"."+ formato);
 
