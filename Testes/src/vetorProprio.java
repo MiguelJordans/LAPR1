@@ -1,7 +1,8 @@
-import java.util.Scanner;
 import org.la4j.Matrix;
-import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
+import org.la4j.matrix.dense.Basic2DMatrix;
+
+import java.util.Scanner;
 
 public class vetorProprio {
 
@@ -17,7 +18,7 @@ public class vetorProprio {
         System.out.println("Introduza os valores desejados na matriz");
         for (int i = 0; i < l1; i++) {
             for (int j = 0; j < c1; j++) {
-                firstMatrix[i][j] = in.nextInt();
+                firstMatrix[i][j] = in.nextDouble();
             }
         }
 
@@ -29,11 +30,11 @@ public class vetorProprio {
 
         System.out.println();
 
-         //Função para obter o array unidimensional do vetor próprio
-        double matA[][] = Vetor[0].toDenseMatrix().toArray();
+        //Função para obter o array unidimensional do vetor próprio
+        double[][] matA = Vetor[0].toDenseMatrix().toArray();
 
         //Função para obter o array unidimensional do valor próprio
-        double matB[][] = Vetor[1].toDenseMatrix().toArray();
+        double[][] matB = Vetor[1].toDenseMatrix().toArray();
 
 
         System.out.println("Vetor Próprio:");
@@ -46,17 +47,17 @@ public class vetorProprio {
 
         System.out.println();
 
-        double lambda=matB[0][0];
+        double lambda = matB[0][0];
 
         for (int i = 0; i < 2; i++) {
 
             for (int j = 0; j < 2; j++) {
 
-                if(lambda<matB[i][j])
-                 lambda=matB[i][j];
+                if (lambda < matB[i][j])
+                    lambda = matB[i][j];
             }
 
         }
-        System.out.println("O valor próprio é:" +lambda);
+        System.out.println("O valor próprio é:" + lambda);
     }
 }

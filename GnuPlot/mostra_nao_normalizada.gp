@@ -1,5 +1,3 @@
-
-
 set title "Modelo"
 set xlabel "Geracao"
 set ylabel "Numero Femeas"

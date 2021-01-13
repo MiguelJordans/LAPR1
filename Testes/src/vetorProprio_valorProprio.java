@@ -37,7 +37,7 @@ public class vetorProprio_valorProprio {
         System.out.println("Introduza os valores desejados na matriz");
         for (int i = 0; i < l1; i++) {
             for (int j = 0; j < c1; j++) {
-                A[i][j] = in.nextInt();
+                A[i][j] = in.nextDouble();
             }
         }
         System.out.println();
