@@ -7,7 +7,7 @@ import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
 
-public class vetorProprio_valorProprio {
+public class Vetores {
 
     public static Scanner in = new Scanner(System.in);
 
@@ -19,9 +19,9 @@ public class vetorProprio_valorProprio {
         double[][] firstMatrix;
         firstMatrix = lerMatriz(l1, c1);
 
-       // double[][] transposta;
-       // transposta =transposta(l1,c1,firstMatrix);
-       //   imprimirMatriz(l1,c1,transposta);
+        // double[][] transposta;
+        // transposta =transposta(l1,c1,firstMatrix);
+        //   imprimirMatriz(l1,c1,transposta);
 
         double[][] X;
         int B=1;
@@ -228,34 +228,34 @@ public class vetorProprio_valorProprio {
     }
 
 
-   public static double[][] lerVetor(int n) {
+    public static double[][] lerVetor(int n) {
 
-       double[][] A = new double[1][n];
+        double[][] A = new double[1][n];
 
-       System.out.println("Escreva os valores do vetor desejados [dimensão n*1]");
+        System.out.println("Escreva os valores do vetor desejados [dimensão n*1]");
 
-       for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
 
-           A[0][i] = in.nextDouble();
+            A[0][i] = in.nextDouble();
 
-       }
+        }
 
-       System.out.println();
+        System.out.println();
 
-       return A;
+        return A;
 
-   }
+    }
 
     public static double[][] multiplicarEscalarPorMatriz(double[][] vetor, double mpvalor,int n) {
 
 
-         for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++){
 
-             vetor[0][i]=vetor[0][i]*mpvalor;
+            vetor[0][i]=vetor[0][i]*mpvalor;
 
-         }
+        }
 
-         return vetor;
+        return vetor;
 
     }
     public static void imprimirMatriz(int c1,int l1,double [][]matriz) {
