@@ -118,7 +118,7 @@ public class teste {
 
     }
 
-    private static double[] lerDistribPop(Scanner fx) {
+    public static double[] lerDistribPop(Scanner fx) {
 
         String stringX;
         stringX = fx.nextLine();
