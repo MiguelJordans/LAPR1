@@ -2,7 +2,7 @@ import  java.util.*;
 import java.io.FileNotFoundException;
 import java.io.File;
 
-public class teste {
+public class Interface {
 
     public static void main(String[] args) throws Exception {
 
@@ -77,7 +77,7 @@ public class teste {
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
 
-            ImprimirMatriz(matrixLeslie);
+        ImprimirMatriz(matrixLeslie);
 
 
         //MODO INTERATIVO
@@ -147,12 +147,12 @@ public class teste {
 
             matriz = new double[linhaStringFSeparados.length][linhaStringFSeparados.length];
 
-                for (int i = 0; i < linhaStringFSeparados.length; i++) {
-                    matriz[0][i] = SeparaDouble(linhaStringFSeparados[i]);
-                }
-                for(int j = 0; j < linhaStringSSeparados.length; j++ ){
-                    matriz[j+1][j] = SeparaDouble(linhaStringSSeparados[j]);
-                }
+            for (int i = 0; i < linhaStringFSeparados.length; i++) {
+                matriz[0][i] = SeparaDouble(linhaStringFSeparados[i]);
+            }
+            for(int j = 0; j < linhaStringSSeparados.length; j++ ){
+                matriz[j+1][j] = SeparaDouble(linhaStringSSeparados[j]);
+            }
         } catch (FileNotFoundException e) {
             //Ficheiro Inexistente
             e.printStackTrace();
@@ -187,5 +187,4 @@ public class teste {
             System.out.println();
         }
     }
-
 }
