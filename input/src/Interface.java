@@ -134,11 +134,11 @@ public class Interface {
             while(ficheiro.hasNextLine()){
                 if(stringY.substring(0,0)=="s"){
 
-                    stringY = stringS;
+                    stringS = stringY;
 
-                }else{
+                }else if(stringY.substring(0,0)=="f"){
 
-                    stringY = stringF;
+                    stringF = stringY;
                 }
             }
             String linhaStringSSeparados[] = stringS.split(",");
@@ -188,3 +188,4 @@ public class Interface {
         }
     }
 }
+
