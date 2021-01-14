@@ -170,7 +170,7 @@ public class Interface {
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            System.exit(0);
+            System.exit(0); 
         }
         return valorD;
     }
