@@ -24,6 +24,7 @@ public class DistribuiçãoFinal {
         System.out.println();
 
         int n = 0;
+        boolean Y= true;
 
         while (in.hasNextDouble()) {
 
@@ -31,7 +32,27 @@ public class DistribuiçãoFinal {
             in.nextLine();
         }
 
-        in.nextLine();
+        double[][] matriz = new double[n][n];
+
+        System.out.println("Pretende introduzir a matriz inicial(true/false)?");
+        Y=ler.nextBoolean();
+
+        if(Y==true){
+            matriz=lerMatriz(n,n);
+        }
+
+        else {
+            for (int i = 0; i < n; i++) {
+
+                for (int j = 0; j < n; j++) {
+
+                    matriz[i][j] = input.nextDouble();
+                }
+
+                if (input.hasNextLine()) input.nextLine();
+
+            }
+        }
 
         System.out.println("Introduza o número de gerações(t/k)");
         int k = ler.nextInt();
@@ -41,20 +62,6 @@ public class DistribuiçãoFinal {
         System.out.println("Introduza os valores do vetor");
         double[] X;
         X = lerVetor(n);
-
-        double[][] matriz = new double[n][n];
-
-
-        for (int i = 0; i < n; i++) {
-
-            for (int j = 0; j < n; j++) {
-
-                matriz[i][j] = input.nextDouble();
-            }
-
-            if (input.hasNextLine()) input.nextLine();
-
-        }
 
         System.out.printf("k=%d\n\n", k);
 
@@ -69,7 +76,7 @@ public class DistribuiçãoFinal {
         double[] produto_1;
         double[] guardaTaxa = new double[200];
         int t = 0;
-        int counter = 0;
+        int counter=0;
 
         System.out.println("*****************************************");
         System.out.println();
@@ -79,10 +86,10 @@ public class DistribuiçãoFinal {
             System.out.printf("Para a %dª geração:\n\n", t + 1);
 
             matrizGeraçao = leslieT(matriz, t);
-            matrizGeraçao_1 = leslieT(matriz, t + 1);
+            matrizGeraçao_1=leslieT(matriz,t+1);
 
             produto = multiplicarMatrizporVetor(matrizGeraçao, X);
-            produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
+            produto_1=multiplicarMatrizporVetor(matrizGeraçao_1,X);
 
             dimensão = dimensao(produto);
 
@@ -99,8 +106,8 @@ public class DistribuiçãoFinal {
 
             System.out.println();
 
-            System.out.printf("T(%d)/", t + 1);
-            escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter);
+            System.out.printf("T(%d)/",t+1);
+            escreverTaxaVariacao(produto,t,produto_1, guardaTaxa,counter);
             counter++;
 
             t++;
@@ -159,12 +166,12 @@ public class DistribuiçãoFinal {
 
         double[] resposta = new double[firstMatrix.length];
 
-        int i = 0;
+        int i=0;
 
 
-        for (int linha = 0; linha < firstMatrix.length; linha++) {
+        for(int linha = 0; linha<firstMatrix.length; linha++){
 
-            for (int k = 0; k < firstMatrix.length; k++) {
+            for(int k = 0; k < firstMatrix.length; k++){
 
                 resposta[i] += firstMatrix[linha][k] * vector[k];
 
@@ -226,6 +233,7 @@ public class DistribuiçãoFinal {
         double[] vetorNormalizado = new double[produto.length];
 
 
+
         for (int j = 0; j < produto.length; j++) {
 
             vetorNormalizado[j] = (produto[j] / dimensao) * 100;
@@ -261,7 +269,7 @@ public class DistribuiçãoFinal {
 
         for (int j = 0; j < vetor.length; j++) {
 
-            if (j == vetor.length) System.out.printf("%.2f)", vetor[j]);
+            if  (j == vetor.length) System.out.printf("%.2f)", vetor[j]);
 
             else if (j == 0) System.out.printf("(%.2f", vetor[j]);
 
@@ -278,22 +286,23 @@ public class DistribuiçãoFinal {
     }
 
 
-    public static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter) {
+    public static void escreverTaxaVariacao(double[] produto, int k,double []produto_1,double[]guardaTaxa,int counter) {
+
 
 
         System.out.print("Taxa de variação=");
 
-        double taxaVariacao = taxaVariacao(produto, k, produto_1);
+        double taxaVariacao = taxaVariacao(produto,k,produto_1);
 
-        System.out.printf("%.2f\n", taxaVariacao);
+        System.out.printf("%.2f\n",taxaVariacao);
 
-        guardaTaxa[counter] = taxaVariacao;
+        guardaTaxa[counter]=taxaVariacao;
 
 
     }
 
 
-    public static double taxaVariacao(double[] produto, int k, double[] produto_1) {
+    public static double taxaVariacao(double[] produto, int k,double[]produto_1) {
 
 
         double Nt;
@@ -330,6 +339,29 @@ public class DistribuiçãoFinal {
         System.out.println();
 
         System.out.println();
+
+    }
+
+    public static double[][] lerMatriz(int c1, int l1) {
+
+        double A[][] = new double[l1][c1];
+
+        System.out.println("Introduza os valores desejados na matriz");
+
+
+        for (int i = 0; i < l1; i++) {
+
+            for (int j = 0; j < c1; j++) {
+
+                A[i][j] = ler.nextDouble();
+
+            }
+
+        }
+
+        System.out.println();
+
+        return A;
 
     }
 
