@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="la4j-0.5.5" level="application" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.4">
@@ -40,5 +41,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+=======
+    <orderEntry type="library" name="la4j-0.5.5" level="project" />
+>>>>>>> 574b349dac02b0df8ae8c0f8e9757851d11b4175
   </component>
 </module>
