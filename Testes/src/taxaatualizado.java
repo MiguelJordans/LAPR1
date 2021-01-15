@@ -6,7 +6,7 @@ public class taxaatualizado {
         int t = 40;
 
 
-        escreverTaxaVariacao( matrizLeslie, vetorInicial, t);
+        escreverTaxaVariacao(matrizLeslie, vetorInicial, t);
 
     }
 

@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,7 +23,11 @@ public class Main {
                 double[] taxaS = new double[199];
                 double[] taxaF = new double[199];
                 double[] nIndividuos = new double[199];
+                int t;
                 System.out.println("Bem Vindo!");
+                System.out.println();
+                System.out.println();
+                System.out.println();
 
                 System.out.println("Por favor introduza a matriz de Lelie:");
                 boolean acabou = false;
@@ -60,12 +66,19 @@ public class Main {
                     geracao++;
                 }
 
+                System.out.println("Introduza o número de instantes de tempo a gerar");
 
-                double[][] matriz = criaMatriz(nIndividuos, taxaS, taxaF);
+                t= read.nextInt();
+
+
+                double[][] matriz = criaMatriz(nIndividuos, taxaS, taxaF, geracao);
                 Interface.ImprimirMatriz(matriz);
-                nIndividuos = limpaVetor(nIndividuos);
+                nIndividuos = limpaVetor(nIndividuos,geracao);
+                for (int i=0;i<nIndividuos.length;i++){
+                    System.out.println(nIndividuos[i]);
+                }
 
-
+                read.nextLine();
                 while (!choi.equals("S") && !choi.equals("N")) {
                     System.out.println("Deseja voltar a introduzir dados?(S/N)");
                     choi = read.nextLine();
@@ -83,12 +96,13 @@ public class Main {
 
     }
 
-    public static double[][] criaMatriz(double[] nIndividuos, double[] taxaS, double[] taxaF) {
-        nIndividuos = limpaVetor(nIndividuos);
-        taxaS = limpaVetor(taxaS);
-        taxaF = limpaVetor(taxaF);
+    public static double[][] criaMatriz(double[] nIndividuos, double[] taxaS, double[] taxaF, int geracao) {
+        nIndividuos = limpaVetor(nIndividuos,geracao);
+        taxaS = limpaVetor(taxaS,(geracao-1));
+        taxaF = limpaVetor(taxaF,geracao);
 
         double[][] matizLeslie = new double[nIndividuos.length][nIndividuos.length];
+
 
         for (int i = 0; i < taxaF.length; i++) {
             matizLeslie[0][i] = taxaF[i];
@@ -101,8 +115,8 @@ public class Main {
 
     }
 
-    public static double[] limpaVetor(double[] array) {
-        double[] vetorLimpo = Arrays.copyOf(array, encontraUltimoValor(array));
+    public static double[] limpaVetor(double[] array, int geracao) {
+        double[] vetorLimpo = Arrays.copyOf(array, geracao);
         return vetorLimpo;
 
     }
