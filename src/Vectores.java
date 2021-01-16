@@ -3,36 +3,21 @@ import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
 
-public class Vetores {
+public class Vectores {
 
     public static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void vetores(double[][] firstMatrix, double[] X) {
 
-        System.out.println("Introduza o número de linhas e colunas, respetivamente:");
-        int l1 = in.nextInt(), c1 = in.nextInt();
 
-        double[][] firstMatrix;
-        firstMatrix = lerMatriz(l1, c1);
-
-        // double[][] transposta;
-        // transposta =transposta(l1,c1,firstMatrix);
-        //   imprimirMatriz(l1,c1,transposta);
-
-        double[][] X;
-        int B=1;
-        X=lerVetor(c1);
-
-        System.out.println();
 
 
         double mvalorp;
-        int c2=c1;
 
         System.out.println("************************************************");
         System.out.println();
 
-        mvalorp = vetorproprio(firstMatrix,l1,c1,c2);
+        mvalorp = vetorproprio(firstMatrix, firstMatrix.length,firstMatrix.length , firstMatrix.length);
 
         System.out.printf("-lambda=%.4f\n", mvalorp);
 
@@ -40,20 +25,20 @@ public class Vetores {
         System.out.println();
 
         // Multiplicar o vetor pela matriz
-        double[][] product = multiplicarMatrizPorVetor(firstMatrix, X, l1, c1, c1);
+        double[] product = Distribuição.multiplicarMatrizporVetor(firstMatrix,X);
 
         // Mostrar o resultado
         System.out.println("O produto das duas matrizes é: ");
-        imprimirMatriz(c1,l1,product);
+        Distribuição.apresentarVetor(product);
 
         System.out.println();
 
         //Multiplicar o vetor pelo valor próprio
-        double[][] vetorLambda = multiplicarEscalarPorMatriz(X,mvalorp,c1);
+        double[] vetorLambda = multiplicarEscalarPorMatriz(X,mvalorp, firstMatrix.length);
 
         // Mostrar o resultado
         System.out.println("O produto do valor próprio pela matriz é: ");
-        apresentarProduto(vetorLambda);
+        Distribuição.apresentarVetor(vetorLambda);
 
     }
 
@@ -182,28 +167,6 @@ public class Vetores {
     }
 
 
-    public static double[][] multiplicarMatrizPorVetor(double[][] firstMatrix, double[][] X, int l1, int c1, int c2) {
-
-        double[][] produto = new double[l1][c2];
-
-        for(int i = 0; i < l1; i++) {
-
-            for (int j = 0; j < c2; j++) {
-
-                for (int k = 0; k < c1; k++) {
-
-                    produto[i][j] += firstMatrix[i][k] * X[0][j];
-
-                }
-
-            }
-
-        }
-
-
-        return produto;
-
-    }
 
 
     public static void apresentarProduto(double[][] produto) {
@@ -224,15 +187,15 @@ public class Vetores {
     }
 
 
-    public static double[][] lerVetor(int n) {
+    public static double[] lerVetor(int n) {
 
-        double[][] A = new double[1][n];
+        double[] A = new double[n];
 
         System.out.println("Escreva os valores do vetor desejados [dimensão n*1]");
 
         for (int i = 0; i < n; i++) {
 
-            A[0][i] = in.nextDouble();
+            A[i] = in.nextDouble();
 
         }
 
@@ -242,12 +205,12 @@ public class Vetores {
 
     }
 
-    public static double[][] multiplicarEscalarPorMatriz(double[][] vetor, double mpvalor,int n) {
+    public static double[] multiplicarEscalarPorMatriz(double[] vetor, double mpvalor,int n) {
 
 
         for(int i=0;i<n;i++){
 
-            vetor[0][i]=vetor[0][i]*mpvalor;
+            vetor[i]=vetor[i]*mpvalor;
 
         }
 

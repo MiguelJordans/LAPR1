@@ -1,5 +1,3 @@
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -68,15 +66,24 @@ public class Main {
 
                 System.out.println("Introduza o número de instantes de tempo a gerar");
 
-                t= read.nextInt();
+                t = read.nextInt();
 
 
                 double[][] matriz = criaMatriz(nIndividuos, taxaS, taxaF, geracao);
                 Interface.ImprimirMatriz(matriz);
-                nIndividuos = limpaVetor(nIndividuos,geracao);
-                for (int i=0;i<nIndividuos.length;i++){
+                nIndividuos = limpaVetor(nIndividuos, geracao);
+                for (int i = 0; i < nIndividuos.length; i++) {
                     System.out.println(nIndividuos[i]);
                 }
+
+
+
+
+                Distribuição.ApresentarDist(matriz,t,nIndividuos);
+
+
+
+
 
                 read.nextLine();
                 while (!choi.equals("S") && !choi.equals("N")) {
@@ -97,9 +104,9 @@ public class Main {
     }
 
     public static double[][] criaMatriz(double[] nIndividuos, double[] taxaS, double[] taxaF, int geracao) {
-        nIndividuos = limpaVetor(nIndividuos,geracao);
-        taxaS = limpaVetor(taxaS,(geracao-1));
-        taxaF = limpaVetor(taxaF,geracao);
+        nIndividuos = limpaVetor(nIndividuos, geracao);
+        taxaS = limpaVetor(taxaS, (geracao - 1));
+        taxaF = limpaVetor(taxaF, geracao);
 
         double[][] matizLeslie = new double[nIndividuos.length][nIndividuos.length];
 

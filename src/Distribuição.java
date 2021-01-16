@@ -1,127 +1,105 @@
-/**
- * @author Miguel Jordão
- */
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class DistribuiçãoFinal {
+public class Distribuição {
 
 
     public static Scanner ler = new Scanner(System.in);
 
+        public static void ApresentarDist(double[][] matriz, int k, double[] X){
+            double[][] matrizGeraçao;
+            double[] produto;
+            double dimensão;
+            double[] vetorNormalizado;
+            double[][] matrizGeraçao_1;
+            double[] produto_1;
+            double[] guardaTaxa = new double[200];
+            int t = 0;
+            int counter = 0;
+            System.out.println("Introduza os valores do vetor");
 
-    public static void main(String[] args) throws FileNotFoundException {
+            while (t <= k) {
 
-        String file_in = "array.txt";
+                System.out.printf("Para a %dª geração:\n\n", t + 1);
 
-        Scanner input = new Scanner(new File(file_in));
+                matrizGeraçao = leslieT(matriz, t);
+                matrizGeraçao_1 = leslieT(matriz, t + 1);
+                if (t != 1) {
+                    produto = multiplicarMatrizporVetor(matrizGeraçao, X);
+                    produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                    dimensão = dimensao(produto);
+                    vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                    System.out.println("Distruibuição não Normalizada:");
+                    apresentarVetor(produto);
 
-        Scanner in = new Scanner(new File(file_in));
+                    System.out.println("Distribuição Normalizada:");
+                    apresentarVetor(vetorNormalizado);
 
-        System.out.println();
+                    System.out.print("Dimensão da população nessa geração= ");
+                    System.out.printf("%.2f\n", dimensão);
 
-        int n = 0;
-        boolean Y= true;
+                    System.out.println();
 
-        while (in.hasNextDouble()) {
+                    System.out.printf("T(%d)/", t + 1);
+                    escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter);
+                    counter++;
 
-            ++n;
-            in.nextLine();
-        }
+                    t++;
 
-        double[][] matriz = new double[n][n];
 
-        System.out.println("Pretende introduzir a matriz inicial(true/false)?");
-        Y=ler.nextBoolean();
 
-        if(Y==true){
-            matriz=lerMatriz(n,n);
-        }
+                    System.out.printf("\n");
+                    System.out.println();
+                    System.out.println("*****************************************");
+                    System.out.println();
 
-        else {
-            for (int i = 0; i < n; i++) {
+                }else {
+                    produto =X;
+                    produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
-                for (int j = 0; j < n; j++) {
+                    dimensão = dimensao(produto);
+                    vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                    System.out.println("Distruibuição não Normalizada:");
+                    apresentarVetor(produto);
 
-                    matriz[i][j] = input.nextDouble();
+                    System.out.println("Distribuição Normalizada:");
+                    apresentarVetor(vetorNormalizado);
+
+                    System.out.print("Dimensão da população nessa geração= ");
+                    System.out.printf("%.2f\n", dimensão);
+
+                    System.out.println();
+
+                    System.out.printf("T(%d)/", t + 1);
+                    escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter);
+                    counter++;
+
+                    t++;
+
+
+                    System.out.println();
+                    System.out.println("*****************************************");
+                    System.out.println();
+
+
                 }
 
-                if (input.hasNextLine()) input.nextLine();
+
+
+
+
+
 
             }
+
+            Vectores.vetores(matriz,X);
+
+            apresentarVetorTaxa(guardaTaxa);
         }
 
-        System.out.println("Introduza o número de gerações(t/k)");
-        int k = ler.nextInt();
-
-        System.out.println();
-
-        System.out.println("Introduza os valores do vetor");
-        double[] X;
-        X = lerVetor(n);
-
-        System.out.printf("k=%d\n\n", k);
-
-        System.out.println("Matriz de Leslie: ");
-        apresentarMatriz(matriz);
-
-        double[][] matrizGeraçao;
-        double[] produto;
-        double dimensão;
-        double[] vetorNormalizado;
-        double[][] matrizGeraçao_1;
-        double[] produto_1;
-        double[] guardaTaxa = new double[200];
-        int t = 0;
-        int counter=0;
-
-        System.out.println("*****************************************");
-        System.out.println();
-
-        while (t <= k) {
-
-            System.out.printf("Para a %dª geração:\n\n", t + 1);
-
-            matrizGeraçao = leslieT(matriz, t);
-            matrizGeraçao_1=leslieT(matriz,t+1);
-
-            produto = multiplicarMatrizporVetor(matrizGeraçao, X);
-            produto_1=multiplicarMatrizporVetor(matrizGeraçao_1,X);
-
-            dimensão = dimensao(produto);
-
-            vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
-
-            System.out.println("Distruibuição não Normalizada:");
-            apresentarVetor(produto);
-
-            System.out.println("Distribuição Normalizada:");
-            apresentarVetor(vetorNormalizado);
-
-            System.out.print("Dimensão da população nessa geração= ");
-            System.out.printf("%.2f\n", dimensão);
-
-            System.out.println();
-
-            System.out.printf("T(%d)/",t+1);
-            escreverTaxaVariacao(produto,t,produto_1, guardaTaxa,counter);
-            counter++;
-
-            t++;
-
-            System.out.println();
-            System.out.println("*****************************************");
-            System.out.println();
-
-        }
-
-        apresentarVetorTaxa(guardaTaxa);
 
 
-    }
 
 
     public static void apresentarMatriz(double[][] matriz) {
