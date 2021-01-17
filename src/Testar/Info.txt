@@ -1,0 +1,3 @@
+Fazer testes com o código
+Melhorar as classes para ter o código mas estruturado
+Verificar o main
