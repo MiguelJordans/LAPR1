@@ -31,10 +31,7 @@ public class Main {
                     double[] nIndividuos = new double[199];
                     int t;
 
-
-
-                    System.out.printf("\n\nBEM VINDO  \n\n\n");
-
+                    Welcome.Welcome();
 
                     System.out.printf("Por favor introduza a matriz de Lelie:\n\n");
 
@@ -93,17 +90,17 @@ public class Main {
                     t = read.nextInt();
                     System.out.println();
 
-                    double[][] matriz = criaMatriz(nIndividuos, taxaS, taxaF, geracao);
+                    double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
 
                     //Interface.ImprimirMatriz(matriz);
-                    nIndividuos = limpaVetor(nIndividuos, geracao);
+                    nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
 
                     System.out.println("OUTPUT");
                     System.out.printf("\n\nk=%d\n\n",t);
 
                     System.out.println("Matriz de Leslie");
                     System.out.println();
-                    Distribuição.apresentarMatriz(matriz);
+                    Apresentar.apresentarMatriz(matriz);
 
                     Distribuição.ApresentarDist(matriz,t,nIndividuos);
 
@@ -131,64 +128,6 @@ public class Main {
 
             }
 
-
-        }
-
-
-        public static double[][] criaMatriz(double[] nIndividuos, double[] taxaS, double[] taxaF, int geracao) {
-
-            nIndividuos = limpaVetor(nIndividuos, geracao);
-            taxaS = limpaVetor(taxaS, (geracao - 1));
-            taxaF = limpaVetor(taxaF, geracao);
-
-            double[][] matizLeslie = new double[nIndividuos.length][nIndividuos.length];
-
-
-            for (int i = 0; i < taxaF.length; i++) {
-
-                matizLeslie[0][i] = taxaF[i];
-
-            }
-
-            for (int j = 0; j < taxaS.length; j++) {
-
-                matizLeslie[j + 1][j] = taxaS[j];
-
-            }
-
-            return matizLeslie;
-
-        }
-
-
-        public static double[] limpaVetor(double[] array, int geracao) {
-
-            double[] vetorLimpo = Arrays.copyOf(array, geracao);
-
-            return vetorLimpo;
-
-        }
-
-
-        public static int encontraUltimoValor(double[] array) {
-
-            int end = 0;
-            int i = 0;
-            boolean acabou = false;
-
-            while (i < array.length && !acabou) {
-
-                if (array[i] == 0) {
-
-                    end = i;
-                    acabou = true;
-
-                }
-
-                i++;
-            }
-
-            return end;
 
         }
 

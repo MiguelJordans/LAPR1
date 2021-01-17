@@ -1,11 +1,8 @@
-import java.util.Scanner;
 import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
 
 public class Vectores {
-
-    public static Scanner in = new Scanner(System.in);
 
     public static void vetores(double[][] firstMatrix) {
 
@@ -32,43 +29,20 @@ public class Vectores {
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
 
-        int c=0;
-        double [] Vetor = new double[matriz.length];
-
         System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
-        Distribuição.apresentarMatriz(matA);
+        Apresentar.apresentarMatriz(matA);
 
         System.out.printf("Vetor próprio:");
 
+        Apresentar.apresentarVetorBidimensional(matriz,matA);
 
-        for (int i = 0; i < 1; i++) {
-
-            for (int j = 0; j < matriz[i].length; j++) {
-
-                if (i == 0 && j == matriz[i].length) System.out.printf("%.2f)", matA[i][j]);
-
-                else if (i == 0 && j == 0) System.out.printf("(%.2f", matA[i][j]);
-
-                else System.out.printf(";%.2f", matA[i][j]);
-
-            }
-
-        }
-
-        System.out.print(")");
-
-        System.out.println();
-
-        System.out.println();
-
-
-        lambda = maiorValorProprio(matB, matA);
+        lambda = maiorValorProprio(matB);
 
         return lambda;
 
     }
 
-    public static double maiorValorProprio(double[][] matB, double[][] matA) {
+    public static double maiorValorProprio(double[][] matB) {
 
         //verifica qual é o modulo do maior valor e guarda o número
 

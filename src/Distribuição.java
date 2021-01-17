@@ -1,8 +1,4 @@
-import java.util.Scanner;
-
 public class Distribuição {
-
-    public static Scanner ler = new Scanner(System.in);
 
     public static void ApresentarDist(double[][] matriz, int k, double[] X){
 
@@ -19,7 +15,6 @@ public class Distribuição {
         int counter = 0;
         int i = 0;
 
-
         System.out.println("*****************************************");
         System.out.println();
 
@@ -27,24 +22,23 @@ public class Distribuição {
 
             System.out.printf("Para a %dª geração:\n\n", t + 1);
 
-
             if (t>1) {
 
-                matrizGeraçao = leslieT(matriz, t);
-                matrizGeraçao_1 = leslieT(matriz, t + 1);
+                matrizGeraçao = Cálculos.leslieT(matriz, t);
+                matrizGeraçao_1 = Cálculos.leslieT(matriz, t + 1);
 
-                produto = multiplicarMatrizporVetor(matrizGeraçao, X);
-                produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto = Cálculos.multiplicarMatrizporVetor(matrizGeraçao, X);
+                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 System.out.println("Distruibuição não Normalizada:");
-                apresentarVetor(produto);
+                Apresentar.apresentarVetor(produto);
 
                 System.out.println("Distribuição Normalizada:");
-                apresentarVetor(vetorNormalizado);
+                Apresentar.apresentarVetor(vetorNormalizado);
 
                 System.out.print("Dimensão da população nessa geração= ");
                 System.out.printf("%.2f\n", dimensão);
@@ -69,21 +63,21 @@ public class Distribuição {
 
             else if(t==1){
 
-                matrizGeraçao = leslieT(matriz, t-1);
-                matrizGeraçao_1 = leslieT(matriz, t);
+                matrizGeraçao = Cálculos.leslieT(matriz, t-1);
+                matrizGeraçao_1 = Cálculos.leslieT(matriz, t);
 
-                produto = multiplicarMatrizporVetor(matrizGeraçao, X);
-                produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto = Cálculos.multiplicarMatrizporVetor(matrizGeraçao, X);
+                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 System.out.println("Distruibuição não Normalizada:");
-                apresentarVetor(produto);
+                Apresentar.apresentarVetor(produto);
 
                 System.out.println("Distribuição Normalizada:");
-                apresentarVetor(vetorNormalizado);
+                Apresentar.apresentarVetor(vetorNormalizado);
 
                 System.out.print("Dimensão da população nessa geração= ");
                 System.out.printf("%.2f\n", dimensão);
@@ -102,26 +96,25 @@ public class Distribuição {
                 System.out.println();
                 System.out.println("*****************************************");
                 System.out.println();
-            }
 
+            }
 
               else {
 
-                matrizGeraçao = leslieT(matriz, t);
-                matrizGeraçao_1 = leslieT(matriz, t + 1);
+                matrizGeraçao_1 = Cálculos.leslieT(matriz, t + 1);
 
                 produto = X;
-                produto_1 = multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 System.out.println("Distruibuição não Normalizada:");
-                apresentarVetor(produto);
+                Apresentar.apresentarVetor(produto);
 
                 System.out.println("Distribuição Normalizada:");
-                apresentarVetor(vetorNormalizado);
+                Apresentar.apresentarVetor(vetorNormalizado);
 
                 System.out.print("Dimensão da população nessa geração= ");
                 System.out.printf("%.2f\n", dimensão);
@@ -151,80 +144,11 @@ public class Distribuição {
 
         System.out.println("Numero total de individuos");
         System.out.printf("(t ; delta_t)\n");
-        apresentarTaxaOUDimensão(guardaTaxa);
+        Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
 
         System.out.println("Crescimento da população");
         System.out.printf("(t ; Nt)\n");
-        apresentarTaxaOUDimensão(guardaDimensão);
-
-    }
-
-
-    public static void apresentarMatriz(double[][] matriz) {
-
-        for (int i = 0; i < matriz.length; i++) {
-
-            for (int j = 0; j < matriz[i].length; j++) {
-
-                System.out.printf("%.2f\t", matriz[i][j]);
-
-            }
-
-            System.out.println();
-
-        }
-
-        System.out.println();
-
-    }
-
-
-    public static double[] multiplicarMatrizporVetor(double[][] firstMatrix, double[] vector) {
-
-
-        double[] resposta = new double[firstMatrix.length];
-
-        int i=0;
-
-
-        for(int linha = 0; linha<firstMatrix.length; linha++){
-
-            for(int k = 0; k < firstMatrix.length; k++){
-
-                resposta[i] += firstMatrix[linha][k] * vector[k];
-
-            }
-
-            i++;
-
-        }
-
-
-        return resposta;
-
-    }
-
-
-    public static double[][] multiplicarMatrizes(double[][] firstMatrix, double[][] secondMatrix) {
-
-        double[][] produto = new double[firstMatrix.length][secondMatrix[0].length];
-
-
-        for (int i = 0; i < firstMatrix.length; i++) {
-
-            for (int j = 0; j < secondMatrix[0].length; j++) {
-
-                for (int k = 0; k < firstMatrix[0].length; k++) {
-
-                    produto[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
-
-                }
-
-            }
-
-        }
-
-        return produto;
+       Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
 
     }
 
@@ -263,47 +187,6 @@ public class Distribuição {
     }
 
 
-    public static double[][] leslieT(double[][] Xgeraçao, int k) {
-
-        double[][] A = Xgeraçao;
-
-        if (k > 0) {
-
-            for (int i = 0; i < k; i++) {
-
-                Xgeraçao = multiplicarMatrizes(Xgeraçao, A);
-
-            }
-
-            return Xgeraçao;
-
-        } else return A;
-
-
-    }
-
-
-    public static void apresentarVetor(double[] vetor) {
-
-        for (int j = 0; j < vetor.length; j++) {
-
-            if  (j == vetor.length) System.out.printf("%.2f)", vetor[j]);
-
-            else if (j == 0) System.out.printf("(%.2f", vetor[j]);
-
-            else System.out.printf(";%.2f", vetor[j]);
-
-        }
-
-        System.out.print(")");
-
-        System.out.println();
-
-        System.out.println();
-
-    }
-
-
     public static void escreverTaxaVariacao(double[] produto, int k,double []produto_1,double[]guardaTaxa,int counter) {
 
 
@@ -337,24 +220,6 @@ public class Distribuição {
 
     }
 
-    public static void apresentarTaxaOUDimensão(double[] vetor) {
-
-        int t=0;
-
-        for (int j = 0; j < vetor.length; j++) {
-
-            if (vetor[j] != 0) {
-
-                System.out.printf("(%d ; %.2f)\n",t,vetor[j]);
-                t++;
-
-            }
-
-        }
-
-        System.out.println();
-
-    }
 
     public static void guardarDimensão(double[]guardarDimensão, double dimensão,int i) {
 
