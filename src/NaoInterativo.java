@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class NaoInterativo {
 
-    public static void ler(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String nomeFicheiro = "";
         String nomeFicheiroSaida = "";
@@ -85,17 +85,12 @@ public class NaoInterativo {
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
 
+        Distribuição.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,interativo,varPopGeracoes,dimPopulacao,vecProprio);
+
         ImprimirMatriz(matrixLeslie);
 
 
 
-
-        //MODO INTERATIVO
-        if (interativo == true) {
-
-            Scanner ler = new Scanner(System.in);
-
-        }
     }
 
     public static double[] lerDistribPop(String file) {
