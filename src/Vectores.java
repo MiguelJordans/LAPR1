@@ -2,22 +2,28 @@ import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
 
+import java.io.IOException;
+
 public class Vectores {
 
-    public static void vetores(double[][] firstMatrix) {
+    public static void vetores(double[][] firstMatrix,boolean interativo) throws IOException {
 
         double mvalorp;
 
-        mvalorp = vetorproprio(firstMatrix);
+        mvalorp = vetorproprio(firstMatrix,false);
+        if (interativo) {
+            System.out.printf("-lambda=%.4f\n", mvalorp);
 
-        System.out.printf("-lambda=%.4f\n", mvalorp);
+            comportamentoAssintotico(mvalorp);
+            System.out.println();
+        }else {
+            Grava.valorproprio(mvalorp);
+        }
 
-        comportamentoAssintotico(mvalorp);
-        System.out.println();
 
     }
 
-    private static double vetorproprio(double[][] matriz) {
+    private static double vetorproprio(double[][] matriz,boolean interativo) throws IOException {
 
         double lambda;
 
@@ -28,16 +34,22 @@ public class Vectores {
 
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
+        if (interativo) {
+            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
+            Apresentar.apresentarMatriz(matA);
 
-        System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
-        Apresentar.apresentarMatriz(matA);
+            System.out.printf("Vetor próprio:");
 
-        System.out.printf("Vetor próprio:");
+            Apresentar.apresentarVetorBidimensional(matriz, matA);
 
-        Apresentar.apresentarVetorBidimensional(matriz,matA);
+
+        }else {
+            double[] vetorprorio = new double[5];
+            Grava.vetorproprio(vetorprorio);
+
+        }
 
         lambda = maiorValorProprio(matB);
-
         return lambda;
 
     }

@@ -138,7 +138,7 @@ public class Distribuição {
 
             }
 
-            Vectores.vetores(matriz);
+            Vectores.vetores(matriz, true);
 
             System.out.println("Numero total de individuos");
             System.out.printf("(t ; delta_t)\n");
@@ -155,6 +155,10 @@ public class Distribuição {
                 Grava.variacao(guardaTaxa);
             }
             if (geracoes){
+
+            }
+            if (vecprop){
+                Vectores.vetores(matriz, false);
             }
 
 
@@ -195,13 +199,7 @@ public class Distribuição {
     }
 
 
-<<<<<<< HEAD
-    public static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter) {
-=======
     private static void escreverTaxaVariacao(double[] produto, int k,double []produto_1,double[]guardaTaxa,int counter) {
-
->>>>>>> 8494ace11c536e0f6e2f9557acbeda7c67c7fd93
-
 
         System.out.print("Taxa de variação=");
 
@@ -215,11 +213,8 @@ public class Distribuição {
     }
 
 
-<<<<<<< HEAD
-    public static double taxaVariacao(double[] produto, int k, double[] produto_1) {
-=======
+
     private static double taxaVariacao(double[] produto, int k,double[]produto_1) {
->>>>>>> 8494ace11c536e0f6e2f9557acbeda7c67c7fd93
 
 
         double Nt;
@@ -237,11 +232,8 @@ public class Distribuição {
     }
 
 
-<<<<<<< HEAD
-    public static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
-=======
+
     private static void guardarDimensão(double[]guardarDimensão, double dimensão,int i) {
->>>>>>> 8494ace11c536e0f6e2f9557acbeda7c67c7fd93
 
         guardarDimensão[i] = dimensão;
 

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -81,7 +82,11 @@ public class Menu {
                         System.out.printf("\nk=%d\n\n",t);
                         break;
                     case 4:
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos);
+                        try {
+                            Distribuição.ApresentarDist(matriz,t,nIndividuos,true,false,false,false);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         System.out.println(text);
                         break;
                     case 5:

@@ -15,10 +15,10 @@ public class Grava {
 
         grava.write("Matriz de Leslie");
         int tamanhoMatriz = matrizLeslie.length;
-        for (int i = 0; i < tamanhoMatriz; i++) {
+        for (double[] doubles : matrizLeslie) {
 
             for (int j = 0; j < tamanhoMatriz; j++) {
-                grava.write(String.valueOf(matrizLeslie[i][j]));
+                grava.write(String.valueOf(doubles[j]));
                 grava.write("\n");
             }
         }
@@ -121,8 +121,8 @@ public class Grava {
         File saida = new File("OutPut\\saida.txt");
         FileWriter grava=new FileWriter(saida);
         grava.write("vetor próprio=(");
-        for (int i = 0; i < vetorproprio.length; i++) {
-            grava.write(vetorproprio[i] + ",");
+        for (double v : vetorproprio) {
+            grava.write(v + ",");
         }
         grava.write(")");
 
