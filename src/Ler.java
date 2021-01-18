@@ -71,8 +71,8 @@ public class Ler {
             String acabar = "";
 
 
-            System.out.printf("Número de indivíduos da %dª geração\n\n",geracao+1);
-            nIndividuos[geracao] = read.nextInt();
+            System.out.printf("\nNúmero de indivíduos da %dª geração\n\n",geracao+1);
+            nIndividuos[geracao] = read.nextInt(); //Depois fazer uma redundância , ou seja caso escrevam 320,1 indivíduos transformar o 320,1 em 320
 
 
             System.out.printf("\nTaxa de fecundidade da %dª geração\n",geracao+1);
