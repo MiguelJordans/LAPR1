@@ -84,6 +84,18 @@ public class Main {
 
                         double[] vectorDistribPop = NaoInterativo.lerDistribPop(nomeFicheiro);
                         double[][] matrixLeslie = NaoInterativo.lerMatriz(nomeFicheiro);
+                        
+                        if (dimPopulacao = true){
+                    GnuPlot.CriaGrafico("total", formatFicheiro, "total_tmp");
+                      }
+                        if(varPopGeracoes = true){
+                        GnuPlot.CriaGrafico("variacao", formatFicheiro, "variacao_tmp");
+                   }
+                            if (vecProprio = true){
+                        GnuPlot.CriaGrafico("nao_normalizada", formatFicheiro, "nao_normalizada_tmp");
+                        GnuPlot.CriaGrafico("normalizada", formatFicheiro, "normalizada_tmp");
+                 }
+
 
                         NaoInterativo.ImprimirMatriz(matrixLeslie);
 
