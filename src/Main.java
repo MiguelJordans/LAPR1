@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +5,7 @@ public class Main {
         static Scanner read = new Scanner(System.in);
 
         public static void main(String[] args) {
+
             if (args.length != 0) {
 
 
@@ -105,6 +105,7 @@ public class Main {
             } else {
 
                 boolean choice = true;
+                int flag=0;
 
                 while (choice) {
 
@@ -115,6 +116,7 @@ public class Main {
                     double[] nIndividuos = new double[199];
                     int t;
 
+<<<<<<< HEAD
                     Welcome.Welcome();
 
                     System.out.print("Por favor introduza a matriz de Lelie:\n\n");
@@ -129,46 +131,23 @@ public class Main {
 
                         System.out.printf("Número de indivíduos da %dª geração\n",geracao+1);
                         nIndividuos[geracao] = read.nextInt();
+=======
+                    if(flag==0){
+>>>>>>> 6aaca8b0a7b2eb018d2df493760908e43eaf7d3b
 
-
-                        System.out.printf("Taxa de fecundidade da %dª geração\n",geracao+1);
-                        taxaF[geracao] = read.nextDouble();
-
-
-                        System.out.printf("Taxa de mortalidade da %dª geração ",geracao+1);
-                        System.out.print("(Se for ultima geração este valor não vai ser lido, por isso pode deixar a 0)\n");
-                        taxaS[geracao] = read.nextDouble();
-
-                        while (taxaS[geracao] > 1 || 0 > taxaS[geracao]) {
-
-                            System.out.println("valor inválido, por favor introduza um valor entre 0 e 1 ");
-                            taxaS[geracao] = read.nextDouble();
-
-                        }
-
-                        read.nextLine();
-
-
-                        while (!acabar.equals("S") && !acabar.equals("N")) {
-
-                            System.out.println("Deseja  introduzir mais dados?(S/N)");
-                            acabar = read.nextLine();
-
-                            if (acabar.equals("N")) {
-
-                                acabou = true;
-
-                            } else if (acabar.equals("S")) {
-
-                                acabou = false;
-
-                            }
-
-                        }
-
-                        geracao++;
+                        Welcome.Welcome();
+                        flag++;
+                        System.out.printf("Por favor introduza a matriz de Lelie:\n\n");
 
                     }
+
+                    else if(flag>0)  {
+
+                        System.out.printf("\n\n\n\nPor favor introduza novamente a matriz de Lelie:\n\n");
+
+                    }
+
+                    int geracao =  Ler.leslie(nIndividuos,taxaF,taxaS);
 
                     System.out.println("Introduza o número de instantes de tempo a gerar");
                     t = read.nextInt();
@@ -179,11 +158,10 @@ public class Main {
                     //Interface.ImprimirMatriz(matriz);
                     nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
 
-                    System.out.println("OUTPUT");
-                    System.out.printf("\n\nk=%d\n\n",t);
+                    System.out.printf("k=%d\n\n",t);
 
-                    System.out.println("Matriz de Leslie");
-                    System.out.println();
+                    System.out.printf("Matriz de Leslie\n");
+
                     Apresentar.apresentarMatriz(matriz);
 
                     Distribuição.ApresentarDist(matriz,t,nIndividuos);
@@ -192,7 +170,7 @@ public class Main {
 
                     while (!choi.equals("S") && !choi.equals("N")) {
 
-                        System.out.println("Deseja voltar a introduzir dados?(S/N)");
+                        System.out.printf("Deseja voltar a introduzir dados?(S/N)\n\n");
                         choi = read.nextLine();
 
                         if (choi.equals("S")) {
