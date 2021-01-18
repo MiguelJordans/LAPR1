@@ -97,7 +97,7 @@ public class Ler {
 
             while (!acabar.equals("S") && !acabar.equals("N")) {
 
-                System.out.printf("\nDeseja  introduzir mais dados?(S/N)\n");
+                System.out.printf("\nDeseja  introduzir mais dados?(S/N)\n\n");
                 acabar = read.nextLine();
 
                 if (acabar.equals("N")) {

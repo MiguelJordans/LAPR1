@@ -11,8 +11,6 @@ public class Menu {
 
         while (choice) {
 
-            String choi = "";
-
             String text
                     = "\n********************************************************************************************************\n"
                     + "(0)\tSair\t\t\t\t\t\t\t\t\t(1)\tIntroduzir novos dados\t\n"
@@ -20,8 +18,8 @@ public class Menu {
                     + "(4)\tApresentar as informações todas\t\t\t(5)\tGuardar dados no ficheiro\t\n"
                     + "(6)\tApresentar a distribuição normalizada\t(7)\tApresentar a distribuição não normalizada\t\n"
                     + "(8)\tApresentar a dimensão populacional\t\t(9)\tApresentar o comportamento Assintotico\t\n"
-                    + "(10)Apresentar a taxa de variação\t\t\t(11)Apresentar o valor próprio\t\n"
-                    + "(12)Apresentar o vetor próprio\t\t\t\t(12)\t\n"
+                    + "(10)\tApresentar a taxa de variação\t\t(11)Apresentar o valor próprio\t\n"
+                    + "(12)\tApresentar o vetor próprio\t\t\t(12)\t\n"
                     + "********************************************************************************************************\nComando> ";
 
             double[] taxaS = new double[199];
@@ -46,20 +44,18 @@ public class Menu {
 
             int geracao =  Ler.leslie(nIndividuos,taxaF,taxaS);
 
-            System.out.println("Introduza o número de instantes de tempo a gerar");
+            System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
             t = read.nextInt();
             System.out.println();
 
             double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
 
-            //Interface.ImprimirMatriz(matriz);
             nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
-
-
 
             System.out.println(text);
             D=read.nextDouble();
             boolean check=true;
+            int Flag=0;
 
             while(check){
 
@@ -70,9 +66,12 @@ public class Menu {
                 switch (Y){
                     case 0:
                         choice=false;
+                        Flag++;
                         break;
+
                     case 1:
                         choice=true;
+                        Flag++;
                         break;
                     case  2:
                         System.out.printf("\nMatriz de Leslie\n");
@@ -82,10 +81,10 @@ public class Menu {
                         System.out.printf("\nk=%d\n\n",t);
                         break;
                     case 4:
-                        break;
-                    case 5:
                         Distribuição.ApresentarDist(matriz,t,nIndividuos);
                         System.out.println(text);
+                        break;
+                    case 5:
                         break;
                     case 6:
                         break;
@@ -104,7 +103,7 @@ public class Menu {
                         break;
                 }
 
-                D=read.nextDouble();
+               if(Flag==0)D=read.nextDouble();
 
             }
         }
