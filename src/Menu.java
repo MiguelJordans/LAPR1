@@ -56,7 +56,7 @@ public class Menu {
             System.out.println(text);
             D=read.nextDouble();
             boolean check=true;
-            String A="";
+            String A=""; //Para fazer o case 14
             int counter2=0;
             int Flag=0;
 
@@ -146,7 +146,7 @@ public class Menu {
                     default:
                         System.out.println("Porfavor introduza um valor válido");
                         break;
-                        
+
                 }
 
                if(Flag==0)D=read.nextDouble();
