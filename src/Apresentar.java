@@ -81,4 +81,27 @@ public class Apresentar {
 
     }
 
+    public static void apresentarDistribuição(double[][] Distribuição) {
+
+        int t = 0;
+
+        for (int i = 0; i < Distribuição.length;i++) {
+
+            for (int j = 0; j < Distribuição[i].length; j++) {
+
+                if (Distribuição[i][j] != 0) {
+
+                    System.out.printf("(%d ; %.2f", t,Distribuição[i][j]);
+                    t++;
+
+                }
+
+                if(Distribuição[i][j]!=0) System.out.println();
+
+            }
+
+        }
+
+    }
+    
 }
