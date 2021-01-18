@@ -3,39 +3,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Grava {
-    public File saida = new File("OutPut\\saida.txt");
-    public FileWriter grava;
-
-    {
-        try {
-            grava = new FileWriter("OutPut\\saida.txt");
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-    }
 
 
     public static void matriz(int k, double[][] matrizLeslie) throws IOException {
 
-        File saida = new File("OutPut\\saida.txt");
-        FileWriter grava = new FileWriter("OutPut\\saida.txt");
+         File saida = new File("OutPut\\saida.txt");
+         FileWriter grava=new FileWriter(saida);
 
 
         grava.write("k=" + k + "\n");
 
         grava.write("Matriz de Leslie");
         int tamanhoMatriz = matrizLeslie.length;
-        for (int i = 0; i < tamanhoMatriz; i++) {
+        for (double[] doubles : matrizLeslie) {
 
             for (int j = 0; j < tamanhoMatriz; j++) {
-                grava.write(String.valueOf(matrizLeslie[i][j]));
+                grava.write(String.valueOf(doubles[j]));
                 grava.write("\n");
             }
         }
+        grava.close();
+
 
     }
 
-    public void total(double[] total) throws IOException {
+    public static void total(double[] total) throws IOException {
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
 
 
         grava.write("Numero total de individuos\n");
@@ -43,18 +37,28 @@ public class Grava {
         for (int i = 0; i < total.length; i++) {
             grava.write("(" + i + ", " + total[i] + ")");
         }
+        grava.close();
+
     }
 
 
-    public void variacao(double[] variacao) throws IOException {
+    public static void variacao(double[] variacao) throws IOException {
+
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
         grava.write("Crescimento da população\n");
         grava.write("(t, delta_t)\n");
         for (int i = 0; i < variacao.length; i++) {
             grava.write("(" + i + ", " + variacao[i] + ")");
         }
+        grava.close();
+
     }
 
-    public void naonormalizado(double[][] naonormalizada) throws IOException {
+    public static void naonormalizado(double[][] naonormalizada) throws IOException {
+
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
 
 
         grava.write("Numero por classe (não normalizado)\n");
@@ -71,10 +75,16 @@ public class Grava {
                 grava.write(naonormalizada[i][j] + ",");
             }
             grava.write(")\n");
+
         }
+        grava.close();
+
     }
 
-    public void normalizado(double[][] normalizada) throws IOException {
+    public static void normalizado(double[][] normalizada) throws IOException {
+
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
 
 
         grava.write("Numero por classe (normalizado)\n");
@@ -91,26 +101,36 @@ public class Grava {
             grava.write(")\n");
         }
         grava.write("\n\n\n");
+
+        grava.close();
+
     }
 
-    public void valorproprio(double valorproprio) throws IOException {
+    public static void valorproprio(double valorproprio) throws IOException {
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
 
         grava.write("Maior valor próprio e vetor associado\n");
         grava.write("Lambda=" + valorproprio + "\n");
+
+        grava.close();
+
     }
 
-    public void vetorproprio(double[] vetorproprio) throws IOException {
+    public static void vetorproprio(double[] vetorproprio) throws IOException {
+        File saida = new File("OutPut\\saida.txt");
+        FileWriter grava=new FileWriter(saida);
         grava.write("vetor próprio=(");
-        for (int i = 0; i < vetorproprio.length; i++) {
-            grava.write(vetorproprio[i] + ",");
+        for (double v : vetorproprio) {
+            grava.write(v + ",");
         }
         grava.write(")");
 
-
-    }
-
-    public void close() throws IOException {
         grava.close();
+
+
     }
+
+
 }
 

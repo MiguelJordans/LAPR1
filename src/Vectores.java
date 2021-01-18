@@ -2,8 +2,11 @@ import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.decomposition.EigenDecompositor;
 
+import java.io.IOException;
+
 public class Vectores {
 
+<<<<<<< HEAD
     public static void vetores(double[][] firstMatrix,int l) {
 
         double mvalorp;
@@ -30,6 +33,26 @@ public class Vectores {
     }
 
     private static double vetorproprio(double[][] matriz,int l) {
+=======
+    public static void vetores(double[][] firstMatrix,boolean interativo) throws IOException {
+
+        double mvalorp;
+
+        mvalorp = vetorproprio(firstMatrix,false);
+        if (interativo) {
+            System.out.printf("-lambda=%.4f\n", mvalorp);
+
+            comportamentoAssintotico(mvalorp);
+            System.out.println();
+        }else {
+            Grava.valorproprio(mvalorp);
+        }
+
+
+    }
+
+    private static double vetorproprio(double[][] matriz,boolean interativo) throws IOException {
+>>>>>>> f0aa3b9564daf414e1d874d54f494d8470573360
 
         double lambda;
 
@@ -40,7 +63,11 @@ public class Vectores {
 
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
+        if (interativo) {
+            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
+            Apresentar.apresentarMatriz(matA);
 
+<<<<<<< HEAD
         if(l==0){
             System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
             Apresentar.apresentarMatriz(matA);
@@ -58,9 +85,20 @@ public class Vectores {
 
             Apresentar.apresentarVetorBidimensional(matriz,matA);
         }
+=======
+            System.out.printf("Vetor próprio:");
+
+            Apresentar.apresentarVetorBidimensional(matriz, matA);
+
+>>>>>>> f0aa3b9564daf414e1d874d54f494d8470573360
+
+        }else {
+            double[] vetorprorio = new double[5];
+            Grava.vetorproprio(vetorprorio);
+
+        }
 
         lambda = maiorValorProprio(matB);
-
         return lambda;
 
     }

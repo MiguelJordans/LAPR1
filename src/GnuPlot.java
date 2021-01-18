@@ -192,6 +192,9 @@ public class GnuPlot {
     }
 
 
+<<<<<<< HEAD
+}
+=======
 }
 /*
 import java.io.File;
@@ -388,3 +391,4 @@ public class GnuPlot {
     }
 
 */
+>>>>>>> 04ef3990cedf9070bf57e7a21cfcdf32d979b609

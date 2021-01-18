@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class NaoInterativo {
 
-    public static void ler(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String nomeFicheiro = "";
         String nomeFicheiroSaida = "";
@@ -21,6 +21,7 @@ public class NaoInterativo {
 
         //ler parâmetros
         for (int i = 0; i < args.length; i++) {
+            System.out.println("aa");
 
             switch (args[i]) {
 
@@ -79,23 +80,46 @@ public class NaoInterativo {
                     break;
             }
         }
+        System.out.println("saiu");
 
         double matrix[][] = new double[100][100];
 
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
 
+        System.out.println(varPopGeracoes);
+        System.out.println(nomeEspecie);
+        System.out.println(nomeFicheiro);
+
+        Distribuição.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,interativo,varPopGeracoes,dimPopulacao,vecProprio);
+
+        if (formatFicheiro.equals("png")){
+            GnuPlot.CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_normalizada_png.gp","png", "normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_total_png.gp","png", "total_tmp");
+            GnuPlot.CriaGrafico("cria_variacao_png.gp","png", "variacao_tmp");
+
+        }else if (formatFicheiro.equals("txt")){
+            GnuPlot.CriaGrafico("cria_nao_normalizada_txt.gp","txt","nao_normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_normalizada_txt.gp","txt", "normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_total_txt.gp","txt", "total_tmp");
+            GnuPlot.CriaGrafico("cria_variacao_txt.gp","txt", "variacao_tmp");
+
+
+        }else if (formatFicheiro.equals("eps")){
+            GnuPlot.CriaGrafico("cria_nao_normalizada_eps.gp","eps","nao_normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_normalizada_eps.gp","eps", "normalizada_tmp");
+            GnuPlot.CriaGrafico("cria_total_eps.gp","eps", "total_tmp");
+            GnuPlot.CriaGrafico("cria_variacao_eps.gp","eps", "variacao_tmp");
+
+
+
+        }
+
         ImprimirMatriz(matrixLeslie);
 
 
 
-
-        //MODO INTERATIVO
-        if (interativo == true) {
-
-            Scanner ler = new Scanner(System.in);
-
-        }
     }
 
     public static double[] lerDistribPop(String file) {
@@ -110,6 +134,7 @@ public class NaoInterativo {
             ficheiro = new Scanner(myObj);
 
             while (ficheiro.hasNextLine()) {
+                System.out.println("entrei while");
                 stringX = ficheiro.nextLine();
                 if (stringX.substring(0, 0) == "x") {
 
@@ -135,14 +160,20 @@ public class NaoInterativo {
     public static double[][] lerMatriz(String file) {
 
         String stringY = "", stringS = "", stringF = "";
-        Scanner ficheiro = null;
         double matriz[][] = null;
+        Scanner ficheiro = null;
         try {
 
             File myObj = new File(file);
             ficheiro = new Scanner(myObj);
 
             while (ficheiro.hasNextLine()) {
+                stringY = ficheiro.nextLine();
+
+
+                System.out.println("entrei while2");
+
+
                 if (stringY.substring(0, 0) == "s") {
 
                     stringS = stringY;
@@ -152,6 +183,7 @@ public class NaoInterativo {
                     stringF = stringY;
                 }
             }
+            System.out.println("sai while2");
             String linhaStringSSeparados[] = stringS.split(",");
             String linhaStringFSeparados[] = stringF.split(",");
 
@@ -159,9 +191,11 @@ public class NaoInterativo {
             matriz = new double[linhaStringFSeparados.length][linhaStringFSeparados.length];
 
             for (int i = 0; i < linhaStringFSeparados.length; i++) {
+                System.out.println("a");
                 matriz[0][i] = SeparaDouble(linhaStringFSeparados[i]);
             }
             for (int j = 0; j < linhaStringSSeparados.length; j++) {
+                System.out.println("a");
                 matriz[j + 1][j] = SeparaDouble(linhaStringSSeparados[j]);
             }
         } catch (FileNotFoundException e) {
