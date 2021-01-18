@@ -4,20 +4,32 @@ import org.la4j.decomposition.EigenDecompositor;
 
 public class Vectores {
 
-    public static void vetores(double[][] firstMatrix) {
+    public static void vetores(double[][] firstMatrix,int l) {
 
         double mvalorp;
 
-        mvalorp = vetorproprio(firstMatrix);
+        mvalorp = vetorproprio(firstMatrix,l);
 
-        System.out.printf("-lambda=%.4f\n", mvalorp);
+       if(l==0) {
+           System.out.printf("-lambda=%.4f\n", mvalorp);
+           comportamentoAssintotico(mvalorp);
+           System.out.println();
+       }
 
-        comportamentoAssintotico(mvalorp);
-        System.out.println();
-
+       switch (l){
+           case 9:
+               comportamentoAssintotico(mvalorp);
+               break;
+           case 11:
+               System.out.printf("-lambda=%.4f\n", mvalorp);
+               break;
+           case 12:
+               vetorproprio(firstMatrix,l);
+               break;
+       }
     }
 
-    private static double vetorproprio(double[][] matriz) {
+    private static double vetorproprio(double[][] matriz,int l) {
 
         double lambda;
 
@@ -29,12 +41,23 @@ public class Vectores {
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
 
-        System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
-        Apresentar.apresentarMatriz(matA);
+        if(l==0){
+            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
+            Apresentar.apresentarMatriz(matA);
 
-        System.out.printf("Vetor próprio:");
+            System.out.printf("Vetor próprio:");
 
-        Apresentar.apresentarVetorBidimensional(matriz,matA);
+            Apresentar.apresentarVetorBidimensional(matriz,matA);
+        }
+
+        else if(l==12){
+            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
+            Apresentar.apresentarMatriz(matA);
+
+            System.out.printf("Vetor próprio:");
+
+            Apresentar.apresentarVetorBidimensional(matriz,matA);
+        }
 
         lambda = maiorValorProprio(matB);
 

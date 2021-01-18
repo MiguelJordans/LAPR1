@@ -22,7 +22,7 @@ public class Apresentar {
 
         for (int j = 0; j < vetor.length; j++) {
 
-            if  (j == vetor.length) System.out.printf("%.2f)", vetor[j]);
+            if (j == vetor.length) System.out.printf("%.2f)", vetor[j]);
 
             else if (j == 0) System.out.printf("(%.2f", vetor[j]);
 
@@ -40,13 +40,13 @@ public class Apresentar {
 
     public static void apresentarTaxaOUDimensão(double[] vetor) {
 
-        int t=0;
+        int t = 0;
 
         for (int j = 0; j < vetor.length; j++) {
 
             if (vetor[j] != 0) {
 
-                System.out.printf("(%d ; %.2f)\n",t,vetor[j]);
+                System.out.printf("(%d ; %.2f)\n", t, vetor[j]);
                 t++;
 
             }
@@ -57,7 +57,7 @@ public class Apresentar {
 
     }
 
-    public static void apresentarVetorBidimensional(double[][]matriz, double [][]matA){
+    public static void apresentarVetorBidimensional(double[][] matriz, double[][] matA) {
 
         for (int i = 0; i < 1; i++) {
 
@@ -84,24 +84,26 @@ public class Apresentar {
     public static void apresentarDistribuição(double[][] Distribuição) {
 
         int t = 0;
+        int count2 = 0;
 
-        for (int i = 0; i < Distribuição.length;i++) {
+        for (int i = 0; i < Distribuição.length; i++) {
 
             for (int j = 0; j < Distribuição[i].length; j++) {
 
-                if (Distribuição[i][j] != 0) {
+                if (Distribuição[i].length > 0 && Distribuição[i][j] != 0) {
 
-                    System.out.printf("(%d ; %.2f", t,Distribuição[i][j]);
-                    t++;
+                    if (j == 0) {
+
+                        System.out.printf("(%d ; %.2f ", t, Distribuição[i][j]);
+                        t++;
+
+                    } else System.out.printf("; %.2f ", Distribuição[i][j]);
 
                 }
-
-                if(Distribuição[i][j]!=0) System.out.println();
-
             }
-
+            if(Distribuição[i][0]!=0) System.out.printf(")\n");
         }
 
     }
-    
+
 }

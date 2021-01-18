@@ -33,7 +33,7 @@ public class Menu {
 
                 Welcome.Welcome();
                 flag++;
-                System.out.printf("Por favor introduza a matriz de Lelie:\n\n");
+                System.out.printf("Por favor introduza a matriz de Lelie:\n\n"); //Implementar uma função que consiga ler . tbm
 
             }
 
@@ -59,8 +59,10 @@ public class Menu {
             String A=""; //Para fazer o case 14
             int counter2=0;
             int Flag=0;
+            int l=0;
+            int counter=0;
 
-            while(check){
+            while(check){ //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez
 
                 int Y=(int)D;
 
@@ -72,62 +74,94 @@ public class Menu {
 
                 switch (Y){
                     case 0:
+                        counter++;
                         choice=false;
                         Flag++;
                         break;
 
                     case 1:
+                        counter++;
                         choice=true;
                         Flag++;
                         break;
 
                     case  2:
+                        counter++;
                         System.out.printf("\nMatriz de Leslie\n");
                         Apresentar.apresentarMatriz(matriz);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 3:
+                        counter++;
                         System.out.printf("\nk=%d\n\n",t);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 4:
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos);
+                        counter=0;
+                        l=0;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
                         System.out.println(text);
                         break;
 
                     case 5:
-
+                        counter++;
+                        System.out.printf("\nComando>");
+                        //Colocar aqui a classe para guardar as informações num ficheiro
                         break;
 
                     case 6:
-
+                        counter++;
+                        l=6;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 7:
-
+                        counter++;
+                        l=7;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 8:
-
+                        counter++;
+                        l=8;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 9:
-
+                        counter++;
+                        l=9;
+                        Vectores.vetores(matriz,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 10:
-
+                        counter++;
+                        l=10;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 11:
-
+                        counter++;
+                        l=11;
+                        Vectores.vetores(matriz,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 12:
-
+                        counter++;
+                        l=12;
+                        Vectores.vetores(matriz,l);
+                        System.out.printf("\nComando>");
                         break;
 
                     case 13:
+                        counter++;
 
                         counter2++;
                         System.out.printf("\nDe certeza que pretende ler os dados (introduzidos previamente ) de um ficheiro? Caso o faço todos os dados previamente guardados serão apagados\n\n");
@@ -137,15 +171,31 @@ public class Menu {
 
                         CLS.clearScreen();
                        // if(A) // Aqui metem a função para apagar os dados previamente colocados e guardar novos dados do ficheiro não interavito
+                        System.out.printf("\nComando>");
                         break;
 
                     case 14:
+                        counter++;
                         //Aqui aplica-se a classe respetiva dos gráficos
+                        System.out.printf("\nComando>");
+                        break;
+
+                    case 15:
+                        //Classe para os testes unitários
+                        counter++;
+                        System.out.printf("\nComando>");
                         break;
 
                     default:
                         System.out.println("Porfavor introduza um valor válido");
+                        System.out.printf("\nComando>");
                         break;
+
+                }
+
+                if(counter==5){
+                    System.out.println(text);
+                    counter=0;
 
                 }
 
@@ -176,4 +226,3 @@ public class Menu {
      */
 
 }
-
