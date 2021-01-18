@@ -24,11 +24,11 @@ public class Distribuição {
 
             if (t>1) {
 
-                matrizGeraçao = Cálculos.leslieT(matriz, t);
-                matrizGeraçao_1 = Cálculos.leslieT(matriz, t + 1);
+                matrizGeraçao = Calculos.leslieT(matriz, t);
+                matrizGeraçao_1 = Calculos.leslieT(matriz, t + 1);
 
-                produto = Cálculos.multiplicarMatrizporVetor(matrizGeraçao, X);
-                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto = Calculos.multiplicarMatrizporVetor(matrizGeraçao, X);
+                produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
@@ -63,11 +63,11 @@ public class Distribuição {
 
             else if(t==1){
 
-                matrizGeraçao = Cálculos.leslieT(matriz, t-1);
-                matrizGeraçao_1 = Cálculos.leslieT(matriz, t);
+                matrizGeraçao = Calculos.leslieT(matriz, t-1);
+                matrizGeraçao_1 = Calculos.leslieT(matriz, t);
 
-                produto = Cálculos.multiplicarMatrizporVetor(matrizGeraçao, X);
-                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto = Calculos.multiplicarMatrizporVetor(matrizGeraçao, X);
+                produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
@@ -101,10 +101,10 @@ public class Distribuição {
 
               else {
 
-                matrizGeraçao_1 = Cálculos.leslieT(matriz, t + 1);
+                matrizGeraçao_1 = Calculos.leslieT(matriz, t + 1);
 
                 produto = X;
-                produto_1 = Cálculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
+                produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
                 dimensão = dimensao(produto);
 
