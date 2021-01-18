@@ -17,7 +17,7 @@ public class Vectores {
 
     }
 
-    public static double vetorproprio(double[][] matriz) {
+    private static double vetorproprio(double[][] matriz) {
 
         double lambda;
 
@@ -42,7 +42,7 @@ public class Vectores {
 
     }
 
-    public static double maiorValorProprio(double[][] matB) {
+    private static double maiorValorProprio(double[][] matB) {
 
         //verifica qual é o modulo do maior valor e guarda o número
 
@@ -64,7 +64,7 @@ public class Vectores {
     }
 
 
-    public static void comportamentoAssintotico(double numero) {
+    private static void comportamentoAssintotico(double numero) {
 
         System.out.println();
 
