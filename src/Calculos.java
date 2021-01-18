@@ -1,4 +1,4 @@
-public class Cálculos {
+public class Calculos {
 
     public static double[][] leslieT(double[][] Xgeraçao, int k) {
 

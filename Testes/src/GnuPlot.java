@@ -98,7 +98,7 @@ public class GnuPlot {
 
     public static void MostraGrafico(String ficheiro) {
         String[] location = new String[2];
-//        localização do programa
+//      localização do programa
         location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
 //      localização do gnuplot
 
