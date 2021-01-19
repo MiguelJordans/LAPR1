@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Menu {
@@ -186,9 +186,8 @@ public class Menu {
 
                     case 14:
                         counter++;
-                        //Aqui aplica-se a classe respetiva dos gráficos
+                        //Aqui aplica-se a classe respetiva dos gráficos 
                         if(counter<5)  System.out.printf("\nComando>");
-                        
                         GnuPlot.main(null);
                         break;
 
