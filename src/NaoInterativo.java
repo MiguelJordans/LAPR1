@@ -2,11 +2,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class NaoInterativo {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws InterruptedException {
 
         String nomeFicheiro = "";
         String nomeFicheiroSaida = "";
@@ -21,7 +27,6 @@ public class NaoInterativo {
 
         //ler parâmetros
         for (int i = 0; i < args.length; i++) {
-            System.out.println("aa");
 
             switch (args[i]) {
 
@@ -80,37 +85,39 @@ public class NaoInterativo {
                     break;
             }
         }
-        System.out.println("saiu");
 
-        double matrix[][] = new double[100][100];
+        double[][] matrix = new double[100][100];
 
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
+        ImprimirMatriz(matrixLeslie);
 
         System.out.println(varPopGeracoes);
         System.out.println(nomeEspecie);
         System.out.println(nomeFicheiro);
+        System.out.println(nomeFicheiroSaida);
 
-        //Distribuição.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,interativo,varPopGeracoes,dimPopulacao,vecProprio);  Compor isto  com a outra classe
+        DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,0,nomeFicheiroSaida);
 
         if (formatFicheiro.equals("png")){
-            GnuPlot.CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_normalizada_png.gp","png", "normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_total_png.gp","png", "total_tmp");
-            GnuPlot.CriaGrafico("cria_variacao_png.gp","png", "variacao_tmp");
+            System.out.println("entrei png");
+            CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");
+            CriaGrafico("cria_normalizada_png.gp","png", "normalizada_tmp");
+            CriaGrafico("cria_total_png.gp","png", "total_tmp");
+            CriaGrafico("cria_variacao_png.gp","png", "variacao_tmp");
 
         }else if (formatFicheiro.equals("txt")){
-            GnuPlot.CriaGrafico("cria_nao_normalizada_txt.gp","txt","nao_normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_normalizada_txt.gp","txt", "normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_total_txt.gp","txt", "total_tmp");
-            GnuPlot.CriaGrafico("cria_variacao_txt.gp","txt", "variacao_tmp");
+            CriaGrafico("cria_nao_normalizada_txt.gp","txt","nao_normalizada_tmp");
+            CriaGrafico("cria_normalizada_txt.gp","txt", "normalizada_tmp");
+            CriaGrafico("cria_total_txt.gp","txt", "total_tmp");
+            CriaGrafico("cria_variacao_txt.gp","txt", "variacao_tmp");
 
 
         }else if (formatFicheiro.equals("eps")){
-            GnuPlot.CriaGrafico("cria_nao_normalizada_eps.gp","eps","nao_normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_normalizada_eps.gp","eps", "normalizada_tmp");
-            GnuPlot.CriaGrafico("cria_total_eps.gp","eps", "total_tmp");
-            GnuPlot.CriaGrafico("cria_variacao_eps.gp","eps", "variacao_tmp");
+            CriaGrafico("cria_nao_normalizada_eps.gp","eps","nao_normalizada_tmp");
+            CriaGrafico("cria_normalizada_eps.gp","eps", "normalizada_tmp");
+            CriaGrafico("cria_total_eps.gp","eps", "total_tmp");
+            CriaGrafico("cria_variacao_eps.gp","eps", "variacao_tmp");
 
 
 
@@ -134,7 +141,6 @@ public class NaoInterativo {
             ficheiro = new Scanner(myObj);
 
             while (ficheiro.hasNextLine()) {
-                System.out.println("entrei while");
                 stringX = ficheiro.nextLine();
                 if (stringX.substring(0, 0) == "x") {
 
@@ -171,19 +177,23 @@ public class NaoInterativo {
                 stringY = ficheiro.nextLine();
 
 
-                System.out.println("entrei while2");
 
 
-                if (stringY.substring(0, 0) == "s") {
+
+                char s ='s';
+                char f ='f';
+                if (stringY.charAt(0) == s) {
 
                     stringS = stringY;
 
-                } else if (stringY.substring(0, 0) == "f") {
+
+                } else if (stringY.charAt(0) == f) {
 
                     stringF = stringY;
+
                 }
             }
-            System.out.println("sai while2");
+
             String linhaStringSSeparados[] = stringS.split(",");
             String linhaStringFSeparados[] = stringF.split(",");
 
@@ -191,11 +201,10 @@ public class NaoInterativo {
             matriz = new double[linhaStringFSeparados.length][linhaStringFSeparados.length];
 
             for (int i = 0; i < linhaStringFSeparados.length; i++) {
-                System.out.println("a");
                 matriz[0][i] = SeparaDouble(linhaStringFSeparados[i]);
             }
             for (int j = 0; j < linhaStringSSeparados.length; j++) {
-                System.out.println("a");
+
                 matriz[j + 1][j] = SeparaDouble(linhaStringSSeparados[j]);
             }
         } catch (FileNotFoundException e) {
@@ -210,7 +219,7 @@ public class NaoInterativo {
     public static double SeparaDouble(String valor) {
         double valorD = 0;
         try {
-            String valorS = valor.substring(valor.indexOf("=") + 1, valor.length());
+            String valorS = valor.substring(valor.indexOf("=") + 1);
             valorD = Double.parseDouble(valorS);
 
         } catch (NumberFormatException e) {
@@ -218,6 +227,85 @@ public class NaoInterativo {
             System.exit(0);
         }
         return valorD;
+    }
+
+    public static String ObtemData() {
+
+        Date data = new Date();
+        DateFormat f = new SimpleDateFormat("dd-MM-yyyy_HH;mm;ss");
+        String date = f.format(data);
+        return date;
+    }
+
+
+    public static void CriaGrafico(String ficheiro, String formato, String nometmp) throws InterruptedException {
+        String[] location = new String[2];
+//      localização do programa
+        location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
+//      localização do gnuplot
+
+        location[1] = "GnuPlot\\" + "cria_" + ficheiro + "_" + formato + ".gp";
+        Thread.sleep(20);
+
+        try {
+
+            Runtime.getRuntime().exec(location);
+            System.out.println("criado");
+
+        } catch (IOException e) {
+
+            System.out.println("Algo está errado");
+
+            e.printStackTrace();
+
+        }
+       try {
+            MudaNomeFicheiro(ficheiro, nometmp, formato);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+    public static void MudaNomeFicheiro(String nome, String nomepng, String formato) throws InterruptedException {
+
+        File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
+        System.out.println("A criar o ficheiro ...");
+        System.out.println("aa");
+        System.out.println(ficheiro);
+
+        while (!ficheiro.exists()) {
+            while (!ficheiro.canRead()) {
+                System.out.println("foda-se");
+
+            }
+        }
+
+        Thread.sleep(20);
+
+
+        try {
+
+
+            Path oldname = FileSystems.getDefault().getPath("GnuPlot\\" + nomepng + "." + formato);
+            Path newname = FileSystems.getDefault().getPath(nome + "_" + ObtemData() + "." + formato);
+
+            Files.move(oldname, oldname.resolveSibling(newname));
+            Path path = FileSystems.getDefault().getPath("Gnuplot\\" + nome + "_" + ObtemData() + "." + formato);
+
+            Path newdir = FileSystems.getDefault().getPath("Output");
+
+            Files.move(path, newdir.resolve(path.getFileName()));
+
+            System.out.println("Ficheiro guardado com sucesso!");
+
+        } catch (IOException e) {
+            System.out.println("Algo falhou... Não foi possivel criar o ficheiro");
+            e.printStackTrace();
+        }
+
     }
 
     public static void ImprimirMatriz(double m[][]) {
