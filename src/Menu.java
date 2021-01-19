@@ -187,6 +187,8 @@ public class Menu {
                         counter++;
                         //Aqui aplica-se a classe respetiva dos gráficos
                         System.out.printf("\nComando>");
+                        
+                        GnuPlot.main(null);
                         break;
 
                     case 15:
