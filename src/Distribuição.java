@@ -19,10 +19,11 @@ public class Distribuição {
         int counter = 0;
         int i = 0;
         int P=l;
+        double taxa;
 
 
         if(P==0){
-            System.out.println("*****************************************");
+            System.out.printf("\n*****************************************\n");
             System.out.println();
         }
 
@@ -43,6 +44,8 @@ public class Distribuição {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
+                taxa = taxaVariacao(produto,produto_1);
+
                 if(P==0){
 
                     System.out.println("Distruibuição não Normalizada:");
@@ -51,16 +54,23 @@ public class Distribuição {
                     System.out.println("Distribuição Normalizada:");
                     Apresentar.apresentarVetor(vetorNormalizado);
 
-                    System.out.print("Dimensão da população nessa geração= ");
+                    System.out.println("Distruibuição não Normalizada:");
+                    for(int I=0;I<produto.length;I++){
+                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
+                    }
+
+                    System.out.println("\nDistribuição Normalizada:");
+                    for(int I=0;I<vetorNormalizado.length;I++){
+                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
+                        System.out.println("%");
+                    }
+
+                    System.out.print("\nDimensão da população nessa geração= ");
                     System.out.printf("%.2f\n", dimensão);
 
                     System.out.println();
 
-                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
-                    System.out.printf("T(%d)/", t + 1);
-                    System.out.print("Taxa de variação=");
-                    System.out.printf("%.2f\n", T);
-                    counter++;
+                    System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
 
                     System.out.println();
                     System.out.println("*****************************************");
@@ -76,6 +86,7 @@ public class Distribuição {
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                guardarTaxa(guardaTaxa,taxa,i);
                 i++;
 
 
@@ -92,6 +103,8 @@ public class Distribuição {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
+                taxa = taxaVariacao(produto,produto_1);
+
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
                     Apresentar.apresentarVetor(produto);
@@ -99,16 +112,23 @@ public class Distribuição {
                     System.out.println("Distribuição Normalizada:");
                     Apresentar.apresentarVetor(vetorNormalizado);
 
-                    System.out.print("Dimensão da população nessa geração= ");
+                    System.out.println("Distruibuição não Normalizada:");
+                    for(int I=0;I<produto.length;I++){
+                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
+                    }
+
+                    System.out.println("\nDistribuição Normalizada:");
+                    for(int I=0;I<vetorNormalizado.length;I++){
+                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
+                        System.out.println("%");
+                    }
+
+                    System.out.print("\nDimensão da população nessa geração= ");
                     System.out.printf("%.2f\n", dimensão);
 
                     System.out.println();
 
-                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
-                    System.out.printf("T(%d)/", t + 1);
-                    System.out.print("Taxa de variação=");
-                    System.out.printf("%.2f\n", T);
-                    counter++;
+                    System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
 
                     System.out.println();
                     System.out.println("*****************************************");
@@ -124,6 +144,7 @@ public class Distribuição {
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                guardarTaxa(guardaTaxa,taxa,i);
                 i++;
 
 
@@ -139,6 +160,8 @@ public class Distribuição {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
+                taxa = taxaVariacao(produto,produto_1);
+
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
                     Apresentar.apresentarVetor(produto);
@@ -146,17 +169,24 @@ public class Distribuição {
                     System.out.println("Distribuição Normalizada:");
                     Apresentar.apresentarVetor(vetorNormalizado);
 
-                    System.out.print("Dimensão da população nessa geração= ");
+                    System.out.println("Distruibuição não Normalizada:");
+                    for(int I=0;I<produto.length;I++){
+                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
+                    }
+
+                    System.out.println("\nDistribuição Normalizada:");
+                    for(int I=0;I<vetorNormalizado.length;I++){
+                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
+                        System.out.println("%");
+                    }
+
+                    System.out.print("\nDimensão da população nessa geração= ");
                     System.out.printf("%.2f\n", dimensão);
 
                     System.out.println();
 
 
-                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
-                    System.out.printf("T(%d)/", t + 1);
-                    System.out.print("Taxa de variação=");
-                    System.out.printf("%.2f\n", T);
-                    counter++;
+                    System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
 
 
                     System.out.println();
@@ -173,6 +203,7 @@ public class Distribuição {
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                guardarTaxa(guardaTaxa,taxa,i);
                 i++;
 
 
@@ -187,7 +218,7 @@ public class Distribuição {
 
             crescimento(guardaTaxa);
 
-            crescimento(guardaDimensão);
+            População(guardaDimensão);
 
             distribuiçãoNãoNormalizada(E);
 
@@ -205,7 +236,7 @@ public class Distribuição {
                 System.out.println();
                 break;
             case 8:
-                crescimento(guardaDimensão);
+                População(guardaDimensão);
                 System.out.println();
                 break;
             case 10:
@@ -253,7 +284,7 @@ public class Distribuição {
 
     private static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
 
-        double taxaVariacao = taxaVariacao(produto, k, produto_1);
+        double taxaVariacao = taxaVariacao(produto,produto_1);
 
         //if(P==0) {
          //   System.out.print("Taxa de variação=");
@@ -266,7 +297,7 @@ public class Distribuição {
     }
 
 
-    private static double taxaVariacao(double[] produto, int k, double[] produto_1) {
+    private static double taxaVariacao(double[] produto, double[] produto_1) {
 
 
         double Nt;
@@ -286,6 +317,12 @@ public class Distribuição {
     private static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
 
         guardarDimensão[i] = dimensão;
+
+    }
+
+    private static void guardarTaxa(double[] guardarTaxa, double taxa, int i) {
+
+        guardarTaxa[i] = taxa;
 
     }
 
@@ -310,6 +347,15 @@ public class Distribuição {
         }
 
     }
+
+    public static void População(double[] guardaTaxa) {
+
+        System.out.printf("\nNumero total de individuos\n");
+        System.out.printf("(t ; Nt)\n");
+        Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
+
+    }
+
 
     public static void crescimento(double[] guardaTaxa) {
 

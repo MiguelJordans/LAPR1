@@ -4,9 +4,9 @@ public class Calculos {
 
         double[][] A = Xgeraçao;
 
-        if (k > 0) { // Compor isto
+        if (k > 1) { // Em princípio esta tudo bem , estou acabar de fazer testes manuais para comparar valores e verificar tudo
 
-            for (int i = 0; i < k; i++) {
+            for (int i = 1; i < k; i++) {
 
                 Xgeraçao = multiplicarMatrizes(Xgeraçao, A);
 
