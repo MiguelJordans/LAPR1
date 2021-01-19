@@ -91,7 +91,7 @@ public class NaoInterativo {
         System.out.println(nomeEspecie);
         System.out.println(nomeFicheiro);
 
-        Distribuição.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,interativo,varPopGeracoes,dimPopulacao,vecProprio);
+        //Distribuição.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,interativo,varPopGeracoes,dimPopulacao,vecProprio);  Compor isto  com a outra classe
 
         if (formatFicheiro.equals("png")){
             GnuPlot.CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");

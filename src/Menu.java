@@ -100,17 +100,17 @@ public class Menu {
                         break;
 
                     case 4:
-<<<<<<< HEAD
                         counter=0;
                         l=0;
                         Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-=======
+
+                        /*
                         try {
-                            Distribuição.ApresentarDist(matriz,t,nIndividuos,true,false,false,false);
+                            Distribuição.ApresentarDist(matriz,t,nIndividuos,true,false,false,false); Dar fix nisto
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
->>>>>>> f0aa3b9564daf414e1d874d54f494d8470573360
+                        }*/
+
                         System.out.println(text);
                         break;
 
