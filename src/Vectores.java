@@ -102,7 +102,7 @@ public class Vectores {
 
     }
 
-    private static double[] VetorProprio(double[][] matA) {
+    public static double[] VetorProprio(double[][] matA) {
 
         double[] A = new double[matA.length];
 
@@ -116,7 +116,7 @@ public class Vectores {
 
     }
 
-    private static double[] NormalizarVetorProprio(double[] VetorColuna) {
+    public static double[] NormalizarVetorProprio(double[] VetorColuna) {
 
         double[] A = new double[VetorColuna.length];
         double soma = 0;

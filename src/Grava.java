@@ -5,9 +5,9 @@ import java.io.IOException;
 public class Grava {
 
 
-    public static void matriz(int k, double[][] matrizLeslie) throws IOException {
+    public static void matriz(int k, double[][] matrizLeslie,String ficheirosaida) throws IOException {
 
-         File saida = new File("OutPut\\saida.txt");
+         File saida = new File("OutPut\\"+ficheirosaida);
          FileWriter grava=new FileWriter(saida);
 
 
@@ -27,8 +27,8 @@ public class Grava {
 
     }
 
-    public static void total(double[] total) throws IOException {
-        File saida = new File("OutPut\\saida.txt");
+    public static void total(double[] total,String ficheirosaida) throws IOException {
+        File saida = new File("OutPut\\"+ ficheirosaida);
         FileWriter grava=new FileWriter(saida);
 
 
@@ -42,9 +42,9 @@ public class Grava {
     }
 
 
-    public static void variacao(double[] variacao) throws IOException {
+    public static void variacao(double[] variacao,String ficheirosaida) throws IOException {
 
-        File saida = new File("OutPut\\saida.txt");
+        File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida);
         grava.write("Crescimento da população\n");
         grava.write("(t, delta_t)\n");
@@ -55,9 +55,9 @@ public class Grava {
 
     }
 
-    public static void naonormalizado(double[][] naonormalizada) throws IOException {
+    public static void naonormalizado(double[][] naonormalizada,String ficheirosaida) throws IOException {
 
-        File saida = new File("OutPut\\saida.txt");
+        File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida);
 
 
@@ -81,9 +81,9 @@ public class Grava {
 
     }
 
-    public static void normalizado(double[][] normalizada) throws IOException {
+    public static void normalizado(double[][] normalizada,String ficheirosaida) throws IOException {
 
-        File saida = new File("OutPut\\saida.txt");
+        File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida);
 
 
@@ -106,8 +106,8 @@ public class Grava {
 
     }
 
-    public static void valorproprio(double valorproprio) throws IOException {
-        File saida = new File("OutPut\\saida.txt");
+    public static void valorproprio(double valorproprio,String ficheirosaida) throws IOException {
+        File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida);
 
         grava.write("Maior valor próprio e vetor associado\n");
@@ -117,8 +117,8 @@ public class Grava {
 
     }
 
-    public static void vetorproprio(double[] vetorproprio) throws IOException {
-        File saida = new File("OutPut\\saida.txt");
+    public static void vetorproprio(double[] vetorproprio,String ficheirosaida) throws IOException {
+        File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida);
         grava.write("vetor próprio=(");
         for (double v : vetorproprio) {
