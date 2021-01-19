@@ -19,6 +19,12 @@ public class DistribuiçãoNãoInterativa {
         int P=l;
         double[][] popNaoNormalizada= new double [X.length+1][k];
         double[][] popNormalizada= new double [X.length+1][k];
+        for (int j=0;i<popNaoNormalizada.length;j++){
+            for (int f=0;j<popNaoNormalizada[0].length;f++){
+                System.out.print(popNaoNormalizada);
+            }
+            System.out.println("");
+        }
 
 
 
