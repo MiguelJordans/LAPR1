@@ -4,7 +4,7 @@ public class Calculos {
 
         double[][] A = Xgeraçao;
 
-        if (k > 0) {
+        if (k > 0) { // Compor isto
 
             for (int i = 0; i < k; i++) {
 

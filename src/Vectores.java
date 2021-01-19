@@ -4,19 +4,19 @@ import org.la4j.decomposition.EigenDecompositor;
 
 public class Vectores {
 
-    public static void vetores(double[][] firstMatrix,int l) {
+    public static void vetores(double[][] firstMatrix, int l) {
 
         double mvalorp;
 
-        mvalorp = vetorproprio(firstMatrix,l);
+        mvalorp = vetorproprio(firstMatrix, l);
 
-        if(l==0) {
+        if (l == 0) {
             System.out.printf("-lambda=%.4f\n", mvalorp);
             comportamentoAssintotico(mvalorp);
             System.out.println();
         }
 
-        switch (l){
+        switch (l) {
             case 9:
                 comportamentoAssintotico(mvalorp);
                 break;
@@ -24,12 +24,12 @@ public class Vectores {
                 System.out.printf("-lambda=%.4f\n", mvalorp);
                 break;
             case 12:
-                vetorproprio(firstMatrix,l);
+                vetorproprio(firstMatrix, l);
                 break;
         }
     }
 
-    private static double vetorproprio(double[][] matriz,int l) {
+    private static double vetorproprio(double[][] matriz, int l) {
 
         double lambda;
 
@@ -41,22 +41,17 @@ public class Vectores {
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
 
-        if(l==0){
-            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
-            Apresentar.apresentarMatriz(matA);
+        double[] VetorColuna = VetorProprio(matA);
+        double[] VetorNormalizado = NormalizarVetorProprio(VetorColuna);
+
+        if (l == 0) {
+            System.out.printf("Vetor próprio:");
+            Apresentar.apresentarVetor(VetorNormalizado);
+
+        } else if (l == 12) {
 
             System.out.printf("Vetor próprio:");
-
-            Apresentar.apresentarVetorBidimensional(matriz,matA);
-        }
-
-        else if(l==12){
-            System.out.println("Vetor Próprio Bidimensional (Estudar para corrigir os valores)");
-            Apresentar.apresentarMatriz(matA);
-
-            System.out.printf("Vetor próprio:");
-
-            Apresentar.apresentarVetorBidimensional(matriz,matA);
+            Apresentar.apresentarVetor(VetorNormalizado);
         }
 
         lambda = maiorValorProprio(matB);
@@ -107,4 +102,35 @@ public class Vectores {
 
     }
 
+    private static double[] VetorProprio(double[][] matA) {
+
+        double[] A = new double[matA.length];
+
+        for (int i = 0; i < matA.length; i++) {
+
+            A[i] = matA[i][0];
+
+        }
+
+        return A;
+
+    }
+
+    private static double[] NormalizarVetorProprio(double[] VetorColuna) {
+
+        double[] A = new double[VetorColuna.length];
+        double soma = 0;
+
+        for (int i = 0; i < VetorColuna.length; i++) {
+            soma += VetorColuna[i];
+        }
+
+        for (int j = 0; j < VetorColuna.length; j++) {
+            A[j] = (VetorColuna[j] / soma) * 100;
+            A[j] = Math.abs(A[j]);
+        }
+
+        return A;
+
+    }
 }

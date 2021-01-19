@@ -56,7 +56,11 @@ public class Distribuição {
 
                     System.out.println();
 
+                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                     System.out.printf("T(%d)/", t + 1);
+                    System.out.print("Taxa de variação=");
+                    System.out.printf("%.2f\n", T);
+                    counter++;
 
                     System.out.println();
                     System.out.println("*****************************************");
@@ -100,7 +104,11 @@ public class Distribuição {
 
                     System.out.println();
 
+                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                     System.out.printf("T(%d)/", t + 1);
+                    System.out.print("Taxa de variação=");
+                    System.out.printf("%.2f\n", T);
+                    counter++;
 
                     System.out.println();
                     System.out.println("*****************************************");
@@ -143,7 +151,13 @@ public class Distribuição {
 
                     System.out.println();
 
+
+                    double T = escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                     System.out.printf("T(%d)/", t + 1);
+                    System.out.print("Taxa de variação=");
+                    System.out.printf("%.2f\n", T);
+                    counter++;
+
 
                     System.out.println();
                     System.out.println("*****************************************");
@@ -172,74 +186,29 @@ public class Distribuição {
             Vectores.vetores(matriz,P);
 
             crescimento(guardaTaxa);
-            //System.out.println("Crescimento da população");
-            //System.out.printf("(t ; delta_t)\n");
-            //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
 
             crescimento(guardaDimensão);
-            //System.out.printf("Numero total de individuos\n");
-            //System.out.printf("(t ; Nt)\n");
-            //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
 
             distribuiçãoNãoNormalizada(E);
-            //System.out.printf("Distribuição Não Normalizada\n");
-            //Apresentar.apresentarDistribuição(E);
 
             distribuiçãoNormalizada(D);
-            //System.out.printf("\nDistribuição Normalizada\n");
-            //Apresentar.apresentarDistribuição(D);
+
         }
-
-       /* if(P==6){
-            System.out.printf("\nDistribuição Normalizada\n");
-            Apresentar.apresentarDistribuição(D);
-            distribuiçãoNormalizada(D);
-        }else if(P==7){
-            System.out.printf("Distribuição Não Normalizada\n");
-            Apresentar.apresentarDistribuição(E);
-            distribuiçãoNãoNormalizada(E);
-        }else if(P==8){
-            System.out.printf("Numero total de individuos\n");
-            System.out.printf("(t ; Nt)\n");
-            Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
-            crescimento(guardaDimensão);
-        }else if(P==9){
-
-        }else if(P==10){
-            System.out.println("Crescimento da população");
-            System.out.printf("(t ; delta_t)\n");
-            Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
-            crescimento(guardaTaxa);
-        }else if(P==11){
-
-        }else if(P==12){
-
-        }*/
 
         switch(P){
             case 6:
-                //System.out.printf("\nDistribuição Normalizada\n");
-                //Apresentar.apresentarDistribuição(D);
                 distribuiçãoNormalizada(D);
                 System.out.println();
                 break;
             case 7:
-                //System.out.printf("Distribuição Não Normalizada\n");
-                //Apresentar.apresentarDistribuição(E);
                 distribuiçãoNãoNormalizada(E);
                 System.out.println();
                 break;
             case 8:
-                //System.out.printf("Numero total de individuos\n");
-                //System.out.printf("(t ; Nt)\n");
-                //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
                 crescimento(guardaDimensão);
                 System.out.println();
                 break;
             case 10:
-                // System.out.println("Crescimento da população");
-                // System.out.printf("(t ; delta_t)\n");
-                //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
                 crescimento(guardaTaxa);
                 System.out.println();
                 break;
@@ -282,17 +251,18 @@ public class Distribuição {
     }
 
 
-    private static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
+    private static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
 
         double taxaVariacao = taxaVariacao(produto, k, produto_1);
 
-        if(P==0) {
-            System.out.print("Taxa de variação=");
-            System.out.printf("%.2f\n", taxaVariacao);
-        }
+        //if(P==0) {
+         //   System.out.print("Taxa de variação=");
+           // System.out.printf("%.2f\n", taxaVariacao);
+       // }
 
         guardaTaxa[counter] = taxaVariacao;
 
+        return taxaVariacao;
     }
 
 
@@ -343,7 +313,7 @@ public class Distribuição {
 
     public static void crescimento(double[] guardaTaxa) {
 
-        System.out.println("Crescimento da população");
+        System.out.printf("\nCrescimento da população\n");
         System.out.printf("(t ; delta_t)\n");
         Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
 
@@ -351,7 +321,7 @@ public class Distribuição {
 
     public static void população(double[] guardaDimensão) {
 
-        System.out.printf("Numero total de individuos\n");
+        System.out.printf("\nNumero total de individuos\n");
         System.out.printf("(t ; Nt)\n");
         Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
 

@@ -13,6 +13,7 @@ public class Main {
                 System.out.println("a");
 
                 NaoInterativo.main(args);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -27,8 +28,3 @@ public class Main {
     }
 
 }
-
-
-
-
-
