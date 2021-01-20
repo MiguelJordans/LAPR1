@@ -29,7 +29,7 @@ public class Vectores {
         }
     }
 
-    private static double vetorproprio(double[][] matriz, int l) {
+    public static double vetorproprio(double[][] matriz, int l) {
 
         double lambda;
 
@@ -40,6 +40,7 @@ public class Vectores {
 
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
+        Apresentar.apresentarMatriz(matB);
 
         double[] VetorColuna = VetorProprio(matA);
         double[] VetorNormalizado = NormalizarVetorProprio(VetorColuna);
@@ -60,23 +61,23 @@ public class Vectores {
 
     }
 
-    private static double maiorValorProprio(double[][] matB) {
+    public static double maiorValorProprio(double[][] matB) {
 
         //verifica qual é o modulo do maior valor e guarda o número
 
         double maior = matB[0][0];
 
         for (int i = 0; i < matB.length; i++) {
+            for (int j=0; j<matB[0].length;j++){
+                if (Math.abs(matB[i][j]) > maior) {
 
-            if (Math.abs(matB[i][i]) > maior) {
-
-                maior = matB[i][i];
+                    maior = matB[i][j];
 
 
+                }
             }
 
         }
-
         return maior;
 
     }

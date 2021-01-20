@@ -1,6 +1,6 @@
 import jdk.swing.interop.SwingInterOpUtils;
 
-public class Distribuição {
+public class DistribuiçãoUpdateFicheiro {
 
     public static void ApresentarDist(double[][] matriz, int k, double[] X,int l) {
 
@@ -13,8 +13,8 @@ public class Distribuição {
         double[] produto_1;
         double[] guardaTaxa = new double[200];
         double[] guardaDimensão = new double[200];
-        double[][] D = new double[200][2000]; //Matriz da distribuição Normalizada
-        double[][] E = new double[200][2000]; //Matriz da distribuição Não Normalizada
+        double[][] D = new double[200][2000];
+        double[][] E = new double[200][2000];
         int t = 0;
         int counter = 0;
         int i = 0;
@@ -30,7 +30,7 @@ public class Distribuição {
 
         while (t <= k) {
 
-            if(P==0 && t <100) System.out.printf("Para a %dª geração:\n\n", t + 1);
+            if(P==0) System.out.printf("Para a %dª geração:\n\n", t + 1);
 
             if (t > 1) {
 
@@ -45,11 +45,6 @@ public class Distribuição {
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 taxa = taxaVariacao(produto,produto_1);
-
-                if(dimensão==0){
-                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
-                    taxa = Ler.resetarTaxa(taxa);
-                }
 
                 if(P==0){
 
@@ -110,13 +105,6 @@ public class Distribuição {
 
                 taxa = taxaVariacao(produto,produto_1);
 
-                if(dimensão==0){
-                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
-                    taxa = Ler.resetarTaxa(taxa);
-                }
-
-
-
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
                     Apresentar.apresentarVetor(produto);
@@ -161,7 +149,7 @@ public class Distribuição {
 
 
 
-            } else if(t<100) {
+            } else {
 
                 matrizGeraçao_1 = Calculos.leslieT(matriz, t + 1);
 
@@ -173,12 +161,6 @@ public class Distribuição {
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 taxa = taxaVariacao(produto,produto_1);
-
-<<<<<<< HEAD
-                if(dimensão==0){
-                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
-                    taxa = Ler.resetarTaxa(taxa);
-                }
 
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
@@ -213,8 +195,6 @@ public class Distribuição {
 
                 }
 
-=======
->>>>>>> d705188a03c425a4e1d2b1f2e24259b41830d05a
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
 
@@ -269,7 +249,7 @@ public class Distribuição {
     }
 
 
-    public static double dimensao(double[] produto) {
+    private static double dimensao(double[] produto) {
 
         double soma = 0;
 
@@ -285,7 +265,7 @@ public class Distribuição {
     }
 
 
-    public static double[] distribuiçaoNormalizada(double[] produto, double dimensao) {
+    private static double[] distribuiçaoNormalizada(double[] produto, double dimensao) {
 
 
         double[] vetorNormalizado = new double[produto.length];
@@ -302,14 +282,14 @@ public class Distribuição {
     }
 
 
-    public static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
+    private static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
 
         double taxaVariacao = taxaVariacao(produto,produto_1);
 
         //if(P==0) {
-         //   System.out.print("Taxa de variação=");
-           // System.out.printf("%.2f\n", taxaVariacao);
-       // }
+        //   System.out.print("Taxa de variação=");
+        // System.out.printf("%.2f\n", taxaVariacao);
+        // }
 
         guardaTaxa[counter] = taxaVariacao;
 
@@ -317,7 +297,7 @@ public class Distribuição {
     }
 
 
-    public static double taxaVariacao(double[] produto, double[] produto_1) {
+    private static double taxaVariacao(double[] produto, double[] produto_1) {
 
 
         double Nt;
