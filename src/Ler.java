@@ -118,4 +118,26 @@ public class Ler {
         return geracao;
     }
 
+    public static double[] resetarVetor(double[]Vetor) {
+
+        double[] vetorReset = new double[Vetor.length];
+
+        for(int i=0;i< vetorReset.length;i++){
+            Vetor[i]=0;
+            vetorReset[i]=Vetor[i];
+        }
+
+        return vetorReset;
+
+    }
+
+    public static double resetarTaxa(double taxa) {
+
+        taxa=0;
+
+        return taxa;
+
+    }
+
+
 }

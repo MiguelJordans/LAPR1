@@ -13,8 +13,8 @@ public class Distribuição {
         double[] produto_1;
         double[] guardaTaxa = new double[200];
         double[] guardaDimensão = new double[200];
-        double[][] D = new double[200][2000];
-        double[][] E = new double[200][2000];
+        double[][] D = new double[200][2000]; //Matriz da distribuição Normalizada
+        double[][] E = new double[200][2000]; //Matriz da distribuição Não Normalizada
         int t = 0;
         int counter = 0;
         int i = 0;
@@ -30,7 +30,7 @@ public class Distribuição {
 
         while (t <= k) {
 
-            if(P==0) System.out.printf("Para a %dª geração:\n\n", t + 1);
+            if(P==0 && t <100) System.out.printf("Para a %dª geração:\n\n", t + 1);
 
             if (t > 1) {
 
@@ -45,6 +45,11 @@ public class Distribuição {
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 taxa = taxaVariacao(produto,produto_1);
+
+                if(dimensão==0){
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = Ler.resetarTaxa(taxa);
+                }
 
                 if(P==0){
 
@@ -105,6 +110,13 @@ public class Distribuição {
 
                 taxa = taxaVariacao(produto,produto_1);
 
+                if(dimensão==0){
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = Ler.resetarTaxa(taxa);
+                }
+
+
+
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
                     Apresentar.apresentarVetor(produto);
@@ -149,7 +161,7 @@ public class Distribuição {
 
 
 
-            } else {
+            } else if(t<100) {
 
                 matrizGeraçao_1 = Calculos.leslieT(matriz, t + 1);
 
@@ -161,6 +173,11 @@ public class Distribuição {
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
                 taxa = taxaVariacao(produto,produto_1);
+
+                if(dimensão==0){
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = Ler.resetarTaxa(taxa);
+                }
 
                 if(P==0){
                     System.out.println("Distruibuição não Normalizada:");
