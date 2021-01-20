@@ -162,39 +162,6 @@ public class Distribuição {
 
                 taxa = taxaVariacao(produto,produto_1);
 
-                if(P==0){
-                    System.out.println("Distruibuição não Normalizada:");
-                    Apresentar.apresentarVetor(produto);
-
-                    System.out.println("Distribuição Normalizada:");
-                    Apresentar.apresentarVetor(vetorNormalizado);
-
-                    System.out.println("Distruibuição não Normalizada:");
-                    for(int I=0;I<produto.length;I++){
-                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
-                    }
-
-                    System.out.println("\nDistribuição Normalizada:");
-                    for(int I=0;I<vetorNormalizado.length;I++){
-                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
-                        System.out.println("%");
-                    }
-
-                    System.out.print("\nDimensão da população nessa geração= ");
-                    System.out.printf("%.2f\n", dimensão);
-
-                    System.out.println();
-
-
-                    System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
-
-
-                    System.out.println();
-                    System.out.println("*****************************************");
-                    System.out.println();
-
-                }
-
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
 

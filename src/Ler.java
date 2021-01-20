@@ -39,27 +39,7 @@ public class Ler {
 
     }
 
-    public static int encontraUltimoValor(double[] array) {
 
-        int end = 0;
-        int i = 0;
-        boolean acabou = false;
-
-        while (i < array.length && !acabou) {
-
-            if (array[i] == 0) {
-
-                end = i;
-                acabou = true;
-
-            }
-
-            i++;
-        }
-
-        return end;
-
-    }
 
     public static int leslie(double[] nIndividuos,double[]taxaF,double[]taxaS){
 

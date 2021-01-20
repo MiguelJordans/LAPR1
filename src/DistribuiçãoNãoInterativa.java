@@ -1,6 +1,9 @@
+
+import java.io.IOException;
+
 public class DistribuiçãoNãoInterativa {
 
-    public static void ApresentarDist(double[][] matriz, int k, double[] X,int l, String nomeFicheiroSaida) {
+    public static void ApresentarDist(double[][] matriz, int k, double[] X,int l, String nomeFicheiroSaida,boolean vecProprio,boolean dimPopulacao,boolean varPopGeracoes) throws IOException {
 
 
         double[][] matrizGeraçao;
@@ -17,13 +20,15 @@ public class DistribuiçãoNãoInterativa {
         int counter = 0;
         int i = 0;
         int P=l;
-        double[][] popNaoNormalizada= new double [X.length+1][k];
-        double[][] popNormalizada= new double [X.length+1][k];
-        for (int j=0;i<popNaoNormalizada.length;j++){
-            for (int f=0;j<popNaoNormalizada[0].length;f++){
-                System.out.print(popNaoNormalizada);
+        int classes = X.length;
+
+
+
+        for (int j=0;j<matriz.length;j++){
+            for (int f=0;f<matriz.length;f++){
+                System.out.print(matriz[j][f]);
             }
-            System.out.println("");
+            System.out.println(" ");
         }
 
 
@@ -31,8 +36,6 @@ public class DistribuiçãoNãoInterativa {
 
 
         while (t <= k) {
-
-      //      if(P==0) System.out.printf("Para a %dª geração:\n\n", t + 1);
 
             if (t > 1) {
 
@@ -46,31 +49,12 @@ public class DistribuiçãoNãoInterativa {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
-                if(P==0){
-
-                    System.out.println("Distruibuição não Normalizada:");
-                    Apresentar.apresentarVetor(produto);
-
-                    System.out.println("Distribuição Normalizada:");
-                    Apresentar.apresentarVetor(vetorNormalizado);
-
-                    System.out.print("Dimensão da população nessa geração= ");
-                    System.out.printf("%.2f\n", dimensão);
-
-                    System.out.println();
-
-                    System.out.printf("T(%d)/", t + 1);
-
-                    System.out.println();
-                    System.out.println("*****************************************");
-                    System.out.println();
-
-                }
 
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
 
                 t++;
+
 
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
@@ -91,25 +75,7 @@ public class DistribuiçãoNãoInterativa {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
-                if(P==0){
-                    System.out.println("Distruibuição não Normalizada:");
-                    Apresentar.apresentarVetor(produto);
 
-                    System.out.println("Distribuição Normalizada:");
-                    Apresentar.apresentarVetor(vetorNormalizado);
-
-                    System.out.print("Dimensão da população nessa geração= ");
-                    System.out.printf("%.2f\n", dimensão);
-
-                    System.out.println();
-
-                    System.out.printf("T(%d)/", t + 1);
-
-                    System.out.println();
-                    System.out.println("*****************************************");
-                    System.out.println();
-
-                }
 
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
@@ -134,25 +100,7 @@ public class DistribuiçãoNãoInterativa {
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
-                if(P==0){
-                    System.out.println("Distruibuição não Normalizada:");
-                    Apresentar.apresentarVetor(produto);
 
-                    System.out.println("Distribuição Normalizada:");
-                    Apresentar.apresentarVetor(vetorNormalizado);
-
-                    System.out.print("Dimensão da população nessa geração= ");
-                    System.out.printf("%.2f\n", dimensão);
-
-                    System.out.println();
-
-                    System.out.printf("T(%d)/", t + 1);
-
-                    System.out.println();
-                    System.out.println("*****************************************");
-                    System.out.println();
-
-                }
 
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
@@ -168,88 +116,76 @@ public class DistribuiçãoNãoInterativa {
             }
 
         }
+        Grava.gravaTudo();
+        Grava.matriz(k,matriz,nomeFicheiroSaida);
 
+        Grava.total(guardaDimensão, nomeFicheiroSaida,k+1);
 
-        if(P==0){
+        Grava.naonormalizado(D,nomeFicheiroSaida,k+1,classes);
+        System.out.println(k);
 
-            Vectores.vetores(matriz,P);
+        Grava.normalizado(E, nomeFicheiroSaida, k+1, classes);
 
-            crescimento(guardaTaxa);
+        Grava.variacao(guardaTaxa,nomeFicheiroSaida,k+1);
+
+        VetoresNaoInterativos.vetorproprio(matriz,nomeFicheiroSaida);
+
+            //crescimento(guardaTaxa,nomeFicheiroSaida);
             //System.out.println("Crescimento da população");
             //System.out.printf("(t ; delta_t)\n");
             //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
 
-            crescimento(guardaDimensão);
+          //  crescimento(guardaDimensão,nomeFicheiroSaida);
             //System.out.printf("Numero total de individuos\n");
             //System.out.printf("(t ; Nt)\n");
             //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
 
-            distribuiçãoNãoNormalizada(E);
+         //   distribuiçãoNãoNormalizada(E,nomeFicheiroSaida, k,classes);
             //System.out.printf("Distribuição Não Normalizada\n");
             //Apresentar.apresentarDistribuição(E);
 
-            distribuiçãoNormalizada(D);
+         //   distribuiçãoNormalizada(D,nomeFicheiroSaida,k,classes);
             //System.out.printf("\nDistribuição Normalizada\n");
             //Apresentar.apresentarDistribuição(D);
-        }
 
-       /* if(P==6){
-            System.out.printf("\nDistribuição Normalizada\n");
-            Apresentar.apresentarDistribuição(D);
-            distribuiçãoNormalizada(D);
-        }else if(P==7){
-            System.out.printf("Distribuição Não Normalizada\n");
-            Apresentar.apresentarDistribuição(E);
-            distribuiçãoNãoNormalizada(E);
-        }else if(P==8){
-            System.out.printf("Numero total de individuos\n");
-            System.out.printf("(t ; Nt)\n");
-            Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
-            crescimento(guardaDimensão);
-        }else if(P==9){
 
-        }else if(P==10){
-            System.out.println("Crescimento da população");
-            System.out.printf("(t ; delta_t)\n");
-            Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
-            crescimento(guardaTaxa);
-        }else if(P==11){
 
-        }else if(P==12){
 
-        }*/
-
-        switch(P){
+  /*      switch(P){
             case 6:
                 //System.out.printf("\nDistribuição Normalizada\n");
                 //Apresentar.apresentarDistribuição(D);
-                distribuiçãoNormalizada(D);
+                distribuiçãoNormalizada(D,nomeFicheiroSaida);
                 System.out.println();
                 break;
             case 7:
                 //System.out.printf("Distribuição Não Normalizada\n");
                 //Apresentar.apresentarDistribuição(E);
-                distribuiçãoNãoNormalizada(E);
+                distribuiçãoNãoNormalizada(E,nomeFicheiroSaida);
                 System.out.println();
                 break;
             case 8:
                 //System.out.printf("Numero total de individuos\n");
                 //System.out.printf("(t ; Nt)\n");
                 //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
-                crescimento(guardaDimensão);
+                crescimento(guardaDimensão,nomeFicheiroSaida);
                 System.out.println();
                 break;
             case 10:
                 // System.out.println("Crescimento da população");
                 // System.out.printf("(t ; delta_t)\n");
                 //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
-                crescimento(guardaTaxa);
+                crescimento(guardaTaxa,nomeFicheiroSaida);
                 System.out.println();
                 break;
         }
 
+   */
+
 
     }
+
+
 
 
     private static double dimensao(double[] produto) {
@@ -344,33 +280,26 @@ public class DistribuiçãoNãoInterativa {
 
     }
 
-    public static void crescimento(double[] guardaTaxa) {
-
-        System.out.println("Crescimento da população");
-        System.out.printf("(t ; delta_t)\n");
-        Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
+    public static void crescimento(double[] guardaTaxa,String ficheirosaida,int k) throws IOException {
+      Grava.variacao(guardaTaxa,ficheirosaida,k);
 
     }
 
-    public static void população(double[] guardaDimensão) {
+   // public static void população(double[] guardaDimensão,String ficheirosaida) throws IOException {
+     //   Grava.total(guardaDimensão,ficheirosaida);
 
-        System.out.printf("Numero total de individuos\n");
-        System.out.printf("(t ; Nt)\n");
-        Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
+//    }
 
-    }
+    public static void distribuiçãoNormalizada(double[][] D,String ficheirosaida,int k,int classes) throws IOException {
 
-    public static void distribuiçãoNormalizada(double[][] D) {
-
-        System.out.printf("\nDistribuição Normalizada\n");
-        Apresentar.apresentarDistribuição(D);
+       Grava.normalizado(D, ficheirosaida,k,classes);
 
     }
 
-    public static void distribuiçãoNãoNormalizada(double[][] E) {
+    public static void distribuiçãoNãoNormalizada(double[][] E,String ficheirosaida, int k,int classes) throws IOException {
 
-        System.out.printf("\nDistribuição Não Normalizada\n");
-        Apresentar.apresentarDistribuição(E);
+        Grava.naonormalizado(E, ficheirosaida,k,classes);
+
 
     }
 

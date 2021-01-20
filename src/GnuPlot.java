@@ -178,6 +178,8 @@ public class GnuPlot {
 
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\" + nomepng + "." + formato);
             Path newname = FileSystems.getDefault().getPath(nome + "_" + ObtemData() + "." + formato);
+            Thread.sleep(20);
+
 
             Files.move(oldname, oldname.resolveSibling(newname));
             Path path = FileSystems.getDefault().getPath("Gnuplot\\" + nome + "_" + ObtemData() + "." + formato);

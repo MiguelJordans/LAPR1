@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class NaoInterativo {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
         String nomeFicheiro = "";
         String nomeFicheiroSaida = "";
@@ -86,8 +86,6 @@ public class NaoInterativo {
             }
         }
 
-        double[][] matrix = new double[100][100];
-
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
         ImprimirMatriz(matrixLeslie);
@@ -97,8 +95,13 @@ public class NaoInterativo {
         System.out.println(nomeFicheiro);
         System.out.println(nomeFicheiroSaida);
 
-        DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,0,nomeFicheiroSaida);
+        for (int i=0; i < vectorDistribPop.length -1;i++ ){
+            System.out.println(vectorDistribPop[i]);
+        }
 
+
+        DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,0,nomeFicheiroSaida,vecProprio,dimPopulacao,varPopGeracoes);
+/*
         if (formatFicheiro.equals("png")){
             System.out.println("entrei png");
             CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");
@@ -123,6 +126,8 @@ public class NaoInterativo {
 
         }
 
+ */
+
         ImprimirMatriz(matrixLeslie);
 
 
@@ -142,7 +147,9 @@ public class NaoInterativo {
 
             while (ficheiro.hasNextLine()) {
                 stringX = ficheiro.nextLine();
-                if (stringX.substring(0, 0) == "x") {
+                char x = 'x';
+
+                if (stringX.charAt(0) == x) {
 
                     String linhaStringXSeparados[] = stringX.split(",");
                     distribPop = new double[linhaStringXSeparados.length];
@@ -195,6 +202,7 @@ public class NaoInterativo {
             }
 
             String linhaStringSSeparados[] = stringS.split(",");
+
             String linhaStringFSeparados[] = stringF.split(",");
 
 
@@ -278,7 +286,7 @@ public class NaoInterativo {
 
         while (!ficheiro.exists()) {
             while (!ficheiro.canRead()) {
-                System.out.println("foda-se");
+                System.out.println("e");
 
             }
         }
