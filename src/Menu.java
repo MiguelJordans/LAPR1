@@ -46,9 +46,11 @@ public class Menu {
 
             int geracao =  Ler.leslie(nIndividuos,taxaF,taxaS);
 
-            System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
-            t = read.nextInt();
-            System.out.println();
+
+                System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
+                t = read.nextInt();
+                System.out.println();
+
 
             double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
 
@@ -104,14 +106,6 @@ public class Menu {
                         counter=0;
                         l=0;
                         Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-
-                        /*
-                        try {
-                            Distribuição.ApresentarDist(matriz,t,nIndividuos,true,false,false,false); Dar fix nisto
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }*/
-
                         System.out.printf(text);
                         break;
 
@@ -185,16 +179,17 @@ public class Menu {
                         break;
 
                     case 14:
-                        counter++;
+                        counter=0;
                         //Aqui aplica-se a classe respetiva dos gráficos
-                        if(counter<5)  System.out.printf("\nComando>");
                         GnuPlot.main(null);
+                        System.out.printf(text); //Verificar se não conflito na consola
                         break;
 
                     case 15:
+                        counter=0;
                         //Classe para os testes unitários
-                        counter++;
-                        if(counter<5)  System.out.printf("\nComando>");
+                        testesUnitarios.testes();
+                        System.out.printf(text);
                         break;
 
                     default:

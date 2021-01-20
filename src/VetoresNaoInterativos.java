@@ -5,8 +5,8 @@ import org.la4j.matrix.dense.Basic2DMatrix;
 import java.io.IOException;
 
 public class VetoresNaoInterativos {
-    public static double[] vetorproprio(double[][] matriz, String nomeficheiro) throws IOException {
 
+    public static double[] vetorproprio(double[][] matriz, String nomeficheiro) throws IOException {
 
         Matrix a = new Basic2DMatrix(matriz);
 
@@ -22,8 +22,6 @@ public class VetoresNaoInterativos {
 
         double lambda = maiorValorProprio(matB);
 
-
-
         Grava.valorproprio(lambda,nomeficheiro);
         Grava.vetorproprio(VetorNormalizado,nomeficheiro);
 
@@ -31,11 +29,9 @@ public class VetoresNaoInterativos {
 
         return VetorNormalizado;
 
-
-
-
-
     }
+
+
     public static double[] VetorProprio(double[][] matA) {
 
         double[] A = new double[matA.length];
@@ -88,4 +84,5 @@ public class VetoresNaoInterativos {
         return maior;
 
     }
+
 }

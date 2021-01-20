@@ -57,34 +57,11 @@ public class Apresentar {
 
     }
 
-    public static void apresentarVetorBidimensional(double[][] matriz, double[][] matA) {
-
-        for (int i = 0; i < 1; i++) {
-
-            for (int j = 0; j < matriz[i].length; j++) {
-
-                if (i == 0 && j == matriz[i].length) System.out.printf("%.2f)", matA[i][j]);
-
-                else if (i == 0 && j == 0) System.out.printf("(%.2f", matA[i][j]);
-
-                else System.out.printf(";%.2f", matA[i][j]);
-
-            }
-
-        }
-
-        System.out.print(")");
-
-        System.out.println();
-
-        System.out.println();
-
-    }
 
     public static void apresentarDistribuição(double[][] Distribuição) {
 
         int t = 0;
-        int count2 = 0;
+
 
         for (int i = 0; i < Distribuição.length; i++) {
 

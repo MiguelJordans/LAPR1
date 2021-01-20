@@ -40,7 +40,7 @@ public class Vectores {
 
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
-        Apresentar.apresentarMatriz(matB);
+
 
         double[] VetorColuna = VetorProprio(matA);
         double[] VetorNormalizado = NormalizarVetorProprio(VetorColuna);
