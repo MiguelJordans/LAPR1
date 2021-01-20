@@ -249,7 +249,7 @@ public class Distribuição {
     }
 
 
-    private static double dimensao(double[] produto) {
+    public static double dimensao(double[] produto) {
 
         double soma = 0;
 
@@ -265,7 +265,7 @@ public class Distribuição {
     }
 
 
-    private static double[] distribuiçaoNormalizada(double[] produto, double dimensao) {
+    public static double[] distribuiçaoNormalizada(double[] produto, double dimensao) {
 
 
         double[] vetorNormalizado = new double[produto.length];
@@ -282,7 +282,7 @@ public class Distribuição {
     }
 
 
-    private static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
+    public static double escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
 
         double taxaVariacao = taxaVariacao(produto,produto_1);
 
@@ -297,7 +297,7 @@ public class Distribuição {
     }
 
 
-    private static double taxaVariacao(double[] produto, double[] produto_1) {
+    public static double taxaVariacao(double[] produto, double[] produto_1) {
 
 
         double Nt;
