@@ -113,6 +113,7 @@ public class Menu {
                         counter++;
                         if(counter<5)  System.out.printf("\nComando>");
                         //Colocar aqui a classe para guardar as informações num ficheiro
+                        DistribuiçãoUpdateFicheiro.ApresentarDist(matriz,t,nIndividuos,l);
                         break;
 
                     case 6:
