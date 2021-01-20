@@ -148,6 +148,44 @@ public class Grava {
     public static void gravaTudo(){
 
     }
+    
+    public static void UpdateFicheiro(String ficheiroSaida, String vTexto){
+
+        try {
+            FileWriter escrever = new FileWriter(ficheiroSaida, true);
+            BufferedWriter update = new BufferedWriter(escrever);
+
+            update.write(vTexto);
+            update.newLine();
+            update.close();
+
+            System.out.println("Escrito no Ficheiro com sucesso.");
+
+        } catch (IOException e) {
+            System.out.println("Occureu um erro.");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public static void CriarFicheiro(String saida){
+        try {
+            File myObj = new File("saída.txt");
+            if (myObj.createNewFile()) {
+
+                System.out.println("Ficheiro Criado. " + myObj.getName());
+            } else {
+
+                System.out.println("Ficheiro já existe. ");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }
