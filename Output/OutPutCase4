@@ -1,0 +1,91 @@
+Para a %dª geração:
+
+1
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade %d = %.2f
+1330.0
+
+Distribuição Normalizada:
+Idade %d = %.2f1100.0
+%
+
+Dimensão da população nessa geração= 
+%.2f
+330.0
+
+
+T(%d)/Taxa de variação=%.2f
+03.1
+
+
+*****************************************
+
+
+Para a %dª geração:
+
+2
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade %d = %.2f
+11023.0
+
+Distribuição Normalizada:
+Idade %d = %.2f1100.0
+%
+
+Dimensão da população nessa geração= 
+%.2f
+1023.0
+
+
+T(%d)/Taxa de variação=%.2f
+11.0
+
+
+*****************************************
+
+
+Para a %dª geração:
+
+3
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade %d = %.2f
+13171.3
+
+Distribuição Normalizada:
+Idade %d = %.2f1100.0
+%
+
+Dimensão da população nessa geração= 
+%.2f
+3171.3
+
+
+T(%d)/Taxa de variação=%.2f
+23.1
+
+
+*****************************************
+
+
+
+Crescimento da população
+
+(t ; delta_t)
+
+
+Numero total de individuos
+
+(t ; Nt)
+
+
+Distribuição Não Normalizada
+
+
+Distribuição Normalizada
+

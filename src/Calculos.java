@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class Calculos {
+
+    static Scanner read = new Scanner(System.in);
 
     public static double[][] leslieT(double[][] Xgeraçao, int k) {
 
@@ -65,5 +69,38 @@ public class Calculos {
 
     }
 
+    public static void verificarVetorProprio(double[]vetorProprio, double lambda,double[][]matriz) {
+
+         boolean check;
+
+         double[]A=multiplicarMatrizporVetor(matriz,vetorProprio);
+         double[]B=multiplicarVetorporValorProprio(vetorProprio,lambda);
+
+         check =  Apresentar.isIgual(A,B);
+
+         if (check) System.out.println("\nO vetor próprio esta bem calculado\n");
+         else System.out.println("\nO vetor próprio está mal calculado\n");
+
+            System.out.printf("\nMatriz de leslie a mutiplicar pelo vetor:\n");
+            Apresentar.apresentarVetor(A);
+
+            System.out.printf("\nVetor Próprio a multiplicar pelo valor próprio:\n");
+            Apresentar.apresentarVetor(B);
+
     }
+
+
+    public static double[] multiplicarVetorporValorProprio(double[] vetor, double lambda) {
+
+            for(int k = 0; k < vetor.length; k++){
+
+                 vetor[k] = vetor[k]*lambda;
+            }
+
+
+        return vetor;
+
+    }
+
+}
 

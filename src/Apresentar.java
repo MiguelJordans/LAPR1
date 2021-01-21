@@ -83,4 +83,22 @@ public class Apresentar {
 
     }
 
+    public static boolean isIgual(double[] A, double[] B) {
+
+        boolean igual = true;
+
+            for (int j = 0; j < A.length; j++) {
+
+                if (A[j] != B[j]) {
+
+                    break;
+
+                }
+
+            }
+
+        return igual;
+
+    }
+
 }

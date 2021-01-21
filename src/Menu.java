@@ -13,16 +13,17 @@ public class Menu {
         while (choice) {
 
             String text
-                    = "\n********************************************************************************************************\n"
+                    = "\n**********************************************************************************************************************\n"
                     + "\t(0)\tSair\t\t\t\t\t\t\t\t\t(1)\tIntroduzir novos dados\t\n"
-                    + "\t(2)\tMostrar matriz\t\t\t\t\t\t\t(3)\tMostrar gerações(k)\t\n"
+                    + "\t(2)\tMostrar matriz\t\t\t\t\t\t\t(3)\tMostrar gerações (k)\t\n"
                     + "\t(4)\tApresentar as informações todas\t\t\t(5)\tGuardar dados no ficheiro\t\n"
                     + "\t(6)\tApresentar a distribuição normalizada\t(7)\tApresentar a distribuição não normalizada\t\n"
                     + "\t(8)\tApresentar a dimensão populacional\t\t(9)\tApresentar o comportamento Assintotico\t\n"
                     + "\t(10) Apresentar a taxa de variação\t\t\t(11) Apresentar o valor próprio\t\n"
                     + "\t(12) Apresentar o vetor próprio\t\t\t\t(13) Ler dados a partir de um ficheiro\t\n"
                     + "\t(14) Aplicar gráficos\t\t\t\t\t\t(15) Dar run aos testes unitários\t\n"
-                    + "********************************************************************************************************\nComando> ";
+                    + "\t(16) Limpar o output existente na consola\t(17) Verificar se o vetor próprio esta correto (Utilizando a fórmula)\t\n"
+                    + "**********************************************************************************************************************\nComando> ";
 
             double[] taxaS = new double[199];
             double[] taxaF = new double[199];
@@ -110,10 +111,10 @@ public class Menu {
                         break;
 
                     case 5:
-                        counter++;
-                        if(counter<5)  System.out.printf("\nComando>");
+                        counter=0;
                         //Colocar aqui a classe para guardar as informações num ficheiro
                         DistribuiçãoUpdateFicheiro.ApresentarDist(matriz,t,nIndividuos,l);
+                        System.out.printf(text);
                         break;
 
                     case 6:
@@ -183,7 +184,7 @@ public class Menu {
                         counter=0;
                         //Aqui aplica-se a classe respetiva dos gráficos
                         GnuPlot.main(null);
-                        System.out.printf(text); //Verificar se não conflito na consola
+                        System.out.printf(text);
                         break;
 
                     case 15:
@@ -192,6 +193,20 @@ public class Menu {
                         testesUnitarios.testes();
                         System.out.printf(text);
                         break;
+
+                    case 16:
+                        CLS.clearScreen(); // No java é impossível apagar a consola toda então o melhor a fazer se é dar print a varias linhas sem texto, pois para apagar o texto da consola o mesmo precisava de dar rerun em string isso não é o que queremos neste projeto logo torna se impossível dar um "clear" comepleto à consola
+                        System.out.println("Conteúdo apagado");
+                        System.out.println(text);
+                        break;
+
+                    case 17:
+                        counter++;
+                        l=1;
+                       Vectores.vetores(matriz,l);
+                        if(counter<5)  System.out.printf("\nComando>");
+                       break;
+
 
                     default:
                         System.out.println("Porfavor introduza um valor válido");

@@ -327,7 +327,7 @@ public class testesUnitarios {
 
     public static boolean test_vetorproprio(double[][] matriz, int l, double resultadoEsperado) {
 
-        double aux = Vectores.vetorproprio(matriz,l);
+        double aux = Vectores.vetorproprioTesteUnitario(matriz);
 
         double resultado = Math.round(aux * 100.0) / 100.0;
 

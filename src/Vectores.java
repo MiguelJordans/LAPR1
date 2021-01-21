@@ -4,34 +4,9 @@ import org.la4j.decomposition.EigenDecompositor;
 
 public class Vectores {
 
-    public static void vetores(double[][] firstMatrix, int l) {
+    public static void vetores(double[][] matriz, int l) {
 
         double mvalorp;
-
-        mvalorp = vetorproprio(firstMatrix, l);
-
-        if (l == 0) {
-            System.out.printf("-lambda=%.4f\n", mvalorp);
-            comportamentoAssintotico(mvalorp);
-            System.out.println();
-        }
-
-        switch (l) {
-            case 9:
-                comportamentoAssintotico(mvalorp);
-                break;
-            case 11:
-                System.out.printf("-lambda=%.4f\n", mvalorp);
-                break;
-            case 12:
-                vetorproprio(firstMatrix, l);
-                break;
-        }
-    }
-
-    public static double vetorproprio(double[][] matriz, int l) {
-
-        double lambda;
 
         Matrix a = new Basic2DMatrix(matriz);
 
@@ -41,25 +16,65 @@ public class Vectores {
         double[][] matA = mattD[0].toDenseMatrix().toArray(); //matA - vetor proprio
         double[][] matB = mattD[1].toDenseMatrix().toArray(); //matB - valor proprio
 
+        mvalorp = maiorValorProprio(matB);
 
         double[] VetorColuna = VetorProprio(matA);
         double[] VetorNormalizado = NormalizarVetorProprio(VetorColuna);
 
         if (l == 0) {
-            System.out.printf("Vetor próprio:");
-            Apresentar.apresentarVetor(VetorNormalizado);
-
-        } else if (l == 12) {
 
             System.out.printf("Vetor próprio:");
             Apresentar.apresentarVetor(VetorNormalizado);
+
+            System.out.printf("-lambda=%.4f\n", mvalorp);
+
+            comportamentoAssintotico(mvalorp);
+            System.out.println();
+
+        } else if (l==1){
+
+            Calculos.verificarVetorProprio(VetorNormalizado,mvalorp,matriz);
+
         }
+
+
+        switch (l) {
+
+            case 9:
+                comportamentoAssintotico(mvalorp);
+                break;
+
+            case 11:
+                System.out.printf("-lambda=%.4f\n", mvalorp);
+                break;
+
+            case 12:
+                System.out.printf("Vetor próprio:");
+                Apresentar.apresentarVetor(VetorNormalizado);
+                break;
+
+        }
+
+    }
+
+
+    public static double vetorproprioTesteUnitario(double[][] matriz) {
+
+        double lambda;
+
+        Matrix a = new Basic2DMatrix(matriz);
+
+        EigenDecompositor eigenD = new EigenDecompositor(a);
+        Matrix[] mattD = eigenD.decompose();
+
+        double[][] matB = mattD[1].toDenseMatrix().toArray();
 
         lambda = maiorValorProprio(matB);
 
         return lambda;
 
     }
+
 
     public static double maiorValorProprio(double[][] matB) {
 
@@ -68,16 +83,19 @@ public class Vectores {
         double maior = matB[0][0];
 
         for (int i = 0; i < matB.length; i++) {
+
             for (int j=0; j<matB[0].length;j++){
+
                 if (Math.abs(matB[i][j]) > maior) {
 
                     maior = matB[i][j];
 
-
                 }
+
             }
 
         }
+
         return maior;
 
     }
@@ -103,9 +121,11 @@ public class Vectores {
 
     }
 
+
     public static double[] VetorProprio(double[][] matA) {
 
         double[] A = new double[matA.length];
+
 
         for (int i = 0; i < matA.length; i++) {
 
@@ -117,21 +137,27 @@ public class Vectores {
 
     }
 
+
     public static double[] NormalizarVetorProprio(double[] VetorColuna) {
 
         double[] A = new double[VetorColuna.length];
         double soma = 0;
 
         for (int i = 0; i < VetorColuna.length; i++) {
+
             soma += VetorColuna[i];
+
         }
 
         for (int j = 0; j < VetorColuna.length; j++) {
+
             A[j] = (VetorColuna[j] / soma) * 100;
             A[j] = Math.abs(A[j]);
+
         }
 
         return A;
 
     }
+
 }
