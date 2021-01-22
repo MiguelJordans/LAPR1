@@ -13,13 +13,22 @@ public class Main {
         String nomeFicheiro ="";
         int f=1;
 
+<<<<<<< HEAD
         /*if(args[1].equals("-n")){
             nomeFicheiro = args[2];
             f=0;
             //Para chamar menu
         }*/
+=======
+
+>>>>>>> 84f92c2a4433b1e1d8c675797febfff07a36a482
 
         if (args.length != 0) {
+
+            if(args[1].equals("-n")){
+                nomeFicheiro = args[2];
+                f=0;
+            }
 
             NaoInterativo.main(args);
 
