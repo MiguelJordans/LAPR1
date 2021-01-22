@@ -132,18 +132,18 @@ public class Apresentar {
             if (j == vetor.length) {
                 String aux = "";
               aux = "%.2f)"+Double.toString(vetor[j]);
-                System.out.printf("saida.txt",aux );
+                Grava.UpdateFicheiro("saida.txt",aux );
             }
 
             else if (j == 0) {
                 String aux = "";
                 aux = "(%.2f"+Double.toString(vetor[j]);
-                System.out.printf("saida.txt", aux);
+                Grava.UpdateFicheiro("saida.txt", aux);
             }
             else{
                 String aux = "";
                 aux = ";%.2f"+Double.toString(vetor[j]);
-                System.out.printf("saida.txt", aux);
+                Grava.UpdateFicheiro("saida.txt", aux);
             }
 
         }
