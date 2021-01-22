@@ -69,7 +69,7 @@ public class Menu {
                 Distribuição.ApresentarDist(matriz,t,nIndividuos,100);
 
 
-            while(check){ //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez
+            while(check){
 
                 int Y=(int)D;
 
@@ -239,6 +239,7 @@ public class Menu {
                 }
 
                 if(counter==5){
+
                     System.out.printf(text);
                     counter=0;
 
@@ -247,27 +248,9 @@ public class Menu {
                if(Flag==0)D=read.nextDouble();
 
             }
+
         }
+
     }
-    /*
-     while (!choi.equals("S") && !choi.equals("N")||!choi.equals("s") && !choi.equals("n")) {
-
-                System.out.printf("Deseja voltar a introduzir dados?(S/N)\n\n");
-                choi = read.nextLine();
-
-                if (choi.equals("S")||choi.equals("s")) {
-
-                    choice = true;
-
-                } else if (choi.equals("N")||choi.equals("n")) {
-
-                    choice = false;
-
-                }
-
-                else System.out.println("Porfavor introduza uma opção válida");
-
-            }
-     */
 
 }

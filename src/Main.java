@@ -10,9 +10,16 @@ public class Main {
         Path path = Paths.get("Output\\");
         Files.createDirectories(path);
 
-
         String nomeFicheiro ="";
         int f=1;
+
+
+        /*if(args[1].equals("-n")){ //Apenas meti isto em comentário para conseguir dar run ao programa!
+            nomeFicheiro = args[2];
+            f=0;
+            //Para chamar menu
+        }*/
+
 
 
 
