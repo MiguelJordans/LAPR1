@@ -59,9 +59,9 @@ public class Menu {
 
             System.out.printf(text);
 
+
             D=read.nextDouble();
             boolean check=true;
-            String A=""; //Para fazer o case 14
             int counter2=0;
             int Flag=0;
             int l=0;
@@ -72,10 +72,6 @@ public class Menu {
                 int Y=(int)D;
 
                 if(Y==0||Y==1) check=false;
-                if(counter2!=0){
-                    System.out.println("Novos dados alocados");
-                    System.out.printf(text);
-                }
 
                 switch (Y){
                     case 0:
@@ -167,18 +163,43 @@ public class Menu {
                         break;
 
                     case 13:
-                        counter++;
 
+                        String A="";
+                        counter=0;
                         counter2++;
-                        System.out.printf("\nDe certeza que pretende ler os dados (introduzidos previamente ) de um ficheiro? Caso o faço todos os dados previamente guardados serão apagados\n\n");
+                        boolean P=false;
 
-                        A=read.nextLine();
-                        read.nextLine(); //meter isto a funcionar depois
+                        System.out.printf("\nDeseja  introduzir dados a partir de um ficheiro?(S/N)\n\n");
 
-                        CLS.clearScreen();
-                       // if(A) // Aqui metem a função para apagar os dados previamente colocados e guardar novos dados do ficheiro não interavito
-                        if(counter<5)  System.out.printf("\nComando>");
-                        break;
+                        while (!A.equals("S") && !A.equals("N")) {
+
+                            A = read.nextLine();
+
+                            if (A.equals("N")) {
+                                P = false;
+
+                            } else if (A.equals("S")) {
+
+                                P = true;
+
+                            }
+
+                        }
+
+                        if (P){
+                            //Introduzir a função para ler os dados a partir do ficheiro!
+                            CLS.clearScreen();
+                            if(counter2!=0){
+                                System.out.println("Novos dados alocados");
+                                System.out.printf(text);
+                                counter2=0;
+                            }
+                            break;
+                        }
+                         else {
+                            if(counter<5)  System.out.printf("\nComando>");
+                             break;
+                        }
 
                     case 14:
                         counter=0;

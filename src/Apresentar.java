@@ -41,6 +41,8 @@ public class Apresentar {
     public static void apresentarTaxaOUDimensão(double[] vetor) {
 
         int t = 0;
+        int counter=0;
+
 
         for (int j = 0; j < vetor.length; j++) {
 
@@ -57,6 +59,29 @@ public class Apresentar {
 
     }
 
+    public static void apresentarDimensão(double[]vetor,int k){
+
+        int t = 0;
+        int counter=0;
+
+
+        for (int j = 0; j < vetor.length; j++) {
+
+            if (vetor[j] != 0) {
+
+                System.out.printf("(%d ; %.2f)\n", t, vetor[j]);
+                t++;
+                counter++;
+
+            }
+
+        }
+
+        if(counter!=k+1) System.out.printf("\nA população extingiu-se a partir da %dª geração.\n",counter);
+
+        System.out.println();
+
+    }
 
     public static void apresentarDistribuição(double[][] Distribuição) {
 
