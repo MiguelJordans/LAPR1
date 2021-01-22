@@ -121,7 +121,6 @@ public class Distribuição {
                 }
 
                 if(dimensão==0){
-
                     produto=Ler.resetarVetor(produto);
                     vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
                     taxa = 0;

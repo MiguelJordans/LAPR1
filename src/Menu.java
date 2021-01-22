@@ -8,6 +8,14 @@ public class Menu {
 
         boolean choice = true;
         int flag = 0;
+        int t = 0;
+        double D;
+        double[][] matriz=null;
+
+        if (f == 0) {
+             matriz = NaoInterativo.lerMatriz(nomefich);
+             double[] nIndividuos = NaoInterativo.lerDistribPop(nomefich);
+        }
 
         while (choice) {
 
@@ -26,14 +34,12 @@ public class Menu {
 
             double[] taxaS = new double[199];
             double[] taxaF = new double[199];
-            double[] nIndividuos = new double[199];
-            double[][] matriz = new double[199][199];
-            int t;
-            double D;
-            if (f == 0) {
-                nIndividuos = NaoInterativo.lerDistribPop(nomefich);
-                matriz = NaoInterativo.lerMatriz(nomefich);
-            } else {
+            double[] nIndividuos =new double[199];
+
+            if (f != 0) {
+
+                t = 0;
+
 
                 if (flag == 0) {
 
@@ -47,26 +53,24 @@ public class Menu {
 
                 }
 
-
                 int geracao = Ler.leslie(nIndividuos, taxaF, taxaS);
-            }
 
+                matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
+
+                nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
+
+
+            }
 
             System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
             t = read.nextInt();
             System.out.println();
 
-            if (f == 1) {
-                matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, matriz.length);
-
-                nIndividuos = Ler.limpaVetor(nIndividuos, matriz.length);
-            }
 
             System.out.printf(text);
 
 
             D = read.nextDouble();
-
 
             boolean check = true;
             int counter2 = 0;
@@ -89,6 +93,7 @@ public class Menu {
                         choice = false;
                         Flag++;
                         break;
+
                     case 1:
                         counter++;
                         choice = true;
@@ -217,7 +222,7 @@ public class Menu {
                     case 14:
                         counter = 0;
                         //Aqui aplica-se a classe respetiva dos gráficos
-                        GnuPlot.main(nomefich);
+                        GnuPlot.main(null);
                         System.out.printf(text);
                         break;
 
