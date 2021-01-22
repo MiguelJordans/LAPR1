@@ -7,6 +7,7 @@ public class Ler {
 
     public static double[][] criaMatriz(double[] nIndividuos, double[] taxaS, double[] taxaF, int geracao) {
 
+
         nIndividuos = limpaVetor(nIndividuos, geracao);
         taxaS = limpaVetor(taxaS, (geracao - 1));
         taxaF = limpaVetor(taxaF, geracao);
@@ -40,27 +41,28 @@ public class Ler {
     }
 
 
+    public static int leslie(double[] nIndividuos, double[] taxaF, double[] taxaS) {
 
-    public static int leslie(double[] nIndividuos,double[]taxaF,double[]taxaS){
-
-        int geracao=0;
+        int geracao = 0;
         boolean acabou = false;
+        double[] ler = new double[nIndividuos.length];
 
         while (!acabou) {
 
             String acabar = "";
 
 
-            System.out.printf("\nNúmero de indivíduos da %dª geração\n\n",geracao+1);
-            nIndividuos[geracao] = read.nextInt(); //Depois fazer uma redundância , ou seja caso escrevam 320,1 indivíduos transformar o 320,1 em 320
+            System.out.printf("\nNúmero de indivíduos da %dª geração\n\n", geracao + 1);
+            ler[geracao] = read.nextDouble(); //Se quiserem podemos tirar esta redundância que fiz
+            nIndividuos[geracao] = (int) ler[geracao];
 
 
-            System.out.printf("\nTaxa de fecundidade da %dª geração\n",geracao+1);
+            System.out.printf("\nTaxa de fecundidade da %dª geração\n", geracao + 1);
             System.out.println();
             taxaF[geracao] = read.nextDouble();
 
 
-            System.out.printf("\nTaxa de mortalidade da %dª geração ",geracao+1);
+            System.out.printf("\nTaxa de mortalidade da %dª geração ", geracao + 1);
             System.out.print("(Se for ultima geração este valor não vai ser lido, por isso pode deixar a 0)\n");
             System.out.println();
             taxaS[geracao] = read.nextDouble();
@@ -81,7 +83,6 @@ public class Ler {
                 acabar = read.nextLine();
 
                 if (acabar.equals("N")) {
-
                     acabou = true;
 
                 } else if (acabar.equals("S")) {
@@ -98,26 +99,28 @@ public class Ler {
         return geracao;
     }
 
-    public static double[] resetarVetor(double[]Vetor) {
+    public static double[] resetarVetor(double[] Vetor) {
 
         double[] vetorReset = new double[Vetor.length];
 
-        for(int i=0;i< vetorReset.length;i++){
-            Vetor[i]=0;
-            vetorReset[i]=Vetor[i];
+        for (int i = 0; i < vetorReset.length; i++) {
+            Vetor[i] = 0;
+            vetorReset[i] = Vetor[i];
         }
 
         return vetorReset;
 
     }
 
-    public static double resetarTaxa(double taxa) {
 
-        taxa=0;
+    public static double[] resetarTaxa(double[] guardaTaxa, double[] guardaDimensao) {
 
-        return taxa;
+        for (int i = 0; i < guardaTaxa.length; i++) {
+            if (guardaDimensao[i] == 0) {
+                guardaTaxa[i] = 0;
+            }
+        }
 
+        return guardaTaxa;
     }
-
-
 }
