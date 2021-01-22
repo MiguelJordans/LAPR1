@@ -181,6 +181,8 @@ public class Menu {
                                 P = false;
 
                             } else if (A.equals("S")) {
+                                System.out.println("Qual o nome do ficheiro?");
+                                nomefich=read.nextLine();
 
                                 P = true;
 
@@ -191,6 +193,9 @@ public class Menu {
                         if (P){
                             //Introduzir a função para ler os dados a partir do ficheiro!
                             CLS.clearScreen();
+                            nIndividuos = NaoInterativo.lerDistribPop(nomefich);
+                            matriz = NaoInterativo.lerMatriz(nomefich);
+
                             if(counter2!=0){
                                 System.out.println("Novos dados alocados");
                                 System.out.printf(text);

@@ -371,13 +371,3 @@ public class Distribuição {
     }
 
 }
- /*                 System.out.println("Distruibuição não Normalizada:");
-                    for(int I=0;I<produto.length;I++){
-                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
-                    }
-
-                    System.out.println("\nDistribuição Normalizada:");
-                    for(int I=0;I<vetorNormalizado.length;I++){
-                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
-                        System.out.println("%");
-                    }*/

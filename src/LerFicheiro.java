@@ -80,11 +80,6 @@ public class  LerFicheiro {
         ImprimirMatriz(matrixLeslie);
 
         //MODO INTERATIVO
-        if (interativo == true) {
-
-            Scanner ler = new Scanner(System.in);
-
-        }
     }
 
     public static double[] lerDistribPop(String file) {
