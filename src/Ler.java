@@ -83,6 +83,7 @@ public class Ler {
                 acabar = read.nextLine();
 
                 if (acabar.equals("N")) {
+
                     acabou = true;
 
                 } else if (acabar.equals("S")) {
@@ -96,7 +97,9 @@ public class Ler {
             geracao++;
 
         }
+
         return geracao;
+
     }
 
     public static double[] resetarVetor(double[] Vetor) {
@@ -112,15 +115,4 @@ public class Ler {
 
     }
 
-
-    public static double[] resetarTaxa(double[] guardaTaxa, double[] guardaDimensao) {
-
-        for (int i = 0; i < guardaTaxa.length; i++) {
-            if (guardaDimensao[i] == 0) {
-                guardaTaxa[i] = 0;
-            }
-        }
-
-        return guardaTaxa;
-    }
 }
