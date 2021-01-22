@@ -15,14 +15,12 @@ public class Main {
         int f=1;
 
 
-
+        if(args[1].equals("-n")){
+            nomeFicheiro = args[2];
+            f=0;
+        }
 
         if (args.length != 0) {
-
-            if(args[1].equals("-n")){
-                nomeFicheiro = args[2];
-                f=0;
-            }
 
             NaoInterativo.main(args);
 
