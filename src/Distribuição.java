@@ -1,5 +1,3 @@
-
-
 public class Distribuição {
 
     public static void ApresentarDist(double[][] matriz, int k, double[] X,int l) {
@@ -22,14 +20,16 @@ public class Distribuição {
 
 
         if(P==0){
+
             System.out.printf("\n*****************************************\n");
             System.out.println();
+
         }
 
 
         while (t <= k) {
 
-            if(P==0 && t < k) System.out.printf("Para a %dª geração:\n\n", t+1);
+            if(P==0 && t <= k) System.out.printf("Para a %dª geração:\n\n", t+1);
 
             if (t > 1) {
 
@@ -68,8 +68,11 @@ public class Distribuição {
                 }
 
                 if(dimensão==0){
+
+                    produto=Ler.resetarVetor(produto);
                     vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
                     taxa = 0;
+
                 }
 
                 t++;
@@ -117,6 +120,14 @@ public class Distribuição {
 
                 }
 
+                if(dimensão==0){
+
+                    produto=Ler.resetarVetor(produto);
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = 0;
+
+                }
+
                 t++;
 
                 guardarDimensão(guardaDimensão, dimensão, i);
@@ -161,9 +172,11 @@ public class Distribuição {
                 }
 
                 if(dimensão==0){
+
                     produto=Ler.resetarVetor(produto);
                     vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
                     taxa = 0;
+
                 }
 
                 t++;
@@ -173,8 +186,6 @@ public class Distribuição {
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
                 guardarTaxa(guardaTaxa,taxa,i);
                 i++;
-
-
 
             }
 
@@ -197,13 +208,9 @@ public class Distribuição {
         if(P==0){
 
             Vectores.vetores(matriz,P);
-
             crescimento(guardaTaxa);
-
             População(guardaDimensão,k);
-
             distribuiçãoNãoNormalizada(E);
-
             distribuiçãoNormalizada(D);
 
         }
@@ -211,19 +218,30 @@ public class Distribuição {
         switch(P){
 
             case 6:
+
                 distribuiçãoNormalizada(D);
+
                 System.out.println();
                 break;
+
             case 7:
+
                 distribuiçãoNãoNormalizada(E);
+
                 System.out.println();
                 break;
+
             case 8:
+
                 População(guardaDimensão,k);
+
                 System.out.println();
                 break;
+
             case 10:
+
                 crescimento(guardaTaxa);
+
                 System.out.println();
                 break;
 
@@ -371,3 +389,14 @@ public class Distribuição {
     }
 
 }
+
+ /*                 System.out.println("Distruibuição não Normalizada:");
+                    for(int I=0;I<produto.length;I++){
+                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
+                    }
+
+                    System.out.println("\nDistribuição Normalizada:");
+                    for(int I=0;I<vetorNormalizado.length;I++){
+                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
+                        System.out.println("%");
+                    }*/

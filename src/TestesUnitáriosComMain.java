@@ -1,6 +1,6 @@
-public class testesUnitarios {
+public class TestesUnitáriosComMain {
 
-    public static void testes() {
+    public static void main(String[] args) {
 
         //caso 1
         double[][] matrizPCasoM = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -150,47 +150,17 @@ public class testesUnitarios {
         //caso 1
         double[][] matrizPCasoVeP = {{0, 3.5, 1.5, 0.39}, {0.4, 0, 0, 0}, {0, 0.6, 0, 0}, {0, 0, 0.5, 0}};
         double resultadoPCasoVeP = 1.31;
-        int l1 = 4;
+        int l1 = 4;  //????
 
         //caso 2
         double[][] matrizSCasoVeP = {{0, 3, 3.17, 0.39}, {0.11, 0, 0, 0}, {0, 0.29, 0, 0}, {0, 0, 0.33, 0}};
         double resultadoSCasoVeP = 0.70;
-        int l2 = 4;
+        int l2 = 4; //????
 
         //caso 3
         double[][] matrizTCasoVeP = {{0, 20, 40, 79, 10}, {0.4, 0, 0, 0, 0}, {0, 0.6, 0, 0, 0}, {0, 0, 0.9, 0, 0}, {0, 0, 0, 0.1, 0}};
         double resultadoTCasoVeP = 3.49;
-        int l3 = 5;
-
-
-        System.out.println("==========================================================");
-        System.out.printf("\n1º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizPCasoVeP,l1,resultadoPCasoVeP) ? "Certo" : "ERRO");
-
-        System.out.printf("\n2º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizSCasoVeP,l2,resultadoSCasoVeP) ? "Certo" : "ERRO");
-
-        System.out.printf("\n3º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizTCasoVeP,l3,resultadoTCasoVeP) ? "Certo" : "ERRO");
-        System.out.println();
-
-        //caso 1
-        double[][] vetorPVPN = {{0, 3.5, 1.5, 0.39}, {0.4, 0, 0, 0}, {0, 0.6, 0, 0}, {0, 0, 0.5, 0}};
-        double resultadoPCasoVPN = 1.31;
-        int L1 = 4;
-
-        //caso 2
-        double[][] vetorSVPN = {{0, 3, 3.17, 0.39}, {0.11, 0, 0, 0}, {0, 0.29, 0, 0}, {0, 0, 0.33, 0}};
-        double resultadoSCasoVPN = 0.70;
-        int L2 = 4;
-
-        //caso 3
-        double[][] vetorTVPN = {{0, 20, 40, 79, 10}, {0.4, 0, 0, 0, 0}, {0, 0.6, 0, 0, 0}, {0, 0, 0.9, 0, 0}, {0, 0, 0, 0.1, 0}};
-        double resultadoTCasoVPN = 3.49;
-        int L3 = 5;
+        int l3 = 5; //?????
 
 
         System.out.println("==========================================================");

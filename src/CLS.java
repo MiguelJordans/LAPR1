@@ -19,7 +19,7 @@ public class CLS {
             System.out.println();
         }
 
-        //tentei procurar no stackoverflow durant muito tempo mas cheguei à conclusão que este é o melhor plano que temos
+        //tentei procurar no stackoverflow durante muito tempo mas cheguei à conclusão que este é o melhor plano que temos
 
     }
 }

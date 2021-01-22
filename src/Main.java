@@ -21,14 +21,14 @@ public class Main {
         }*/
 
 
-
-
         if (args.length != 0) {
 
             if(args[1].equals("-n")){
+
                 nomeFicheiro = args[2];
                 f=0;
             }
+
 
             NaoInterativo.main(args);
 
