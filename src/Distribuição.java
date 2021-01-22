@@ -29,7 +29,7 @@ public class Distribuição {
 
         while (t <= k) {
 
-            if(P==0 && t <=k) System.out.printf("Para a %dª geração:\n\n", t+1);
+            if(P==0 && t <k) System.out.printf("Para a %dª geração:\n\n", t+1);
 
             if (t > 1) {
 
