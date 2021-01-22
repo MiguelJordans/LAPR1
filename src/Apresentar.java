@@ -41,6 +41,8 @@ public class Apresentar {
     public static void apresentarTaxaOUDimensão(double[] vetor) {
 
         int t = 0;
+        int counter=0;
+
 
         for (int j = 0; j < vetor.length; j++) {
 
@@ -57,6 +59,29 @@ public class Apresentar {
 
     }
 
+    public static void apresentarDimensão(double[]vetor,int k){
+
+        int t = 0;
+        int counter=0;
+
+
+        for (int j = 0; j < vetor.length; j++) {
+
+            if (vetor[j] != 0) {
+
+                System.out.printf("(%d ; %.2f)\n", t, vetor[j]);
+                t++;
+                counter++;
+
+            }
+
+        }
+
+        if(counter!=k+1) System.out.printf("\nA população extingiu-se a partir da %dª geração.\n",counter);
+
+        System.out.println();
+
+    }
 
     public static void apresentarDistribuição(double[][] Distribuição) {
 
@@ -98,6 +123,86 @@ public class Apresentar {
             }
 
         return igual;
+
+    }
+    public static void apresentarVetorFicheiro(double[] vetor) {
+        String fichSaida = "c:\temp\teste1.txt";
+        for (int j = 0; j < vetor.length; j++) {
+
+            if (j == vetor.length) {
+                String aux = "";
+              aux = "%.2f)"+Double.toString(vetor[j]);
+                Grava.UpdateFicheiro(fichSaida,aux );
+            }
+
+            else if (j == 0) {
+                String aux = "";
+                aux = "(%.2f"+Double.toString(vetor[j]);
+                Grava.UpdateFicheiro(fichSaida, aux);
+            }
+            else{
+                String aux = "";
+                aux = ";%.2f"+Double.toString(vetor[j]);
+                Grava.UpdateFicheiro(fichSaida, aux);
+            }
+
+        }
+
+        Grava.UpdateFicheiro(fichSaida,")");
+
+        Grava.UpdateFicheiro(fichSaida,"\n");;
+
+        Grava.UpdateFicheiro(fichSaida,"\n");;
+
+    }
+
+    public static void apresentarTaxaOUDimensãoFicheiro(double[] vetor) {
+        String fichSaida = "c:\temp\teste1.txt";
+        int t = 0;
+        String aux= "";
+
+        for (int j = 0; j < vetor.length; j++) {
+
+            if (vetor[j] != 0) {
+        aux = "(%d ; %.2f)" + t + Double.toString(vetor[j]);
+                Grava.UpdateFicheiro(fichSaida,aux);
+                t++;
+
+            }
+
+        }
+
+        Grava.UpdateFicheiro(fichSaida,"\n");;
+
+    }
+    public static void apresentarDistribuiçãoFicheiro(double[][] Distribuição) {
+        String fichSaida = "c:\temp\teste1.txt";
+        int t = 0;
+        int count2 = 0;
+        String aux = "";
+        for (int i = 0; i < Distribuição.length; i++) {
+
+            for (int j = 0; j < Distribuição[i].length; j++) {
+
+                if (Distribuição[i].length > 0 && Distribuição[i][j] != 0) {
+
+                    if (j == 0) {
+                         aux = "(%d ; %.2f "+ t + Double.toString(Distribuição[i][j]);
+                        Grava.UpdateFicheiro(fichSaida,aux);
+                        t++;
+
+                    } else{
+                        aux = "; %.2f "+ Double.toString(Distribuição[i][j]);
+                        Grava.UpdateFicheiro(fichSaida,aux);
+                    }
+
+                }
+            }
+            if(Distribuição[i][0]!=0){
+
+                Grava.UpdateFicheiro(fichSaida,")\n");;
+            }
+        }
 
     }
 

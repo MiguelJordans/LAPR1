@@ -285,7 +285,7 @@ public class testesUnitarios {
 
     public static boolean test_taxaVariacao(double[] produto,double[] produto1, double resultadoEsperado) {
 
-        double aux = Distribuição.taxaVariacao(produto, produto1);
+        double aux = Distribuição.taxaVariacao(produto, produto1,10);
 
         double resultado = Math.round(aux * 10000.0) / 10000.0;
 

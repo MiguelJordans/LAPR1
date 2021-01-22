@@ -4,11 +4,10 @@ public class Menu {
 
     static Scanner read = new Scanner(System.in);
 
-    public static void Menu(boolean fich, String nomefich, int f) {
+    public static void Menu(String nomefich, int f){
 
         boolean choice = true;
-        int flag = 0;
-
+        int flag=0;
 
         while (choice) {
 
@@ -30,8 +29,6 @@ public class Menu {
             double[] nIndividuos = new double[199];
             int t;
             double D;
-
-
 
 
                 if (flag == 0) {
@@ -63,140 +60,156 @@ public class Menu {
 
                 D = read.nextDouble();
                 boolean check = true;
-                String A = ""; //Para fazer o case 14
-
                 int counter2 = 0;
                 int Flag = 0;
                 int l = 0;
                 int counter = 0;
 
 
-                Distribuição.ApresentarDist(matriz, t, nIndividuos, 100);
 
+            while(check){ //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez
 
+                int Y=(int)D;
 
-            while (check) { //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez
+                if(Y==0||Y==1) check=false;
 
-                int Y = (int) D;
-
-                if (Y == 0 || Y == 1) check = false;
-                if (counter2 != 0) {
-                    System.out.println("Novos dados alocados");
-                    System.out.printf(text);
-                }
-
-                switch (Y) {
+                switch (Y){
                     case 0:
                         counter++;
-                        choice = false;
+                        choice=false;
                         Flag++;
                         break;
 
                     case 1:
                         counter++;
-                        choice = true;
+                        choice=true;
                         Flag++;
                         break;
 
-                    case 2:
+                    case  2:
                         counter++;
                         System.out.printf("\nMatriz de Leslie\n");
                         Apresentar.apresentarMatriz(matriz);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 3:
                         counter++;
-                        System.out.printf("\nk=%d\n\n", t);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        System.out.printf("\nk=%d\n\n",t);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 4:
-                        counter = 0;
-                        l = 0;
-                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
+                        counter=0;
+                        l=0;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
                         System.out.printf(text);
                         break;
 
                     case 5:
-                        counter = 0;
+                        counter=0;
                         //Colocar aqui a classe para guardar as informações num ficheiro
-                        DistribuiçãoUpdateFicheiro.ApresentarDist(matriz, t, nIndividuos, l);
+                        DistribuiçãoUpdateFicheiro.ApresentarDist(matriz,t,nIndividuos,l);
                         System.out.printf(text);
                         break;
 
                     case 6:
                         counter++;
-                        l = 6;
-                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=6;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 7:
                         counter++;
-                        l = 7;
-                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=7;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 8:
                         counter++;
-                        l = 8;
-                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=8;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 9:
                         counter++;
-                        l = 9;
-                        Vectores.vetores(matriz, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=9;
+                        Vectores.vetores(matriz,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 10:
                         counter++;
-                        l = 10;
-                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=10;
+                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 11:
                         counter++;
-                        l = 11;
-                        Vectores.vetores(matriz, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=11;
+                        Vectores.vetores(matriz,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 12:
                         counter++;
-                        l = 12;
-                        Vectores.vetores(matriz, l);
-                        if (counter < 5) System.out.printf("\nComando>");
+                        l=12;
+                        Vectores.vetores(matriz,l);
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                     case 13:
-                        counter++;
 
+                        String A="";
+                        counter=0;
                         counter2++;
-                        System.out.printf("\nDe certeza que pretende ler os dados (introduzidos previamente ) de um ficheiro? Caso o faço todos os dados previamente guardados serão apagados\n\n");
+                        boolean P=false;
 
-                        A = read.nextLine();
-                        read.nextLine(); //meter isto a funcionar depois
+                        System.out.printf("\nDeseja  introduzir dados a partir de um ficheiro?(S/N)\n\n");
 
-                        CLS.clearScreen();
-                        // if(A) // Aqui metem a função para apagar os dados previamente colocados e guardar novos dados do ficheiro não interavito
-                        if (counter < 5) System.out.printf("\nComando>");
-                        break;
+                        while (!A.equals("S") && !A.equals("N")) {
+
+                            A = read.nextLine();
+
+                            if (A.equals("N")) {
+                                P = false;
+
+                            } else if (A.equals("S")) {
+
+                                P = true;
+
+                            }
+
+                        }
+
+                        if (P){
+                            //Introduzir a função para ler os dados a partir do ficheiro!
+                            CLS.clearScreen();
+                            if(counter2!=0){
+                                System.out.println("Novos dados alocados");
+                                System.out.printf(text);
+                                counter2=0;
+                            }
+                            break;
+                        }
+                         else {
+                            if(counter<5)  System.out.printf("\nComando>");
+                             break;
+                        }
 
                     case 14:
-                        counter = 0;
+                        counter=0;
                         //Aqui aplica-se a classe respetiva dos gráficos
                         GnuPlot.main(null);
                         System.out.printf(text);
                         break;
 
                     case 15:
-                        counter = 0;
+                        counter=0;
                         //Classe para os testes unitários
                         testesUnitarios.testes();
                         System.out.printf(text);
@@ -210,29 +223,49 @@ public class Menu {
 
                     case 17:
                         counter++;
-                        l = 1;
-                        Vectores.vetores(matriz, l);
-                        if (counter < 5) System.out.printf("\nComando>");
-                        break;
+                        l=1;
+                       Vectores.vetores(matriz,l);
+                        if(counter<5)  System.out.printf("\nComando>");
+                       break;
 
 
                     default:
                         System.out.println("Porfavor introduza um valor válido");
-                        if (counter < 5) System.out.printf("\nComando>");
+                        if(counter<5)  System.out.printf("\nComando>");
                         break;
 
                 }
 
-                if (counter == 5) {
+                if(counter==5){
                     System.out.printf(text);
-                    counter = 0;
+                    counter=0;
 
                 }
 
-                if (Flag == 0) D = read.nextDouble();
+               if(Flag==0)D=read.nextDouble();
 
             }
         }
     }
+    /*
+     while (!choi.equals("S") && !choi.equals("N")||!choi.equals("s") && !choi.equals("n")) {
+
+                System.out.printf("Deseja voltar a introduzir dados?(S/N)\n\n");
+                choi = read.nextLine();
+
+                if (choi.equals("S")||choi.equals("s")) {
+
+                    choice = true;
+
+                } else if (choi.equals("N")||choi.equals("n")) {
+
+                    choice = false;
+
+                }
+
+                else System.out.println("Porfavor introduza uma opção válida");
+
+            }
+     */
 
 }
