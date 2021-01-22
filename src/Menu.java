@@ -59,12 +59,14 @@ public class Menu {
 
 
                 D = read.nextDouble();
+
                 boolean check = true;
                 int counter2 = 0;
                 int Flag = 0;
                 int l = 0;
                 int counter = 0;
 
+                Distribuição.ApresentarDist(matriz,t,nIndividuos,100);
 
 
             while(check){ //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez

@@ -213,8 +213,14 @@ public class Distribuição {
 
         }
 
-        //guardaDimensão=Ler.limpaVetor(guardaDimensão,k+1);
-       // guardaTaxa=Ler.limpaVetor(guardaTaxa,k+1);
+        if (P==100){
+
+            Grava.graficototal(k,guardaDimensão);
+            Grava.graficovariacao(k,guardaTaxa);
+            Grava.graficonormalizada(k,D,X.length);
+            Grava.graficoNaoNormalizada(k,E,X.length);
+
+        }
 
         if(P==0){
 
