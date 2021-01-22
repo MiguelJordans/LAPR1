@@ -12,13 +12,7 @@ public class GnuPlot {
 
     static Scanner read = new Scanner(System.in);
 
-    public static void main(String[] args) {
-
-
-
-
-
-
+    public static void main(String nomefich) {
 
 
         String opc;
@@ -32,19 +26,19 @@ public class GnuPlot {
             esc = read.nextByte();
             switch (esc) {
                 case 1:
-                    EscolhaGrafico("total", "total_tmp");
+                    EscolhaGrafico("total", "total_tmp",nomefich);
 
                     break;
                 case 2:
-                    EscolhaGrafico("variacao", "variacao_tmp");
+                    EscolhaGrafico("variacao", "variacao_tmp",nomefich);
 
                     break;
                 case 3:
-                    EscolhaGrafico("nao_normalizada", "nao_normalizada_tmp");
+                    EscolhaGrafico("nao_normalizada", "nao_normalizada_tmp",nomefich);
 
                     break;
                 case 4:
-                    EscolhaGrafico("normalizada", "normalizada_tmp");
+                    EscolhaGrafico("normalizada", "normalizada_tmp",nomefich);
                     break;
             }
             System.out.println("Deseja visualizar outro gráfico?(S/N)");
@@ -53,7 +47,7 @@ public class GnuPlot {
     }
 
 
-    public static void EscolhaGrafico(String ficheiro, String nometmp) {
+    public static void EscolhaGrafico(String ficheiro, String nometmp,String nomefich) {
         MostraGrafico(ficheiro);
 
         String choice = "";
@@ -66,7 +60,7 @@ public class GnuPlot {
             choice = read.nextLine();
             if (choice.equals("S")) {
 
-                CriaGrafico(ficheiro, EscolhaFormato(), nometmp);
+                CriaGrafico(ficheiro, EscolhaFormato(), nometmp,nomefich);
 
 
             } else if (choice.equals("N")) {
@@ -107,7 +101,7 @@ public class GnuPlot {
     public static void MostraGrafico(String ficheiro) {
         String[] location = new String[2];
 //      localização do programa
-        location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
+        location[0] = "gnuplot";
 //      localização do gnuplot
 
         location[1] = "GnuPlot\\" + "mostra_" + ficheiro + ".gp";
@@ -126,30 +120,29 @@ public class GnuPlot {
 
     }
 
-    public static void CriaGrafico(String ficheiro, String formato, String nometmp) {
+    public static void CriaGrafico(String ficheiro, String formato, String nometmp,String nomefich) {
         String[] location = new String[2];
-//        localização do programa
-        location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
-//      localização do gnuplot
-
+//       programa
+        location[0] = "gnuplot";
+//      define o script
         location[1] = "GnuPlot\\" + "cria_" + ficheiro + "_" + formato + ".gp";
 
         try {
 
             Runtime.getRuntime().exec(location);
 
-                System.out.println("criado");
+            System.out.println("criado");
 
 
         } catch (IOException e) {
 
-                System.out.println("Algo está errado");
+            System.out.println("Algo está errado");
 
             e.printStackTrace();
 
         }
         try {
-            MudaNomeFicheiro(ficheiro, nometmp, formato);
+            MudaNomeFicheiro(ficheiro, nometmp, formato,nomefich);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -167,11 +160,10 @@ public class GnuPlot {
     }
 
 
-    public static void MudaNomeFicheiro(String nome, String nomepng, String formato) throws InterruptedException {
+    public static void MudaNomeFicheiro(String nome, String nomepng, String formato,String nomefich) throws InterruptedException {
 
         File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
         System.out.println("A criar o ficheiro ...");
-        System.out.println(ficheiro);
 
         while (!ficheiro.exists()) {
             while (!ficheiro.canRead()) {
@@ -179,18 +171,18 @@ public class GnuPlot {
             }
         }
 
-        Thread.sleep(20);
+        Thread.sleep(50);
 
 
         try {
 
 
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\" + nomepng + "." + formato);
-            Path newname = FileSystems.getDefault().getPath(nome + "_" + ObtemData() + "." + formato);
+            Path newname = FileSystems.getDefault().getPath( nomefich+"_"+nome + "_" + ObtemData() + "." + formato);
 
 
             Files.move(oldname, oldname.resolveSibling(newname));
-            Path path = FileSystems.getDefault().getPath("Gnuplot\\" + nome + "_" + ObtemData() + "." + formato);
+            Path path = FileSystems.getDefault().getPath("Gnuplot\\"+ nomefich+"_"+nome + "_" + ObtemData() + "." + formato);
 
             Path newdir = FileSystems.getDefault().getPath("Output");
 

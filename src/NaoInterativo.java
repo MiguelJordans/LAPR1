@@ -213,7 +213,7 @@ public class NaoInterativo {
     public static void CriaGrafico(String ficheiro, String formato, String nometmp,String nomeEspecie) throws InterruptedException {
         String[] location = new String[2];
 //      localização do programa
-        location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
+        location[0] = "gnuplot";
 //      localização do gnuplot
 
         location[1] = "GnuPlot\\" + "cria_" + ficheiro + "_" + formato + ".gp";

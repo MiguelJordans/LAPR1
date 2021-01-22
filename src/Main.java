@@ -23,14 +23,17 @@ public class Main {
 
         if (args.length != 0) {
 
-            if(args[1].equals("-n")){
+            if(args[0].equals("-n")){
 
-                nomeFicheiro = args[2];
+                nomeFicheiro = args[1];
                 f=0;
+                System.out.println("a");
+                Menu.Menu(nomeFicheiro,f);
+            }else {
+
+
+                NaoInterativo.main(args);
             }
-
-
-            NaoInterativo.main(args);
 
         } else {
 

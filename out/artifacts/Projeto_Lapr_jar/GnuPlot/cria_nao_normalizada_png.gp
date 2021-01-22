@@ -1,7 +1,7 @@
 set term png
 set output "Gnuplot/nao_normalizada_tmp.png"
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geracao"
 set ylabel "Numero Femeas"
 

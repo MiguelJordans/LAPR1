@@ -25,7 +25,6 @@ public class Welcome {
                 + "    BBBBBBBBBBBBBBBBB         eeeeeeeeeeeeee    mmmmmm   mmmmmm   mmmmmm                 VVV                 iiiiiiii    nnnnnn    nnnnnn    ddddddddd   ddddd    ooooooooooo          \n "
                 + "\n=====================================================================================================================================================================================\n";
 
-
         System.out.println();
         System.out.println();
         System.out.printf(Welcome);

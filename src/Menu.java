@@ -4,10 +4,10 @@ public class Menu {
 
     static Scanner read = new Scanner(System.in);
 
-    public static void Menu(String nomefich, int f){
+    public static void Menu(String nomefich, int f) {
 
         boolean choice = true;
-        int flag=0;
+        int flag = 0;
 
         while (choice) {
 
@@ -27,9 +27,13 @@ public class Menu {
             double[] taxaS = new double[199];
             double[] taxaF = new double[199];
             double[] nIndividuos = new double[199];
+            double[][] matriz = new double[199][199];
             int t;
             double D;
-
+            if (f == 0) {
+                nIndividuos = NaoInterativo.lerDistribPop(nomefich);
+                matriz = NaoInterativo.lerMatriz(nomefich);
+            } else {
 
                 if (flag == 0) {
 
@@ -43,133 +47,136 @@ public class Menu {
 
                 }
 
+
                 int geracao = Ler.leslie(nIndividuos, taxaF, taxaS);
+            }
 
 
-                System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
-                t = read.nextInt();
-                System.out.println();
+            System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
+            t = read.nextInt();
+            System.out.println();
+
+            if (f == 1) {
+                matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, matriz.length);
+
+                nIndividuos = Ler.limpaVetor(nIndividuos, matriz.length);
+            }
+
+            System.out.printf(text);
 
 
-                double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
-
-                nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
-
-                System.out.printf(text);
+            D = read.nextDouble();
 
 
-                D = read.nextDouble();
+            boolean check = true;
+            int counter2 = 0;
+            int Flag = 0;
+            int l = 0;
+            int counter = 0;
 
-                boolean check = true;
-                int counter2 = 0;
-                int Flag = 0;
-                int l = 0;
-                int counter = 0;
-
-                Distribuição.ApresentarDist(matriz,t,nIndividuos,100);
+            Distribuição.ApresentarDist(matriz, t, nIndividuos, 100);
 
 
-            while(check){
+            while (check) {
 
-                int Y=(int)D;
+                int Y = (int) D;
 
-                if(Y==0||Y==1) check=false;
+                if (Y == 0 || Y == 1) check = false;
 
-                switch (Y){
+                switch (Y) {
                     case 0:
                         counter++;
-                        choice=false;
+                        choice = false;
                         Flag++;
                         break;
-
                     case 1:
                         counter++;
-                        choice=true;
+                        choice = true;
                         Flag++;
                         break;
 
-                    case  2:
+                    case 2:
                         counter++;
                         System.out.printf("\nMatriz de Leslie\n");
                         Apresentar.apresentarMatriz(matriz);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 3:
                         counter++;
-                        System.out.printf("\nk=%d\n\n",t);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        System.out.printf("\nk=%d\n\n", t);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 4:
-                        counter=0;
-                        l=0;
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
+                        counter = 0;
+                        l = 0;
+                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
                         System.out.printf(text);
                         break;
 
                     case 5:
-                        counter=0;
+                        counter = 0;
                         //Colocar aqui a classe para guardar as informações num ficheiro
-                        DistribuiçãoUpdateFicheiro.ApresentarDist(matriz,t,nIndividuos,l);
+                        DistribuiçãoUpdateFicheiro.ApresentarDist(matriz, t, nIndividuos, l);
                         System.out.printf(text);
                         break;
 
                     case 6:
                         counter++;
-                        l=6;
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 6;
+                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 7:
                         counter++;
-                        l=7;
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 7;
+                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 8:
                         counter++;
-                        l=8;
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 8;
+                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 9:
                         counter++;
-                        l=9;
-                        Vectores.vetores(matriz,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 9;
+                        Vectores.vetores(matriz, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 10:
                         counter++;
-                        l=10;
-                        Distribuição.ApresentarDist(matriz,t,nIndividuos,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 10;
+                        Distribuição.ApresentarDist(matriz, t, nIndividuos, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 11:
                         counter++;
-                        l=11;
-                        Vectores.vetores(matriz,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 11;
+                        Vectores.vetores(matriz, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 12:
                         counter++;
-                        l=12;
-                        Vectores.vetores(matriz,l);
-                        if(counter<5)  System.out.printf("\nComando>");
+                        l = 12;
+                        Vectores.vetores(matriz, l);
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                     case 13:
 
-                        String A="";
-                        counter=0;
+                        String A = "";
+                        counter = 0;
                         counter2++;
-                        boolean P=false;
+                        boolean P = false;
 
                         System.out.printf("\nDeseja  introduzir dados a partir de um ficheiro?(S/N)\n\n");
 
@@ -182,7 +189,7 @@ public class Menu {
 
                             } else if (A.equals("S")) {
                                 System.out.println("Qual o nome do ficheiro?");
-                                nomefich=read.nextLine();
+                                nomefich = read.nextLine();
 
                                 P = true;
 
@@ -190,33 +197,32 @@ public class Menu {
 
                         }
 
-                        if (P){
+                        if (P) {
                             //Introduzir a função para ler os dados a partir do ficheiro!
                             CLS.clearScreen();
                             nIndividuos = NaoInterativo.lerDistribPop(nomefich);
                             matriz = NaoInterativo.lerMatriz(nomefich);
 
-                            if(counter2!=0){
+                            if (counter2 != 0) {
                                 System.out.println("Novos dados alocados");
                                 System.out.printf(text);
-                                counter2=0;
+                                counter2 = 0;
                             }
                             break;
-                        }
-                         else {
-                            if(counter<5)  System.out.printf("\nComando>");
-                             break;
+                        } else {
+                            if (counter < 5) System.out.printf("\nComando>");
+                            break;
                         }
 
                     case 14:
-                        counter=0;
+                        counter = 0;
                         //Aqui aplica-se a classe respetiva dos gráficos
-                        GnuPlot.main(null);
+                        GnuPlot.main(nomefich);
                         System.out.printf(text);
                         break;
 
                     case 15:
-                        counter=0;
+                        counter = 0;
                         //Classe para os testes unitários
                         testesUnitarios.testes();
                         System.out.printf(text);
@@ -230,27 +236,27 @@ public class Menu {
 
                     case 17:
                         counter++;
-                        l=1;
-                       Vectores.vetores(matriz,l);
-                        if(counter<5)  System.out.printf("\nComando>");
-                       break;
+                        l = 1;
+                        Vectores.vetores(matriz, l);
+                        if (counter < 5) System.out.printf("\nComando>");
+                        break;
 
 
                     default:
                         System.out.println("Porfavor introduza um valor válido");
-                        if(counter<5)  System.out.printf("\nComando>");
+                        if (counter < 5) System.out.printf("\nComando>");
                         break;
 
                 }
 
-                if(counter==5){
+                if (counter == 5) {
 
                     System.out.printf(text);
-                    counter=0;
+                    counter = 0;
 
                 }
 
-               if(Flag==0)D=read.nextDouble();
+                if (Flag == 0) D = read.nextDouble();
 
             }
 

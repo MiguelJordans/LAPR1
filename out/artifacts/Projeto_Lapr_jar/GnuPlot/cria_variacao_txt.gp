@@ -2,7 +2,7 @@ set term dumb
 set output "Gnuplot/variacao_tmp.txt"
 
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geração"
 set ylabel "variacao"
 

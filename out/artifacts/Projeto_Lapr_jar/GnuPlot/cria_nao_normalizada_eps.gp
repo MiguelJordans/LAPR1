@@ -1,7 +1,7 @@
 set term postscript
 set output "Gnuplot/nao_normalizada_tmp.eps"
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geracao"
 set ylabel "Numero Femeas"
 
