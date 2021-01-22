@@ -88,56 +88,18 @@ public class NaoInterativo {
 
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
-        ImprimirMatriz(matrixLeslie);
 
-        System.out.println(varPopGeracoes);
-        System.out.println(nomeEspecie);
-        System.out.println(nomeFicheiro);
-        System.out.println(nomeFicheiroSaida);
-
-        for (int i=0; i < vectorDistribPop.length -1;i++ ){
-            System.out.println(vectorDistribPop[i]);
-        }
 
 
         DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,0,nomeFicheiroSaida,vecProprio,dimPopulacao,varPopGeracoes);
-/*
-        if (formatFicheiro.equals("png")){
-            System.out.println("entrei png");
-            CriaGrafico("cria_nao_normalizada_png.gp","png","nao_normalizada_tmp");
-            CriaGrafico("cria_normalizada_png.gp","png", "normalizada_tmp");
-            CriaGrafico("cria_total_png.gp","png", "total_tmp");
-            CriaGrafico("cria_variacao_png.gp","png", "variacao_tmp");
-
-        }else if (formatFicheiro.equals("txt")){
-            CriaGrafico("cria_nao_normalizada_txt.gp","txt","nao_normalizada_tmp");
-            CriaGrafico("cria_normalizada_txt.gp","txt", "normalizada_tmp");
-            CriaGrafico("cria_total_txt.gp","txt", "total_tmp");
-            CriaGrafico("cria_variacao_txt.gp","txt", "variacao_tmp");
-
-
-        }else if (formatFicheiro.equals("eps")){
-            CriaGrafico("cria_nao_normalizada_eps.gp","eps","nao_normalizada_tmp");
-            CriaGrafico("cria_normalizada_eps.gp","eps", "normalizada_tmp");
-            CriaGrafico("cria_total_eps.gp","eps", "total_tmp");
-            CriaGrafico("cria_variacao_eps.gp","eps", "variacao_tmp");
-
-
-
-        }
-
- */
-
-        ImprimirMatriz(matrixLeslie);
-
-
+        
+        CriaGrafico("cria_nao_normalizada_png","png","nao_normalizada_tmp");
 
     }
 
     public static double[] lerDistribPop(String file) {
 
         String stringX = "";
-        String charF = "";
         Scanner ficheiro = null;
         double distribPop[] = null;
         try {
@@ -267,11 +229,14 @@ public class NaoInterativo {
             e.printStackTrace();
 
         }
+
        try {
             MudaNomeFicheiro(ficheiro, nometmp, formato);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
 
 
 
@@ -314,19 +279,6 @@ public class NaoInterativo {
             e.printStackTrace();
         }
 
-    }
-
-    public static void ImprimirMatriz(double m[][]) {
-        int tamanhoMatriz = m.length;
-        for (int i = 0; i < tamanhoMatriz; i++) {
-
-            for (int j = 0; j < tamanhoMatriz; j++) {
-                System.out.print(m[i][j]);
-                System.out.print(" ");
-            }
-
-            System.out.println();
-        }
     }
 
     public static void Grava(int k, double[][] matrizLeslie,double[] total,double[] variacao,double[][] naonormalizada,double[][] normalizada,double valorproprio,double[] vetorprorio  ) {

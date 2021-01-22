@@ -1,11 +1,10 @@
-import java.io.*;
 import java.util.Scanner;
 
 public class Menu {
 
     static Scanner read = new Scanner(System.in);
 
-    public static void Menu(){
+    public static void Menu(String nomefich, int f){
 
         boolean choice = true;
         int flag=0;
@@ -31,21 +30,20 @@ public class Menu {
             int t;
             double D;
 
-            if(flag==0){
 
-                Welcome.Welcome();
-                flag++;
-                System.out.printf("Por favor introduza a matriz de Lelie:\n\n"); //Implementar uma função que consiga ler . tbm
+                if (flag == 0) {
 
-            }
+                    Welcome.Welcome();
+                    flag++;
+                    System.out.printf("Por favor introduza a matriz de Lelie:\n\n"); //Implementar uma função que consiga ler . tbm
 
-            else if(flag>0)  {
+                } else if (flag > 0) {
 
-                System.out.printf("\n\n\n\nPor favor introduza novamente a matriz de Lelie:\n\n");
+                    System.out.printf("\n\n\n\nPor favor introduza novamente a matriz de Lelie:\n\n");
 
-            }
+                }
 
-            int geracao =  Ler.leslie(nIndividuos,taxaF,taxaS);
+                int geracao = Ler.leslie(nIndividuos, taxaF, taxaS);
 
 
                 System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
@@ -53,19 +51,21 @@ public class Menu {
                 System.out.println();
 
 
-            double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
+                double[][] matriz = Ler.criaMatriz(nIndividuos, taxaS, taxaF, geracao);
 
-            nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
+                nIndividuos = Ler.limpaVetor(nIndividuos, geracao);
 
-            System.out.printf(text);
+                System.out.printf(text);
 
 
-            D=read.nextDouble();
-            boolean check=true;
-            int counter2=0;
-            int Flag=0;
-            int l=0;
-            int counter=0;
+                D = read.nextDouble();
+                boolean check = true;
+                int counter2 = 0;
+                int Flag = 0;
+                int l = 0;
+                int counter = 0;
+
+
 
             while(check){ //Depois de usar 5 vezes implementar uma contador para apresentar a String Text no output outra vez
 
