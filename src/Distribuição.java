@@ -180,10 +180,10 @@ public class Distribuição {
 
         }
 
-<<<<<<< HEAD
+
        // guardaDimensão=Ler.limpaVetor(guardaDimensão,k+1);
        // guardaTaxa=Ler.limpaVetor(guardaTaxa,k+1);
-=======
+
         if (P==100){
 
             Grava.graficototal(k,guardaDimensão);
@@ -192,7 +192,7 @@ public class Distribuição {
             Grava.graficoNaoNormalizada(k,E,X.length);
 
         }
->>>>>>> 84f92c2a4433b1e1d8c675797febfff07a36a482
+
 
         if(P==0){
 
