@@ -125,38 +125,39 @@ public class Apresentar {
         return igual;
 
     }
-     public static void apresentarVetorFicheiro(double[] vetor) {
-
+    public static void apresentarVetorFicheiro(double[] vetor) {
+        String fichSaida = "c:\temp\teste1.txt";
         for (int j = 0; j < vetor.length; j++) {
 
             if (j == vetor.length) {
                 String aux = "";
               aux = "%.2f)"+Double.toString(vetor[j]);
-                Grava.UpdateFicheiro("saida.txt",aux );
+                Grava.UpdateFicheiro(fichSaida,aux );
             }
 
             else if (j == 0) {
                 String aux = "";
                 aux = "(%.2f"+Double.toString(vetor[j]);
-                Grava.UpdateFicheiro("saida.txt", aux);
+                Grava.UpdateFicheiro(fichSaida, aux);
             }
             else{
                 String aux = "";
                 aux = ";%.2f"+Double.toString(vetor[j]);
-                Grava.UpdateFicheiro("saida.txt", aux);
+                Grava.UpdateFicheiro(fichSaida, aux);
             }
 
         }
 
-        Grava.UpdateFicheiro("saida.txt",")");
+        Grava.UpdateFicheiro(fichSaida,")");
 
-        Grava.UpdateFicheiro("saida.txt","\n");;
+        Grava.UpdateFicheiro(fichSaida,"\n");;
 
-        Grava.UpdateFicheiro("saida.txt","\n");;
+        Grava.UpdateFicheiro(fichSaida,"\n");;
 
     }
-    public static void apresentarTaxaOUDimensãoFicheiro(double[] vetor) {
 
+    public static void apresentarTaxaOUDimensãoFicheiro(double[] vetor) {
+        String fichSaida = "c:\temp\teste1.txt";
         int t = 0;
         String aux= "";
 
@@ -164,18 +165,18 @@ public class Apresentar {
 
             if (vetor[j] != 0) {
         aux = "(%d ; %.2f)" + t + Double.toString(vetor[j]);
-                Grava.UpdateFicheiro("saida.txt",aux);
+                Grava.UpdateFicheiro(fichSaida,aux);
                 t++;
 
             }
 
         }
 
-        Grava.UpdateFicheiro("saida.txt","\n");;
+        Grava.UpdateFicheiro(fichSaida,"\n");;
 
     }
-     public static void apresentarDistribuiçãoFicheiro(double[][] Distribuição) {
-
+    public static void apresentarDistribuiçãoFicheiro(double[][] Distribuição) {
+        String fichSaida = "c:\temp\teste1.txt";
         int t = 0;
         int count2 = 0;
         String aux = "";
@@ -187,21 +188,22 @@ public class Apresentar {
 
                     if (j == 0) {
                          aux = "(%d ; %.2f "+ t + Double.toString(Distribuição[i][j]);
-                        Grava.UpdateFicheiro("saida.txt",aux);
+                        Grava.UpdateFicheiro(fichSaida,aux);
                         t++;
 
                     } else{
                         aux = "; %.2f "+ Double.toString(Distribuição[i][j]);
-                        Grava.UpdateFicheiro("saida.txt",aux);
+                        Grava.UpdateFicheiro(fichSaida,aux);
                     }
 
                 }
             }
             if(Distribuição[i][0]!=0){
 
-                Grava.UpdateFicheiro("saida.txt",")\n");;
+                Grava.UpdateFicheiro(fichSaida,")\n");;
             }
         }
 
     }
+
 }
