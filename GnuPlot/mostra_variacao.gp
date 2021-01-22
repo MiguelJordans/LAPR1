@@ -12,7 +12,6 @@ set style line 1 \
     linetype 1 linewidth 2 \
     pointtype 7 pointsize 1
 
-set ytics 0.2
 plot "Output\\variacao.txt" title "Variacao População" with linespoints linestyle 1
 
 pause mouse any "Any key or button will terminate"

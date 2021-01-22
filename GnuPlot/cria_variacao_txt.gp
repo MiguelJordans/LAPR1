@@ -9,7 +9,6 @@ set ylabel "variacao"
 set border 3
 set tics nomirror
 set grid
-set ytics 0.2
 
 set style line 1 \
     linecolor rgb '#000000' \

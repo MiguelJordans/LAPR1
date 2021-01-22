@@ -137,11 +137,13 @@ public class GnuPlot {
         try {
 
             Runtime.getRuntime().exec(location);
-            System.out.println("criado");
+
+                System.out.println("criado");
+
 
         } catch (IOException e) {
 
-            System.out.println("Algo está errado");
+                System.out.println("Algo está errado");
 
             e.printStackTrace();
 
@@ -169,7 +171,6 @@ public class GnuPlot {
 
         File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
         System.out.println("A criar o ficheiro ...");
-        System.out.println("aa");
         System.out.println(ficheiro);
 
         while (!ficheiro.exists()) {

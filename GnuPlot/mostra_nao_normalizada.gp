@@ -9,8 +9,7 @@ max_col = STATS_columns
 set border 3
 set tics nomirror
 set grid
-set ytics 50
-set key autotitle columnhead 
+set key autotitle columnhead
 
 
 plot for [i=2:max_col] "Output\\nao_normalizada.txt" u 0:i w l

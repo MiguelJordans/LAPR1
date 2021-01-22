@@ -9,8 +9,8 @@ public class Grava {
 
     public static void matriz(int k, double[][] matrizLeslie,String ficheirosaida) throws IOException {
 
-         File saida = new File("OutPut\\"+ficheirosaida);
-         FileWriter grava=new FileWriter(saida);
+        File saida = new File("OutPut\\"+ficheirosaida);
+        FileWriter grava=new FileWriter(saida);
 
 
         grava.write("k=" + k + "\n");
@@ -150,7 +150,7 @@ public class Grava {
     public static void gravaTudo(){
 
     }
-    
+
     public static void UpdateFicheiro(String ficheiroSaida, String vTexto){
 
         try {

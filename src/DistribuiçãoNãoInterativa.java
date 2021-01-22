@@ -105,7 +105,7 @@ public class DistribuiçãoNãoInterativa {
             }
 
         }
-        Grava.gravaTudo();
+
         Grava.matriz(k, matriz, nomeFicheiroSaida);
         if (dimPopulacao) {
             Grava.total(guardaDimensão, nomeFicheiroSaida, k + 1);
@@ -121,6 +121,21 @@ public class DistribuiçãoNãoInterativa {
         if (vecProprio) {
             VetoresNaoInterativos.vetorproprio(matriz, nomeFicheiroSaida);
         }
+
+        if (P==100){
+
+            Grava.graficototal(k,guardaDimensão);
+            Grava.graficovariacao(k,guardaTaxa);
+            Grava.graficonormalizada(k,D,X.length);
+            Grava.graficoNaoNormalizada(k,E,X.length);
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
 
     }
 

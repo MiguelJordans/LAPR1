@@ -12,7 +12,6 @@ set style line 1 \
     linetype 1 linewidth 2 \
     pointtype 7 pointsize 1
 
-set ytics 50
 
 plot "Output\\total.txt" title "Total da População" with linespoints linestyle 1
 

@@ -36,7 +36,6 @@ public class NaoInterativo {
                         nomeFicheiro = args[i + 1];
                         interativo = true;
                     } catch (Exception e) {
-                        System.out.println("Parâmetros Inválidos!");
                         System.exit(0);
                     }
                     break;
@@ -48,7 +47,6 @@ public class NaoInterativo {
                         nomeFicheiro = args[args.length - 2];
                         nomeFicheiroSaida = args[args.length - 1];
                     } catch (Exception e) {
-                        System.out.println("Parâmetros Inválidos!");
                         System.exit(0);
                     }
                     break;
@@ -63,11 +61,9 @@ public class NaoInterativo {
                         } else if ((v_arg == 3)) {
                             formatFicheiro = "eps";
                         } else {
-                            System.out.println("Formato de Ficheiro inválido!");
                             System.exit(0);
                         }
                     } catch (Exception e) {
-                        System.out.println("Parâmetros inválidos -g");
                         System.exit(0);
                     }
                     break;
@@ -86,14 +82,20 @@ public class NaoInterativo {
             }
         }
 
+        nomeEspecie=nomeFicheiro;
+
         double[] vectorDistribPop = lerDistribPop(nomeFicheiro);
         double[][] matrixLeslie = lerMatriz(nomeFicheiro);
 
 
 
-        DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,0,nomeFicheiroSaida,vecProprio,dimPopulacao,varPopGeracoes);
-        
-        CriaGrafico("cria_nao_normalizada_png","png","nao_normalizada_tmp");
+        DistribuiçãoNãoInterativa.ApresentarDist(matrixLeslie, Integer.parseInt(numGeracoes),vectorDistribPop,100,nomeFicheiroSaida,vecProprio,dimPopulacao,varPopGeracoes);
+
+        CriaGrafico("total", formatFicheiro, "total_tmp",nomeEspecie);
+        CriaGrafico("variacao", formatFicheiro, "variacao_tmp",nomeEspecie);
+        CriaGrafico("nao_normalizada", formatFicheiro, "nao_normalizada_tmp",nomeEspecie);
+        CriaGrafico("normalizada", formatFicheiro, "normalizada_tmp",nomeEspecie);
+
 
     }
 
@@ -208,7 +210,7 @@ public class NaoInterativo {
     }
 
 
-    public static void CriaGrafico(String ficheiro, String formato, String nometmp) throws InterruptedException {
+    public static void CriaGrafico(String ficheiro, String formato, String nometmp,String nomeEspecie) throws InterruptedException {
         String[] location = new String[2];
 //      localização do programa
         location[0] = "C:\\Program Files\\gnuplot\\bin\\gnuplot.exe";
@@ -220,18 +222,15 @@ public class NaoInterativo {
         try {
 
             Runtime.getRuntime().exec(location);
-            System.out.println("criado");
 
         } catch (IOException e) {
-
-            System.out.println("Algo está errado");
 
             e.printStackTrace();
 
         }
 
        try {
-            MudaNomeFicheiro(ficheiro, nometmp, formato);
+            MudaNomeFicheiro(ficheiro, nometmp, formato, nomeEspecie);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -242,40 +241,28 @@ public class NaoInterativo {
 
 
     }
-    public static void MudaNomeFicheiro(String nome, String nomepng, String formato) throws InterruptedException {
+    public static void MudaNomeFicheiro(String nome, String nomepng, String formato, String nomeEspecie) throws InterruptedException {
 
         File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
-        System.out.println("A criar o ficheiro ...");
-        System.out.println("aa");
-        System.out.println(ficheiro);
 
-        while (!ficheiro.exists()) {
-            while (!ficheiro.canRead()) {
-                System.out.println("e");
-
-            }
-        }
-
-        Thread.sleep(20);
+        Thread.sleep(100);
 
 
         try {
 
 
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\" + nomepng + "." + formato);
-            Path newname = FileSystems.getDefault().getPath(nome + "_" + ObtemData() + "." + formato);
+            Path newname = FileSystems.getDefault().getPath(nomeEspecie+"_"+nome + "_" + ObtemData() + "." + formato);
 
             Files.move(oldname, oldname.resolveSibling(newname));
-            Path path = FileSystems.getDefault().getPath("Gnuplot\\" + nome + "_" + ObtemData() + "." + formato);
+            Path path = FileSystems.getDefault().getPath("Gnuplot\\"+nomeEspecie+"_"+nome + "_" + ObtemData() + "." + formato);
 
             Path newdir = FileSystems.getDefault().getPath("Output");
 
             Files.move(path, newdir.resolve(path.getFileName()));
 
-            System.out.println("Ficheiro guardado com sucesso!");
 
         } catch (IOException e) {
-            System.out.println("Algo falhou... Não foi possivel criar o ficheiro");
             e.printStackTrace();
         }
 
