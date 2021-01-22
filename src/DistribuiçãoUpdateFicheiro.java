@@ -19,19 +19,19 @@ public class DistribuiçãoUpdateFicheiro {
         int P=l;
         double taxa;
         String texto_out;
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         if(P==0){
 
-            Grava.UpdateFicheiro("","\n*****************************************\n");
-            Grava.UpdateFicheiro("","\n");
+            Grava.UpdateFicheiro(fichSaida,"\n*****************************************\n");
+            Grava.UpdateFicheiro(fichSaida,"\n");
 
         }
 
 
         while (t <= k) {
 
-            texto_out = "Para a %dª geração:\n\n" + Integer.toString(t+1);
+            texto_out = "Para a "+Integer.toString(t+1)+" geração:\n\n";
             if(P==0) Grava.UpdateFicheiro(fichSaida,texto_out);
 
             if (t > 1) {
@@ -59,26 +59,26 @@ public class DistribuiçãoUpdateFicheiro {
                     Grava.UpdateFicheiro(fichSaida,"Distruibuição não Normalizada:");
                     for(int I=0;I<produto.length;I++){
 
-                        texto_out = "Idade %d = %.2f\n" + Integer.toString(I+1) + Double.toString(produto[I]);
+                        texto_out = "Idade" + Integer.toString(I+1)+ "= " + Double.toString(produto[I]);
                         Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     }
 
                     Grava.UpdateFicheiro(fichSaida,"\nDistribuição Normalizada:");
                     for(int I=0;I<vetorNormalizado.length;I++){
-                        texto_out = "Idade %d = %.2f" + Integer.toString(I+1) + Double.toString(vetorNormalizado[I]);
+                        texto_out = "Idade "+(I+1) +" = " + (vetorNormalizado[I]);
                         Grava.UpdateFicheiro(fichSaida,texto_out);
                         Grava.UpdateFicheiro(fichSaida,"%");
 
                     }
 
                     Grava.UpdateFicheiro(fichSaida,"\nDimensão da população nessa geração= ");
-                    texto_out = "%.2f\n" + Double.toString(dimensão);
+                    texto_out = (dimensão)+ "\n";
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     Grava.UpdateFicheiro(fichSaida,"\n");
 
-                    texto_out = "T(%d)/Taxa de variação=%.2f\n" + Integer.toString(t) + taxa;
+                    texto_out = "T("+ Integer.toString(t) +")/Taxa de variação="+ taxa+"\n";
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     Grava.UpdateFicheiro(fichSaida,"\n");
@@ -124,7 +124,7 @@ public class DistribuiçãoUpdateFicheiro {
                     Grava.UpdateFicheiro(fichSaida,"Distruibuição não Normalizada:");
                     for(int I=0;I<produto.length;I++){
 
-                        texto_out = "Idade %d = %.2f\n"+ Integer.toString(I+1) + Double.toString(produto[I]);
+                        texto_out = "Idade "+(I+1)+" = " + Double.toString(produto[I])+"\n";
                         Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     }
@@ -132,18 +132,18 @@ public class DistribuiçãoUpdateFicheiro {
                     Grava.UpdateFicheiro(fichSaida,"\nDistribuição Normalizada:");
                     for(int I=0;I<vetorNormalizado.length;I++){
 
-                        texto_out = "Idade %d = %.2f" + Integer.toString(I+1) + Double.toString(vetorNormalizado[I]);
+                        texto_out = "Idade "+(I+1)+"=" +  Double.toString(vetorNormalizado[I]);
                         Grava.UpdateFicheiro(fichSaida,texto_out);
                         Grava.UpdateFicheiro(fichSaida,"%");
 
                     }
 
                     Grava.UpdateFicheiro(fichSaida,"\nDimensão da população nessa geração= ");
-                    texto_out =   "%.2f\n" + dimensão;
+                    texto_out = dimensão+  "\n"  ;
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     Grava.UpdateFicheiro(fichSaida,"\n");
-                    texto_out = "T(%d)/Taxa de variação=%.2f\n"+t+taxa;
+                    texto_out = "T("+t+")/Taxa de variação=\n"+taxa+"\n";
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     Grava.UpdateFicheiro(fichSaida,"\n");
@@ -188,7 +188,7 @@ public class DistribuiçãoUpdateFicheiro {
 
                     Grava.UpdateFicheiro(fichSaida,"Distruibuição não Normalizada:");
                     for(int I=0;I<produto.length;I++){
-                        texto_out = "Idade %d = %.2f\n"+Integer.toString(I+1)+Double.toString(produto[I]);
+                        texto_out = "Idade "+(I+1)+" = "+produto[I]+"\n";
                         Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     }
@@ -196,19 +196,19 @@ public class DistribuiçãoUpdateFicheiro {
                     Grava.UpdateFicheiro(fichSaida,"\nDistribuição Normalizada:");
                     for(int I=0;I<vetorNormalizado.length;I++){
 
-                        texto_out = "Idade %d = %.2f"+Integer.toString(I+1)+Double.toString(vetorNormalizado[I]);
+                        texto_out = "Idade "+(I+1)+" = "+vetorNormalizado[I];
                         Grava.UpdateFicheiro(fichSaida,texto_out);
                         Grava.UpdateFicheiro(fichSaida,"%");
 
                     }
 
                     Grava.UpdateFicheiro(fichSaida,"\nDimensão da população nessa geração= ");
-                    texto_out = "%.2f\n"+ dimensão;
+                    texto_out = dimensão+"\n";
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
                     Grava.UpdateFicheiro(fichSaida,"\n");
 
-                    texto_out = "T(%d)/Taxa de variação=%.2f\n"+t+taxa;
+                    texto_out = "T("+t+")/Taxa de variação="+taxa+"\n";
                     Grava.UpdateFicheiro(fichSaida,texto_out);
 
 
@@ -377,7 +377,7 @@ public class DistribuiçãoUpdateFicheiro {
     }
 
     public static void População(double[] guardaTaxa) {
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         Grava.UpdateFicheiro(fichSaida,"\nNumero total de individuos\n");
         Grava.UpdateFicheiro(fichSaida,"(t ; Nt)\n");
@@ -387,7 +387,7 @@ public class DistribuiçãoUpdateFicheiro {
 
 
     public static void crescimento(double[] guardaTaxa) {
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         Grava.UpdateFicheiro(fichSaida,"\nCrescimento da população\n");
         Grava.UpdateFicheiro(fichSaida,"(t ; delta_t)\n");
@@ -396,7 +396,7 @@ public class DistribuiçãoUpdateFicheiro {
     }
 
     public static void população(double[] guardaDimensão) {
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         Grava.UpdateFicheiro(fichSaida,"\nNumero total de individuos\n");
         Grava.UpdateFicheiro(fichSaida,"(t ; Nt)\n");
@@ -405,7 +405,7 @@ public class DistribuiçãoUpdateFicheiro {
     }
 
     public static void distribuiçãoNormalizada(double[][] D) {
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         Grava.UpdateFicheiro(fichSaida,"\nDistribuição Normalizada\n");
         Apresentar.apresentarDistribuição(D);
@@ -413,7 +413,7 @@ public class DistribuiçãoUpdateFicheiro {
     }
 
     public static void distribuiçãoNãoNormalizada(double[][] E) {
-        String fichSaida = "C:\\Users\\MiguelJordão(1201487\\Documents\\lapr1_turmadij_grupo04\\Output\\OutPutCase4";
+        String fichSaida = "Output\\OutPutCase4";
 
         Grava.UpdateFicheiro(fichSaida,"\nDistribuição Não Normalizada\n");
         Apresentar.apresentarDistribuição(E);

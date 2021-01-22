@@ -1,4 +1,4 @@
-import jdk.swing.interop.SwingInterOpUtils;
+
 
 public class Distribuição {
 
@@ -125,28 +125,15 @@ public class Distribuição {
                     System.out.println("Distruibuição não Normalizada:");
                     Apresentar.apresentarVetor(produto);
 
-                    System.out.println("Distribuição Normalizada:");
+                    System.out.println("Distriuição Normalizada:");
                     Apresentar.apresentarVetor(vetorNormalizado);
 
-                   /* System.out.println("Distruibuição não Normalizada:");
-                    for(int I=0;I<produto.length;I++){
-                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
-                    }
-
-                    System.out.println("\nDistribuição Normalizada:");
-                    for(int I=0;I<vetorNormalizado.length;I++){
-                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
-                        System.out.println("%");
-                    }*/
 
                     System.out.print("\nDimensão da população nessa geração= ");
                     System.out.printf("%.2f\n", dimensão);
 
                     System.out.println();
 
-                   /* System.out.println("Produto e produto_1");
-                    Apresentar.apresentarVetor(produto);
-                    Apresentar.apresentarVetor(produto_1);*/
 
                     System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
 
@@ -195,25 +182,12 @@ public class Distribuição {
                     System.out.println("Distribuição Normalizada:");
                     Apresentar.apresentarVetor(vetorNormalizado);
 
-                   /* System.out.println("Distruibuição não Normalizada:");
-                    for(int I=0;I<produto.length;I++){
-                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
-                    }
-
-                    System.out.println("\nDistribuição Normalizada:");
-                    for(int I=0;I<vetorNormalizado.length;I++){
-                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
-                        System.out.println("%");
-                    }*/
 
                     System.out.print("\nDimensão da população nessa geração= ");
                     System.out.printf("%.2f\n", dimensão);
 
                     System.out.println();
 
-                   /* System.out.println("Produto e produto_1");
-                    Apresentar.apresentarVetor(produto);
-                    Apresentar.apresentarVetor(produto_1);*/
 
                     System.out.printf("T(%d)/Taxa de variação=%.2f\n",t,taxa);
 
@@ -255,6 +229,21 @@ public class Distribuição {
             distribuiçãoNormalizada(D);
 
         }
+
+        if(P==100){
+            Grava.graficonormalizada(k,D,X.length);
+
+            Grava.graficoNaoNormalizada(k,E,X.length);
+
+            Grava.graficototal(k,guardaDimensão);
+
+            Grava.graficovariacao(k,guardaTaxa);
+
+
+
+        }
+
+
 
         switch(P){
             case 6:

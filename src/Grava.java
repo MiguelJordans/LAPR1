@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Grava {
@@ -18,7 +21,7 @@ public class Grava {
 
             for (int j = 0; j < tamanhoMatriz; j++) {
                 grava.write(String.valueOf(doubles[j]));
-                grava.write("");
+                grava.write(" ");
             }
             grava.write("\n");
         }
@@ -52,7 +55,6 @@ public class Grava {
         grava.write("Crescimento da população\n");
         grava.write("(t, delta_t)\n");
         DecimalFormat df = new DecimalFormat("#.##");
-
         for (int i = 0; i < k; i++) {
             grava.write("(" + i + ", " + df.format(variacao[i]) + ")\n");
         }
@@ -119,7 +121,7 @@ public class Grava {
     public static void valorproprio(double valorproprio,String ficheirosaida) throws IOException {
         File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida,true);
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.####");
 
         grava.write("Maior valor próprio e vetor associado\n");
         grava.write("Lambda=" + df.format(valorproprio) + "\n");
@@ -184,6 +186,104 @@ public class Grava {
             e.printStackTrace();
         }
 
+    }
+
+    public static void graficototal(int k, double[] total) {
+        try {
+            File fich = new File("Output\\total.txt");
+            FileWriter grava = new FileWriter(fich);
+            fich.createNewFile();
+            for (int i = 0; i < k+1; i++) {
+
+                grava.write(String.valueOf(i));
+                grava.write(" "+total[i]+"\n");
+            }
+            grava.close();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void graficovariacao(int k, double[] variacao){
+        try {
+            File fich= new File("Output\\variacao.txt");
+            FileWriter grava=new FileWriter(fich);
+            fich.createNewFile();
+            for (int i =0;i<(k);i++) {
+
+                grava.write(String.valueOf(i));
+                grava.write(" "+ variacao[i]+"\n");
+            }
+            grava.close();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void graficonormalizada(int k, double[][] normalizada, int classes){
+        try {
+            File fich= new File("Output\\normalizada.txt");
+            FileWriter grava=new FileWriter(fich);
+            fich.createNewFile();
+
+            grava.write("g");
+
+
+            for(int i = 0;i<classes;i++){
+                grava.write(" "+"c"+i);
+            }
+
+            for(int i= 0; i<k+1;i++){
+                grava.write("\n"+i);
+                for (int j =0; j<classes; j++) {
+                    grava.write(" " + normalizada[i][j]);
+                }
+            }
+
+
+            grava.close();
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void graficoNaoNormalizada(int k, double[][] naonormalizada, int classes){
+        try {
+            File fich= new File("Output\\nao_normalizada.txt");
+            FileWriter grava=new FileWriter(fich);
+            fich.createNewFile();
+
+
+            grava.write("g");
+            System.out.println("a");
+
+
+            for(int i = 0;i<classes;i++){
+                grava.write(" "+"c"+i);
+            }
+
+            for(int i= 0; i<k+1;i++){
+                grava.write("\n"+i);
+                for (int j =0; j<classes; j++) {
+                    grava.write(" " + naonormalizada[i][j]);
+                }
+            }
+
+            grava.close();
+
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 

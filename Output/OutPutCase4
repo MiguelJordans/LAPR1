@@ -1,73 +1,400 @@
-Para a %dª geração:
 
-1
+*****************************************
+
+
+
+Para a 1 geração:
+
+
 Distruibuição não Normalizada:
 Distribuição Normalizada:
 Distruibuição não Normalizada:
-Idade %d = %.2f
-1330.0
+Idade 1 = 123.0
+
+Idade 2 = 789.0
+
+Idade 3 = 123.0
+
 
 Distribuição Normalizada:
-Idade %d = %.2f1100.0
+Idade 1 = 11.884057971014492
+%
+Idade 2 = 76.23188405797102
+%
+Idade 3 = 11.884057971014492
 %
 
 Dimensão da população nessa geração= 
-%.2f
-330.0
+1035.0
 
 
-T(%d)/Taxa de variação=%.2f
-03.1
+
+T(0)/Taxa de variação=495.9757217391304
+
 
 
 *****************************************
 
 
-Para a %dª geração:
+Para a 2 geração:
 
-2
+
 Distruibuição não Normalizada:
 Distribuição Normalizada:
 Distruibuição não Normalizada:
-Idade %d = %.2f
-11023.0
+Idade 1 = 512919.0
+
+Idade 2 = 56.088
+
+Idade 3 = 359.784
+
 
 Distribuição Normalizada:
-Idade %d = %.2f1100.0
+Idade 1=99.9189862168569
+%
+Idade 2=0.010926201016010462
+%
+Idade 3=0.0700875821270915
 %
 
 Dimensão da população nessa geração= 
-%.2f
-1023.0
+513334.872
 
 
-T(%d)/Taxa de variação=%.2f
-11.0
+
+T(1)/Taxa de variação=
+1.0
+
 
 
 *****************************************
 
 
-Para a %dª geração:
+Para a 3 geração:
 
-3
+
 Distruibuição não Normalizada:
 Distribuição Normalizada:
 Distruibuição não Normalizada:
-Idade %d = %.2f
-13171.3
+Idade1= 2.34200509704E8
+Idade2= 233891.064
+Idade3= 25.576128
 
 Distribuição Normalizada:
-Idade %d = %.2f1100.0
+Idade 1 = 99.90022086611773
+%
+Idade 2 = 0.09976822416715776
+%
+Idade 3 = 1.0909715095536615E-5
 %
 
 Dimensão da população nessa geração= 
-%.2f
-3171.3
+2.34434426344128E8
 
 
-T(%d)/Taxa de variação=%.2f
-23.1
+
+T(2)/Taxa de variação=456.45603627960287
+
+
+
+*****************************************
+
+
+Para a 4 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 1.0690210692977298E11
+Idade2= 1.06795432425024E8
+Idade3= 106654.325184
+
+Distribuição Normalizada:
+Idade 1 = 99.90009991893889
+%
+Idade 2 = 0.09980041251343033
+%
+Idade 3 = 9.966854768978526E-5
+%
+
+Dimensão da população nessa geração= 
+1.0700900901652318E11
+
+
+
+T(3)/Taxa de variação=456.4563314417754
+
+
+
+*****************************************
+
+
+Para a 5 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 4.879614362742487E13
+Idade2= 4.874736075997649E10
+Idade3= 4.8698717185810946E7
+
+Distribuição Normalizada:
+Idade 1 = 99.9001000722082
+%
+Idade 2 = 0.09980022715239076
+%
+Idade 3 = 9.970063940701252E-5
+%
+
+Dimensão da população nessa geração= 
+4.884493968690203E13
+
+
+
+T(4)/Taxa de variação=456.4563315484942
+
+
+
+*****************************************
+
+
+Para a 6 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 2.2273308713900144E16
+Idade2= 2.2251041494105742E13
+Idade3= 2.2228796506549282E10
+
+Distribuição Normalizada:
+Idade 1 = 99.90010007226363
+%
+Idade 2 = 0.09980022728217368
+%
+Idade 3 = 9.970045420797345E-5
+%
+
+Dimensão da população nessa geração= 
+2.2295581984190756E16
+
+
+
+T(5)/Taxa de variação=456.4563315478785
+
+
+
+*****************************************
+
+
+Para a 7 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 1.0166792786980223E19
+Idade2= 1.015662877353847E16
+Idade3= 1.0146474921312217E13
+
+Distribuição Normalizada:
+Idade 1 = 99.9001000722633
+%
+Idade 2 = 0.0998002272823637
+%
+Idade 3 = 9.970045433776107E-5
+%
+
+Dimensão da população nessa geração= 
+1.0176959562228683E19
+
+
+
+T(6)/Taxa de variação=456.45633154787885
+
+
+
+*****************************************
+
+
+Para a 8 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 4.640696939152428E21
+Idade2= 4.6360575108629821E18
+Idade3= 4.631422720733541E15
+
+Distribuição Normalizada:
+Idade 1 = 99.9001000722633
+%
+Idade 2 = 0.09980022728236326
+%
+Idade 3 = 9.97004543379508E-5
+%
+
+Dimensão da população nessa geração= 
+4.6453376280860117E21
+
+
+
+T(7)/Taxa de variação=456.4563315478789
+
+
+
+*****************************************
+
+
+Para a 9 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 2.1182755006709876E24
+Idade2= 2.1161578042535072E21
+Idade3= 2.1140422249535191E18
+
+Distribuição Normalizada:
+Idade 1 = 99.9001000722633
+%
+Idade 2 = 0.09980022728236324
+%
+Idade 3 = 9.970045433795036E-5
+%
+
+Dimensão da população nessa geração= 
+2.120393772517466E24
+
+
+
+T(8)/Taxa de variação=456.4563315478789
+
+
+
+*****************************************
+
+
+Para a 10 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 9.669002642440254E26
+Idade2= 9.659336283059704E23
+Idade3= 9.64967958739599E20
+
+Distribuição Normalizada:
+Idade 1 = 99.90010007226329
+%
+Idade 2 = 0.09980022728236324
+%
+Idade 3 = 9.970045433795034E-5
+%
+
+Dimensão da população nessa geração= 
+9.678671628402902E26
+
+
+
+T(9)/Taxa de variação=456.45633154787885
+
+
+
+*****************************************
+
+
+Para a 11 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 4.4134774758950254E29
+Idade2= 4.4090652049527564E26
+Idade3= 4.404657345075223E23
+
+Distribuição Normalizada:
+Idade 1 = 99.9001000722633
+%
+Idade 2 = 0.09980022728236326
+%
+Idade 3 = 9.970045433795036E-5
+%
+
+Dimensão da população nessa geração= 
+4.4178909457573235E29
+
+
+
+T(10)/Taxa de variação=456.45633154787896
+
+
+
+*****************************************
+
+
+Para a 12 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 2.0145597380162356E32
+Idade2= 2.0125457290081315E29
+Idade3= 2.0105337334584555E26
+
+Distribuição Normalizada:
+Idade 1 = 99.90010007226329
+%
+Idade 2 = 0.09980022728236322
+%
+Idade 3 = 9.970045433795032E-5
+%
+
+Dimensão da população nessa geração= 
+2.0165742942789774E32
+
+
+
+T(11)/Taxa de variação=456.45633154787885
+
+
+
+*****************************************
+
+
+Para a 13 geração:
+
+
+Distruibuição não Normalizada:
+Distribuição Normalizada:
+Distruibuição não Normalizada:
+Idade1= 9.195585476989467E34
+Idade2= 9.186392405354032E31
+Idade3= 9.177208524277074E28
+
+Distribuição Normalizada:
+Idade 1 = 99.90010007226329
+%
+Idade 2 = 0.09980022728236322
+%
+Idade 3 = 9.97004543379503E-5
+%
+
+Dimensão da população nessa geração= 
+9.204781046603347E34
+
+
+
+T(12)/Taxa de variação=456.45633154787885
+
 
 
 *****************************************

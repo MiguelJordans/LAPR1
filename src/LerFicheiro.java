@@ -2,9 +2,9 @@ import  java.util.*;
 import java.io.FileNotFoundException;
 import java.io.File;
 
-public class LerFicheiro {
+public class  LerFicheiro {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         String nomeFicheiro = "";
         String nomeFicheiroSaida = "";

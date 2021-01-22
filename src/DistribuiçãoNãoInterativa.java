@@ -1,9 +1,8 @@
-
 import java.io.IOException;
 
 public class DistribuiçãoNãoInterativa {
 
-    public static void ApresentarDist(double[][] matriz, int k, double[] X,int l, String nomeFicheiroSaida,boolean vecProprio,boolean dimPopulacao,boolean varPopGeracoes) throws IOException {
+    public static void ApresentarDist(double[][] matriz, int k, double[] X, int l, String nomeFicheiroSaida, boolean vecProprio, boolean dimPopulacao, boolean varPopGeracoes) throws IOException {
 
 
         double[][] matrizGeraçao;
@@ -19,20 +18,9 @@ public class DistribuiçãoNãoInterativa {
         int t = 0;
         int counter = 0;
         int i = 0;
-        int P=l;
+        int P = l;
         int classes = X.length;
-
-
-
-        for (int j=0;j<matriz.length;j++){
-            for (int f=0;f<matriz.length;f++){
-                System.out.print(matriz[j][f]);
-            }
-            System.out.println(" ");
-        }
-
-
-
+        double taxa;
 
 
         while (t <= k) {
@@ -47,20 +35,22 @@ public class DistribuiçãoNãoInterativa {
 
                 dimensão = dimensao(produto);
 
+
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
 
+                taxa = taxaVariacao(produto, k, produto_1);
 
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
+                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
+
                 counter++;
 
-                t++;
 
+                t++;
 
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
                 i++;
-
 
 
             } else if (t == 1) {
@@ -73,20 +63,21 @@ public class DistribuiçãoNãoInterativa {
 
                 dimensão = dimensao(produto);
 
+
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
 
-
-
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
 
+
                 t++;
+
 
                 guardarDimensão(guardaDimensão, dimensão, i);
                 guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
                 guardarDistribuiçãoNãoNormalizada(E, produto, i);
-                i++;
 
+                i++;
 
 
             } else {
@@ -99,10 +90,8 @@ public class DistribuiçãoNãoInterativa {
                 dimensão = dimensao(produto);
 
                 vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
 
-
-
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter,P);
                 counter++;
 
                 t++;
@@ -117,75 +106,23 @@ public class DistribuiçãoNãoInterativa {
 
         }
         Grava.gravaTudo();
-        Grava.matriz(k,matriz,nomeFicheiroSaida);
-
-        Grava.total(guardaDimensão, nomeFicheiroSaida,k+1);
-
-        Grava.naonormalizado(D,nomeFicheiroSaida,k+1,classes);
-        System.out.println(k);
-
-        Grava.normalizado(E, nomeFicheiroSaida, k+1, classes);
-
-        Grava.variacao(guardaTaxa,nomeFicheiroSaida,k+1);
-
-        VetoresNaoInterativos.vetorproprio(matriz,nomeFicheiroSaida);
-
-            //crescimento(guardaTaxa,nomeFicheiroSaida);
-            //System.out.println("Crescimento da população");
-            //System.out.printf("(t ; delta_t)\n");
-            //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
-
-          //  crescimento(guardaDimensão,nomeFicheiroSaida);
-            //System.out.printf("Numero total de individuos\n");
-            //System.out.printf("(t ; Nt)\n");
-            //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
-
-         //   distribuiçãoNãoNormalizada(E,nomeFicheiroSaida, k,classes);
-            //System.out.printf("Distribuição Não Normalizada\n");
-            //Apresentar.apresentarDistribuição(E);
-
-         //   distribuiçãoNormalizada(D,nomeFicheiroSaida,k,classes);
-            //System.out.printf("\nDistribuição Normalizada\n");
-            //Apresentar.apresentarDistribuição(D);
-
-
-
-
-  /*      switch(P){
-            case 6:
-                //System.out.printf("\nDistribuição Normalizada\n");
-                //Apresentar.apresentarDistribuição(D);
-                distribuiçãoNormalizada(D,nomeFicheiroSaida);
-                System.out.println();
-                break;
-            case 7:
-                //System.out.printf("Distribuição Não Normalizada\n");
-                //Apresentar.apresentarDistribuição(E);
-                distribuiçãoNãoNormalizada(E,nomeFicheiroSaida);
-                System.out.println();
-                break;
-            case 8:
-                //System.out.printf("Numero total de individuos\n");
-                //System.out.printf("(t ; Nt)\n");
-                //Apresentar.apresentarTaxaOUDimensão(guardaDimensão);
-                crescimento(guardaDimensão,nomeFicheiroSaida);
-                System.out.println();
-                break;
-            case 10:
-                // System.out.println("Crescimento da população");
-                // System.out.printf("(t ; delta_t)\n");
-                //Apresentar.apresentarTaxaOUDimensão(guardaTaxa);
-                crescimento(guardaTaxa,nomeFicheiroSaida);
-                System.out.println();
-                break;
+        Grava.matriz(k, matriz, nomeFicheiroSaida);
+        if (dimPopulacao) {
+            Grava.total(guardaDimensão, nomeFicheiroSaida, k + 1);
+        }
+        if (varPopGeracoes) {
+            Grava.variacao(guardaTaxa, nomeFicheiroSaida, k + 1);
         }
 
-   */
+        Grava.naonormalizado(E, nomeFicheiroSaida, k + 1, classes);
 
+        Grava.normalizado(D, nomeFicheiroSaida, k + 1, classes);
+
+        if (vecProprio) {
+            VetoresNaoInterativos.vetorproprio(matriz, nomeFicheiroSaida);
+        }
 
     }
-
-
 
 
     private static double dimensao(double[] produto) {
@@ -221,14 +158,10 @@ public class DistribuiçãoNãoInterativa {
     }
 
 
-    private static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter,int P) {
+    private static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter, int P) {
 
         double taxaVariacao = taxaVariacao(produto, k, produto_1);
 
-        if(P==0) {
-            System.out.print("Taxa de variação=");
-            System.out.printf("%.2f\n", taxaVariacao);
-        }
 
         guardaTaxa[counter] = taxaVariacao;
 
@@ -263,7 +196,7 @@ public class DistribuiçãoNãoInterativa {
 
         for (int j = 0; j < vetorNormalizado.length; j++) {
 
-            D[i][j]=vetorNormalizado[j];
+            D[i][j] = vetorNormalizado[j];
 
         }
 
@@ -274,31 +207,27 @@ public class DistribuiçãoNãoInterativa {
 
         for (int j = 0; j < produto.length; j++) {
 
-            E[i][j]=produto[j];
+            E[i][j] = produto[j];
 
         }
 
     }
 
-    public static void crescimento(double[] guardaTaxa,String ficheirosaida,int k) throws IOException {
-      Grava.variacao(guardaTaxa,ficheirosaida,k);
+    public static void crescimento(double[] guardaTaxa, String ficheirosaida, int k) throws IOException {
+        Grava.variacao(guardaTaxa, ficheirosaida, k);
 
     }
 
-   // public static void população(double[] guardaDimensão,String ficheirosaida) throws IOException {
-     //   Grava.total(guardaDimensão,ficheirosaida);
 
-//    }
+    public static void distribuiçãoNormalizada(double[][] D, String ficheirosaida, int k, int classes) throws IOException {
 
-    public static void distribuiçãoNormalizada(double[][] D,String ficheirosaida,int k,int classes) throws IOException {
-
-       Grava.normalizado(D, ficheirosaida,k,classes);
+        Grava.normalizado(D, ficheirosaida, k, classes);
 
     }
 
-    public static void distribuiçãoNãoNormalizada(double[][] E,String ficheirosaida, int k,int classes) throws IOException {
+    public static void distribuiçãoNãoNormalizada(double[][] E, String ficheirosaida, int k, int classes) throws IOException {
 
-        Grava.naonormalizado(E, ficheirosaida,k,classes);
+        Grava.naonormalizado(E, ficheirosaida, k, classes);
 
 
     }
