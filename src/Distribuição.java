@@ -323,7 +323,7 @@ public class Distribuição {
         String aux = "";
         guardarDimensão[i] = dimensão;
         aux = Double.toString(guardarDimensão[i]);
-        Grava.UpdateFicheiro("dimensao.txt",aux);
+
 
     }
 
@@ -331,7 +331,7 @@ public class Distribuição {
         String aux = "";
         aux = Double.toString(guardarTaxa[i]);
         guardarTaxa[i] = taxa;
-        Grava.UpdateFicheiro("taxa.txt",aux);
+
 
     }
 
