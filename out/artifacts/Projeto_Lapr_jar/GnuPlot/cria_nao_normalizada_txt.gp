@@ -13,6 +13,8 @@ set border 3
 set tics nomirror
 set grid
 set key autotitle columnhead
+set logscale xy
+
 
 
 plot for [i=2:max_col] "Output\\nao_normalizada.txt" u 0:i w l

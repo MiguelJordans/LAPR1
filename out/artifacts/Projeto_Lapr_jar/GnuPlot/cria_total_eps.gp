@@ -10,6 +10,8 @@ set ylabel "Número Femeas"
 set border 3
 set tics nomirror
 set grid
+set logscale xy
+
 
 
 set style line 1 \
