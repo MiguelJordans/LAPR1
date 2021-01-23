@@ -51,10 +51,8 @@ public class GnuPlot {
         MostraGrafico(ficheiro);
 
         String choice = "";
-        System.out.println("a");
         read.nextLine();
 
-        System.out.println("s");
         while (!choice.equals("S") && !choice.equals("N")) {
             System.out.println("Pretende guardar o gráfico?(S/N)");
             choice = read.nextLine();
@@ -131,9 +129,6 @@ public class GnuPlot {
 
             Runtime.getRuntime().exec(location);
 
-            System.out.println("criado");
-
-
         } catch (IOException e) {
 
             System.out.println("Algo está errado");
@@ -163,15 +158,16 @@ public class GnuPlot {
     public static void MudaNomeFicheiro(String nome, String nomepng, String formato,String nomefich) throws InterruptedException {
 
         File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
-        System.out.println("A criar o ficheiro ...");
 
         while (!ficheiro.exists()) {
             while (!ficheiro.canRead()) {
 
             }
         }
-
+        read.nextLine();
         Thread.sleep(50);
+        System.out.println("Qual o nome do ficheiro?");
+        nomefich=read.nextLine();
 
 
         try {

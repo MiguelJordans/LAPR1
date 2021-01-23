@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Ler {
+public class Ler  {
 
     static Scanner read = new Scanner(System.in);
 

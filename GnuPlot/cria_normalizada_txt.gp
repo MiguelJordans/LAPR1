@@ -1,7 +1,7 @@
 set term dumb
 set output "Gnuplot/normalizada_tmp.txt"
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geracao"
 set ylabel "Numero Femeas"
 

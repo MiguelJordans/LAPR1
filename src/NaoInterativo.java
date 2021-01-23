@@ -147,16 +147,11 @@ public class NaoInterativo {
             while (ficheiro.hasNextLine()) {
                 stringY = ficheiro.nextLine();
 
-
-
-
-
                 char s ='s';
                 char f ='f';
                 if (stringY.charAt(0) == s) {
 
                     stringS = stringY;
-
 
                 } else if (stringY.charAt(0) == f) {
 
@@ -244,8 +239,11 @@ public class NaoInterativo {
     public static void MudaNomeFicheiro(String nome, String nomepng, String formato, String nomeEspecie) throws InterruptedException {
 
         File ficheiro = new File("GnuPlot\\" + nomepng + "." + formato);
+        while (!ficheiro.exists()){
 
-        Thread.sleep(100);
+        }
+
+        Thread.sleep(200);
 
 
         try {

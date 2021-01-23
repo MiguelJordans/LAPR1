@@ -147,9 +147,6 @@ public class Grava {
 
     }
 
-    public static void gravaTudo(){
-
-    }
 
     public static void UpdateFicheiro(String ficheiroSaida, String vTexto){
 
@@ -263,8 +260,6 @@ public class Grava {
 
 
             grava.write("g");
-            System.out.println("a");
-
 
             for(int i = 0;i<classes;i++){
                 grava.write(" "+"c"+i);
