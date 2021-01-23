@@ -320,14 +320,18 @@ public class Distribuição {
 
 
     public static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
-
+        String aux = "";
         guardarDimensão[i] = dimensão;
+        aux = Double.toString(guardarDimensão[i]);
+        Grava.UpdateFicheiro("dimensao.txt",aux);
 
     }
 
     public static void guardarTaxa(double[] guardarTaxa, double taxa, int i) {
-
+        String aux = "";
+        aux = Double.toString(guardarTaxa[i]);
         guardarTaxa[i] = taxa;
+        Grava.UpdateFicheiro("taxa.txt",aux);
 
     }
 
