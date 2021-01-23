@@ -197,6 +197,11 @@ public class Menu {
                             matriz = NaoInterativo.lerMatriz(nomefich);
 
                             if(counter2!=0){
+
+                                System.out.printf("\nIntroduza o número de instantes de tempo a gerar\n\n");
+                                t = read.nextInt();
+                                System.out.println();
+
                                 System.out.println("Novos dados alocados");
                                 System.out.printf(text);
                                 counter2=0;

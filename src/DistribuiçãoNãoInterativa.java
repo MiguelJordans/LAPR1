@@ -64,7 +64,7 @@ public class DistribuiçãoNãoInterativa {
                 dimensão = dimensao(produto);
 
 
-                vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                vetorNormalizado = Distribuição.distribuiçaoNormalizada(produto, dimensão);
                 escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
 
                 counter++;

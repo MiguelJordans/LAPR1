@@ -162,37 +162,6 @@ public class testesUnitarios {
         double resultadoTCasoVeP = 3.49;
         int l3 = 5;
 
-
-        System.out.println("==========================================================");
-        System.out.printf("\n1º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizPCasoVeP,l1,resultadoPCasoVeP) ? "Certo" : "ERRO");
-
-        System.out.printf("\n2º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizSCasoVeP,l2,resultadoSCasoVeP) ? "Certo" : "ERRO");
-
-        System.out.printf("\n3º Teste do Vetor Próprio normalizado:\n");
-        System.out.print(">");
-        System.out.println(test_vetorproprio(matrizTCasoVeP,l3,resultadoTCasoVeP) ? "Certo" : "ERRO");
-        System.out.println();
-
-        //caso 1
-        double[][] vetorPVPN = {{0, 3.5, 1.5, 0.39}, {0.4, 0, 0, 0}, {0, 0.6, 0, 0}, {0, 0, 0.5, 0}};
-        double resultadoPCasoVPN = 1.31;
-        int L1 = 4;
-
-        //caso 2
-        double[][] vetorSVPN = {{0, 3, 3.17, 0.39}, {0.11, 0, 0, 0}, {0, 0.29, 0, 0}, {0, 0, 0.33, 0}};
-        double resultadoSCasoVPN = 0.70;
-        int L2 = 4;
-
-        //caso 3
-        double[][] vetorTVPN = {{0, 20, 40, 79, 10}, {0.4, 0, 0, 0, 0}, {0, 0.6, 0, 0, 0}, {0, 0, 0.9, 0, 0}, {0, 0, 0, 0.1, 0}};
-        double resultadoTCasoVPN = 3.49;
-        int L3 = 5;
-
-
         System.out.println("==========================================================");
         System.out.printf("\n1º Teste do Vetor Próprio:\n");
         System.out.print(">");
@@ -301,7 +270,7 @@ public class testesUnitarios {
     }
 
 
-    public static boolean test_dimensao(double[] vetor, double resultadoEsperado) {
+    public static boolean test_dimensao(double[] vetor, double resultadoEsperado) { //Compor isto1
 
         double aux = Distribuição.dimensao(vetor);
 
@@ -313,7 +282,7 @@ public class testesUnitarios {
     }
 
 
-    public static boolean test_taxaVariacao(double[] produto,double[] produto1, double resultadoEsperado) {
+    public static boolean test_taxaVariacao(double[] produto,double[] produto1, double resultadoEsperado) { //Compor isto
 
         double aux = Distribuição.taxaVariacao(produto, produto1,10);
 
@@ -325,7 +294,7 @@ public class testesUnitarios {
     }
 
 
-    public static boolean test_distribuiçaoNormalizada(double[] vetor, double[] resultadoEsperado) {
+    public static boolean test_distribuiçaoNormalizada(double[] vetor, double[] resultadoEsperado) { //Compor isto
 
         double numero = Distribuição.dimensao(vetor);
 
@@ -355,7 +324,7 @@ public class testesUnitarios {
     }
 
 
-    public static boolean test_vetorproprio(double[][] matriz, int l, double resultadoEsperado) {
+    public static boolean test_vetorproprio(double[][] matriz, int l, double resultadoEsperado) { //Compor isto
 
         double aux = Vectores.vetorproprioTesteUnitario(matriz);
 
