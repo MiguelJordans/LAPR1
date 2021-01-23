@@ -2,7 +2,7 @@ set term png
 set output "Gnuplot/variacao_tmp.png"
 
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geração"
 set ylabel "variacao"
 

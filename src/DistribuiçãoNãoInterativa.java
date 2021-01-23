@@ -122,12 +122,12 @@ public class DistribuiçãoNãoInterativa {
             VetoresNaoInterativos.vetorproprio(matriz, nomeFicheiroSaida);
         }
 
-        if (P==100){
+        if (P == 100) {
 
-            Grava.graficototal(k,guardaDimensão);
-            Grava.graficovariacao(k,guardaTaxa);
-            Grava.graficonormalizada(k,D,X.length);
-            Grava.graficoNaoNormalizada(k,E,X.length);
+            Grava.graficototal(k, guardaDimensão);
+            Grava.graficovariacao(k, guardaTaxa);
+            Grava.graficonormalizada(k, D, X.length);
+            Grava.graficoNaoNormalizada(k, E, X.length);
             try {
                 Thread.sleep(150);
             } catch (InterruptedException e) {
@@ -217,7 +217,6 @@ public class DistribuiçãoNãoInterativa {
 
     }
 
-
     private static void guardarDistribuiçãoNãoNormalizada(double[][] E, double[] produto, int i) {
 
         for (int j = 0; j < produto.length; j++) {
@@ -227,24 +226,4 @@ public class DistribuiçãoNãoInterativa {
         }
 
     }
-
-    public static void crescimento(double[] guardaTaxa, String ficheirosaida, int k) throws IOException {
-        Grava.variacao(guardaTaxa, ficheirosaida, k);
-
-    }
-
-
-    public static void distribuiçãoNormalizada(double[][] D, String ficheirosaida, int k, int classes) throws IOException {
-
-        Grava.normalizado(D, ficheirosaida, k, classes);
-
-    }
-
-    public static void distribuiçãoNãoNormalizada(double[][] E, String ficheirosaida, int k, int classes) throws IOException {
-
-        Grava.naonormalizado(E, ficheirosaida, k, classes);
-
-
-    }
-
 }

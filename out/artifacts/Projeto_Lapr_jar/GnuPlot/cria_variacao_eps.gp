@@ -3,7 +3,7 @@ set term postscript
 set output "Gnuplot/variacao_tmp.eps"
 
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geração"
 set ylabel "variacao"
 

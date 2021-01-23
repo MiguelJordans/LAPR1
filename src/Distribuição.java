@@ -121,7 +121,6 @@ public class Distribuição {
                 }
 
                 if(dimensão==0){
-
                     produto=Ler.resetarVetor(produto);
                     vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
                     taxa = 0;
@@ -321,14 +320,18 @@ public class Distribuição {
 
 
     public static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
-
+        String aux = "";
         guardarDimensão[i] = dimensão;
+        aux = Double.toString(guardarDimensão[i]);
+
 
     }
 
     public static void guardarTaxa(double[] guardarTaxa, double taxa, int i) {
-
+        String aux = "";
+        aux = Double.toString(guardarTaxa[i]);
         guardarTaxa[i] = taxa;
+
 
     }
 

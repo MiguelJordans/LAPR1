@@ -1,10 +1,11 @@
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geração"
 set ylabel "Número Femeas"
 
 set border 3
 set tics nomirror
 set grid
+set logscale y
 
 
 set style line 1 \

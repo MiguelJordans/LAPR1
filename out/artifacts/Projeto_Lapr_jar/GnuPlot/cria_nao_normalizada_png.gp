@@ -1,7 +1,7 @@
 set term png
 set output "Gnuplot/nao_normalizada_tmp.png"
 
-set title "Modelo"
+set title "Modelo de Leslie"
 set xlabel "Geracao"
 set ylabel "Numero Femeas"
 
@@ -13,7 +13,7 @@ set border 3
 set tics nomirror
 set grid
 set key autotitle columnhead
-
+set logscale y
 
 plot for [i=2:max_col] "Output\\nao_normalizada.txt" u 0:i w l
 

@@ -14,23 +14,18 @@ public class Main {
         int f=1;
 
 
-        /*if(args[1].equals("-n")){ //Apenas meti isto em comentário para conseguir dar run ao programa!
-            nomeFicheiro = args[2];
-            f=0;
-            //Para chamar menu
-        }*/
-
-
         if (args.length != 0) {
 
-            if(args[1].equals("-n")){
+            if(args[0].equals("-n")){
 
-                nomeFicheiro = args[2];
+                nomeFicheiro = args[1];
                 f=0;
+                Menu.Menu(nomeFicheiro,f);
+            }else {
+
+
+                NaoInterativo.main(args);
             }
-
-
-            NaoInterativo.main(args);
 
         } else {
 
