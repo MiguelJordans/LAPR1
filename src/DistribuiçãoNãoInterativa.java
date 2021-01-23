@@ -16,7 +16,6 @@ public class DistribuiçãoNãoInterativa {
         double[][] D = new double[200][2000];
         double[][] E = new double[200][2000];
         int t = 0;
-        int counter = 0;
         int i = 0;
         int P = l;
         int classes = X.length;
@@ -33,23 +32,26 @@ public class DistribuiçãoNãoInterativa {
                 produto = Calculos.multiplicarMatrizporVetor(matrizGeraçao, X);
                 produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
-                dimensão = dimensao(produto);
+                dimensão = Distribuição.dimensao(produto);
 
+                vetorNormalizado = Distribuição.distribuiçaoNormalizada(produto, dimensão);
 
-                vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
+                taxa = Distribuição.taxaVariacao(produto, produto_1, k);
 
-                taxa = taxaVariacao(produto, k, produto_1);
+                if(dimensão==0){
 
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
+                    produto=Ler.resetarVetor(produto);
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = 0;
 
-                counter++;
-
+                }
 
                 t++;
 
-                guardarDimensão(guardaDimensão, dimensão, i);
-                guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
-                guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                Distribuição.guardarDimensão(guardaDimensão, dimensão, i);
+                Distribuição.guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
+                Distribuição.guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                Distribuição.guardarTaxa(guardaTaxa,taxa,i);
                 i++;
 
 
@@ -61,22 +63,26 @@ public class DistribuiçãoNãoInterativa {
                 produto = Calculos.multiplicarMatrizporVetor(matrizGeraçao, X);
                 produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
-                dimensão = dimensao(produto);
+                dimensão = Distribuição.dimensao(produto);
 
+                vetorNormalizado = Distribuição.distribuiçaoNormalizada(produto, dimensão);
 
-                vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
+                taxa = Distribuição.taxaVariacao(produto, produto_1, k);
 
-                counter++;
+                if(dimensão==0){
 
+                    produto=Ler.resetarVetor(produto);
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = 0;
+
+                }
 
                 t++;
 
-
-                guardarDimensão(guardaDimensão, dimensão, i);
-                guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
-                guardarDistribuiçãoNãoNormalizada(E, produto, i);
-
+                Distribuição.guardarDimensão(guardaDimensão, dimensão, i);
+                Distribuição.guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
+                Distribuição.guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                Distribuição.guardarTaxa(guardaTaxa,taxa,i);
                 i++;
 
 
@@ -87,20 +93,27 @@ public class DistribuiçãoNãoInterativa {
                 produto = X;
                 produto_1 = Calculos.multiplicarMatrizporVetor(matrizGeraçao_1, X);
 
-                dimensão = dimensao(produto);
+                dimensão = Distribuição.dimensao(produto);
 
-                vetorNormalizado = distribuiçaoNormalizada(produto, dimensão);
-                escreverTaxaVariacao(produto, t, produto_1, guardaTaxa, counter, P);
+                vetorNormalizado = Distribuição.distribuiçaoNormalizada(produto, dimensão);
 
-                counter++;
+                taxa = Distribuição.taxaVariacao(produto, produto_1, k);
+
+                if(dimensão==0){
+
+                    produto=Ler.resetarVetor(produto);
+                    vetorNormalizado = Ler.resetarVetor(vetorNormalizado);
+                    taxa = 0;
+
+                }
 
                 t++;
 
-                guardarDimensão(guardaDimensão, dimensão, i);
-                guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
-                guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                Distribuição.guardarDimensão(guardaDimensão, dimensão, i);
+                Distribuição.guardarDistribuiçãoNormalizada(D, vetorNormalizado, i);
+                Distribuição.guardarDistribuiçãoNãoNormalizada(E, produto, i);
+                Distribuição.guardarTaxa(guardaTaxa,taxa,i);
                 i++;
-
 
             }
 
@@ -139,91 +152,4 @@ public class DistribuiçãoNãoInterativa {
 
     }
 
-
-    private static double dimensao(double[] produto) {
-
-        double soma = 0;
-
-        for (int j = 0; j < produto.length; j++) {
-
-            soma += produto[j];
-
-
-        }
-
-        return soma;
-
-    }
-
-
-    private static double[] distribuiçaoNormalizada(double[] produto, double dimensao) {
-
-
-        double[] vetorNormalizado = new double[produto.length];
-
-
-        for (int j = 0; j < produto.length; j++) {
-
-            vetorNormalizado[j] = (produto[j] / dimensao) * 100;
-
-        }
-
-        return vetorNormalizado;
-
-    }
-
-
-    private static void escreverTaxaVariacao(double[] produto, int k, double[] produto_1, double[] guardaTaxa, int counter, int P) {
-
-        double taxaVariacao = taxaVariacao(produto, k, produto_1);
-
-
-        guardaTaxa[counter] = taxaVariacao;
-
-    }
-
-
-    private static double taxaVariacao(double[] produto, int k, double[] produto_1) {
-
-
-        double Nt;
-        double Nt1;
-        double taxa;
-
-        Nt1 = dimensao(produto_1);
-        Nt = dimensao(produto);
-
-        taxa = Nt1 / Nt;
-
-        return taxa;
-
-    }
-
-
-    private static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
-
-        guardarDimensão[i] = dimensão;
-
-    }
-
-
-    private static void guardarDistribuiçãoNormalizada(double[][] D, double[] vetorNormalizado, int i) {
-
-        for (int j = 0; j < vetorNormalizado.length; j++) {
-
-            D[i][j] = vetorNormalizado[j];
-
-        }
-
-    }
-
-    private static void guardarDistribuiçãoNãoNormalizada(double[][] E, double[] produto, int i) {
-
-        for (int j = 0; j < produto.length; j++) {
-
-            E[i][j] = produto[j];
-
-        }
-
-    }
 }

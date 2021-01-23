@@ -190,10 +190,6 @@ public class Distribuição {
 
         }
 
-
-       // guardaDimensão=Ler.limpaVetor(guardaDimensão,k+1);
-       // guardaTaxa=Ler.limpaVetor(guardaTaxa,k+1);
-
         if (P==100){
 
             Grava.graficototal(k,guardaDimensão);
@@ -320,18 +316,14 @@ public class Distribuição {
 
 
     public static void guardarDimensão(double[] guardarDimensão, double dimensão, int i) {
-        String aux = "";
-        guardarDimensão[i] = dimensão;
-        aux = Double.toString(guardarDimensão[i]);
 
+        guardarDimensão[i] = dimensão;
 
     }
 
     public static void guardarTaxa(double[] guardarTaxa, double taxa, int i) {
-        String aux = "";
-        aux = Double.toString(guardarTaxa[i]);
-        guardarTaxa[i] = taxa;
 
+        guardarTaxa[i] = taxa;
 
     }
 
@@ -392,14 +384,3 @@ public class Distribuição {
     }
 
 }
-
- /*                 System.out.println("Distruibuição não Normalizada:");
-                    for(int I=0;I<produto.length;I++){
-                        System.out.printf("Idade %d = %.2f\n",I+1,produto[I]);
-                    }
-
-                    System.out.println("\nDistribuição Normalizada:");
-                    for(int I=0;I<vetorNormalizado.length;I++){
-                        System.out.printf("Idade %d = %.2f",I+1,vetorNormalizado[I]);
-                        System.out.println("%");
-                    }*/

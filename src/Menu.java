@@ -10,28 +10,28 @@ public class Menu {
         int flag = 0;
         int t = 0;
         double D;
-        double[][] matriz=null;
-        double[] nIndividuos =new double[199];
+        double[][] matriz = null;
+        double[] nIndividuos = new double[199];
 
 
         if (f == 0) {
-             matriz = NaoInterativo.lerMatriz(nomefich);
-             nIndividuos = NaoInterativo.lerDistribPop(nomefich);
+            matriz = NaoInterativo.lerMatriz(nomefich);
+            nIndividuos = NaoInterativo.lerDistribPop(nomefich);
         }
 
         while (choice) {
 
             String text
                     = "\n**********************************************************************************************************************\n"
-                    + "\t(0)\tSair\t\t\t\t\t\t\t\t\t(1)\tIntroduzir novos dados\t\n"
-                    + "\t(2)\tMostrar matriz\t\t\t\t\t\t\t(3)\tMostrar gerações (k)\t\n"
-                    + "\t(4)\tApresentar as informações todas\t\t\t(5)\tApresentar a distribuição normalizada\t\n"
+                    + "\t(0)\tSair\t\t\t\t\t\t\t\t\t\t(1)\tIntroduzir novos dados\t\n"
+                    + "\t(2)\tMostrar matriz\t\t\t\t\t\t\t\t(3)\tMostrar gerações (k)\t\n"
+                    + "\t(4)\tApresentar as informações todas\t\t\t\t(5)\tApresentar a distribuição normalizada\t\n"
                     + "\t(6)\tApresentar a distribuição não normalizada\t(7)\tApresentar a dimensão populacional\t\n"
                     + "\t(8)\tApresentar o comportamento Assintotico\t\t(9)\tApresentar a taxa de variação\t\n"
-                    + "\t(10) Apresentar o valor próprio\t\t\t(11) Apresentar o vetor próprio\t\n"
-                    + "\t(12) Ler dados a partir de um ficheiro\t\t\t\t(13) Aplicar gráficos\t\n"
-                    + "\t(14) Dar run aos testes unitários\t\t\t\t\t\t(15) Limpar o output existente na consola\t\n"
-                    + "\t(16) Verificar se o vetor próprio esta correto (Utilizando a fórmula)\t(17) \t\n"
+                    + "\t(10) Apresentar o valor próprio\t\t\t\t\t(11) Apresentar o vetor próprio\t\n"
+                    + "\t(12) Ler dados a partir de um ficheiro\t\t\t(13) Aplicar gráficos\t\n"
+                    + "\t(14) Dar run aos testes unitários\t\t\t\t(15) Limpar o output existente na consola\t\n"
+                    + "\t(16) Verificar se o vetor próprio esta correto (Utilizando a fórmula)\t\n"
                     + "**********************************************************************************************************************\nComando> ";
 
             double[] taxaS = new double[199];
@@ -173,6 +173,7 @@ public class Menu {
                         Vectores.vetores(matriz, l);
                         if (counter < 5) System.out.printf("\nComando>");
                         break;
+
                     case 12:
 
                         String A = "";
@@ -200,70 +201,77 @@ public class Menu {
                         }
 
                         if (P) {
-                            //Introduzir a função para ler os dados a partir do ficheiro!
+
                             CLS.clearScreen();
                             nIndividuos = NaoInterativo.lerDistribPop(nomefich);
                             matriz = NaoInterativo.lerMatriz(nomefich);
 
                             if (counter2 != 0) {
+
+                                System.out.println("Introduza o número de instantes de tempo a gerar");
+                                t=read.nextInt();
+
                                 System.out.println("Novos dados alocados");
                                 System.out.printf(text);
+
                                 counter2 = 0;
+
+                                break;
                             }
-                            break;
+
                         } else {
                             if (counter < 5) System.out.printf("\nComando>");
                             break;
                         }
 
-                    case 13:
-                        counter = 0;
-                        //Aqui aplica-se a classe respetiva dos gráficos
-                        GnuPlot.main(nomefich);
-                        System.out.printf(text);
-                        break;
+                            case 13:
+                                counter = 0;
+                                //Aqui aplica-se a classe respetiva dos gráficos
+                                GnuPlot.main(nomefich);
+                                System.out.printf(text);
+                                break;
 
-                    case 14:
-                        counter = 0;
-                        //Classe para os testes unitários
-                        testesUnitarios.testes();
-                        System.out.printf(text);
-                        break;
+                            case 14:
+                                counter = 0;
+                                //Classe para os testes unitários
+                                testesUnitarios.testes();
+                                System.out.printf(text);
+                                break;
 
-                    case 15:
-                        CLS.clearScreen(); // No java é impossível apagar a consola toda então o melhor a fazer se é dar print a varias linhas sem texto, pois para apagar o texto da consola o mesmo precisava de dar rerun em string isso não é o que queremos neste projeto logo torna se impossível dar um "clear" comepleto à consola
-                        System.out.println("Conteúdo apagado");
-                        System.out.println(text);
-                        break;
+                            case 15:
+                                CLS.clearScreen(); // No java é impossível apagar a consola toda então o melhor a fazer se é dar print a varias linhas sem texto, pois para apagar o texto da consola o mesmo precisava de dar rerun em string isso não é o que queremos neste projeto logo torna se impossível dar um "clear" comepleto à consola
+                                System.out.println("Conteúdo apagado");
+                                System.out.println(text);
+                                break;
 
-                    case 16:
-                        counter++;
-                        l = 1;
-                        Vectores.vetores(matriz, l);
-                        if (counter < 5) System.out.printf("\nComando>");
-                        break;
+                            case 16:
+                                counter++;
+                                l = 1;
+                                Vectores.vetores(matriz, l);
+                                if (counter < 5) System.out.printf("\nComando>");
+                                break;
 
 
-                    default:
-                        System.out.println("Porfavor introduza um valor válido");
-                        if (counter < 5) System.out.printf("\nComando>");
-                        break;
+                            default:
+                                System.out.println("Porfavor introduza um valor válido");
+                                if (counter < 5) System.out.printf("\nComando>");
+                                break;
+
+                        }
+
+                        if (counter == 5) {
+
+                            System.out.printf(text);
+                            counter = 0;
+
+                        }
+
+                        if (Flag == 0) D = read.nextDouble();
 
                 }
-
-                if (counter == 5) {
-
-                    System.out.printf(text);
-                    counter = 0;
-
-                }
-
-                if (Flag == 0) D = read.nextDouble();
 
             }
 
         }
 
     }
-
-}
