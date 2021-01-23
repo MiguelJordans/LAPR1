@@ -11,10 +11,12 @@ public class Menu {
         int t = 0;
         double D;
         double[][] matriz=null;
+        double[] nIndividuos =new double[199];
+
 
         if (f == 0) {
              matriz = NaoInterativo.lerMatriz(nomefich);
-             double[] nIndividuos = NaoInterativo.lerDistribPop(nomefich);
+             nIndividuos = NaoInterativo.lerDistribPop(nomefich);
         }
 
         while (choice) {
@@ -34,9 +36,10 @@ public class Menu {
 
             double[] taxaS = new double[199];
             double[] taxaF = new double[199];
-            double[] nIndividuos =new double[199];
+
 
             if (f != 0) {
+
 
                 t = 0;
 
@@ -222,7 +225,7 @@ public class Menu {
                     case 14:
                         counter = 0;
                         //Aqui aplica-se a classe respetiva dos gráficos
-                        GnuPlot.main(null);
+                        GnuPlot.main(nomefich);
                         System.out.printf(text);
                         break;
 
