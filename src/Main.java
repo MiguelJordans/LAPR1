@@ -21,10 +21,11 @@ public class Main {
                 nomeFicheiro = args[1];
                 f=0;
                 Menu.Menu(nomeFicheiro,f);
+
             }else {
 
-
                 NaoInterativo.main(args);
+
             }
 
         } else {
