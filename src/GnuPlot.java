@@ -165,7 +165,7 @@ public class GnuPlot {
             }
         }
         read.nextLine();
-        Thread.sleep(50);
+        Thread.sleep(100);
         System.out.println("Qual o nome do ficheiro?");
         nomefich=read.nextLine();
 
