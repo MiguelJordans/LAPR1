@@ -3,8 +3,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
+/**
+ * Classe usada para gravar os resultados do programa no ficheiro de saida do modo não interativo
+ */
 public class Grava {
 
+    /**
+     *
+     * @param k
+     * @param matrizLeslie
+     * @param ficheirosaida
+     * @throws IOException
+     */
 
     public static void matriz(int k, double[][] matrizLeslie,String ficheirosaida) throws IOException {
 
@@ -30,6 +40,14 @@ public class Grava {
 
     }
 
+    /**
+     *
+     * @param total
+     * @param ficheirosaida
+     * @param k
+     * @throws IOException
+     */
+
 
     public static void total(double[] total,String ficheirosaida, int k) throws IOException {
         File saida = new File("OutPut\\"+ ficheirosaida);
@@ -47,6 +65,14 @@ public class Grava {
 
     }
 
+    /**
+     *
+     * @param variacao
+     * @param ficheirosaida
+     * @param k
+     * @throws IOException
+     */
+
 
     public static void variacao(double[] variacao,String ficheirosaida, int k) throws IOException {
 
@@ -62,6 +88,15 @@ public class Grava {
         grava.close();
 
     }
+
+    /**
+     *
+     * @param naonormalizada
+     * @param ficheirosaida
+     * @param k
+     * @param classes
+     * @throws IOException
+     */
 
 
     public static void naonormalizado(double[][] naonormalizada,String ficheirosaida,int k,int classes) throws IOException {
@@ -92,6 +127,15 @@ public class Grava {
 
     }
 
+    /**
+     *
+     * @param normalizada
+     * @param ficheirosaida
+     * @param k
+     * @param classes
+     * @throws IOException
+     */
+
 
     public static void normalizado(double[][] normalizada,String ficheirosaida, int k,int classes) throws IOException {
 
@@ -120,6 +164,13 @@ public class Grava {
 
     }
 
+    /**
+     *
+     * @param valorproprio
+     * @param ficheirosaida
+     * @throws IOException
+     */
+
 
     public static void valorproprio(double valorproprio,String ficheirosaida) throws IOException {
         File saida = new File("OutPut\\"+ficheirosaida);
@@ -132,6 +183,13 @@ public class Grava {
         grava.close();
 
     }
+
+    /**
+     *
+     * @param vetorproprio
+     * @param ficheirosaida
+     * @throws IOException
+     */
 
 
     public static void vetorproprio(double[] vetorproprio,String ficheirosaida) throws IOException {
@@ -150,6 +208,12 @@ public class Grava {
 
 
     }
+
+    /**
+     *
+     * @param k
+     * @param total
+     */
 
 
     public static void graficototal(int k, double[] total) {
@@ -171,6 +235,12 @@ public class Grava {
 
     }
 
+    /**
+     *
+     * @param k
+     * @param variacao
+     */
+
 
     public static void graficovariacao(int k, double[] variacao){
         try {
@@ -190,6 +260,13 @@ public class Grava {
         }
 
     }
+
+    /**
+     *
+     * @param k
+     * @param normalizada
+     * @param classes
+     */
 
 
     public static void graficonormalizada(int k, double[][] normalizada, int classes){
@@ -221,6 +298,13 @@ public class Grava {
         }
     }
 
+    /**
+     *
+     * @param k
+     * @param naonormalizada
+     * @param classes
+     */
+
 
     public static void graficoNaoNormalizada(int k, double[][] naonormalizada, int classes){
         try {
@@ -250,5 +334,4 @@ public class Grava {
             e.printStackTrace();
         }
     }
-
 }

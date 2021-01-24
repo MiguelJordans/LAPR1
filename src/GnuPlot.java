@@ -8,9 +8,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * Classe responsavél por mostrar os gráficos ao utilizador, por criar os ficheiros onde vão ser armazenados os gráficos e por mudar o nome destes ficheiros
+ */
 public class GnuPlot {
 
     static Scanner read = new Scanner(System.in);
+
+    /**
+     *
+     * @param nomefich
+     */
 
     public static void main(String nomefich) {
 
@@ -46,6 +54,13 @@ public class GnuPlot {
         } while (!opc.equals("N"));
     }
 
+    /**
+     *
+     * @param ficheiro
+     * @param nometmp
+     * @param nomefich
+     */
+
 
     public static void EscolhaGrafico(String ficheiro, String nometmp,String nomefich) {
         MostraGrafico(ficheiro);
@@ -66,6 +81,11 @@ public class GnuPlot {
             }
         }
     }
+
+    /**
+     *
+     * @return
+     */
 
     public static String EscolhaFormato() {
 
@@ -95,12 +115,17 @@ public class GnuPlot {
         return escolha;
     }
 
+    /**
+     *
+     * @param ficheiro
+     */
+
 
     public static void MostraGrafico(String ficheiro) {
         String[] location = new String[2];
 //      localização do programa
         location[0] = "gnuplot";
-//      localização do gnuplot
+//      ddefine o script
 
         location[1] = "GnuPlot\\" + "mostra_" + ficheiro + ".gp";
 
@@ -117,6 +142,14 @@ public class GnuPlot {
 
 
     }
+
+    /**
+     *
+     * @param ficheiro
+     * @param formato
+     * @param nometmp
+     * @param nomefich
+     */
 
     public static void CriaGrafico(String ficheiro, String formato, String nometmp,String nomefich) {
         String[] location = new String[2];
@@ -145,6 +178,11 @@ public class GnuPlot {
 
     }
 
+    /**
+     *
+     * @return
+     */
+
 
     public static String ObtemData() {
 
@@ -153,6 +191,15 @@ public class GnuPlot {
         String date = f.format(data);
         return date;
     }
+
+    /**
+     *
+     * @param nome
+     * @param nomepng
+     * @param formato
+     * @param nomefich
+     * @throws InterruptedException
+     */
 
 
     public static void MudaNomeFicheiro(String nome, String nomepng, String formato,String nomefich) throws InterruptedException {
@@ -171,7 +218,6 @@ public class GnuPlot {
 
 
         try {
-
 
             Path oldname = FileSystems.getDefault().getPath("GnuPlot\\" + nomepng + "." + formato);
             Path newname = FileSystems.getDefault().getPath( nomefich+"_"+nome + "_" + ObtemData() + "." + formato);
@@ -192,6 +238,4 @@ public class GnuPlot {
         }
 
     }
-
-
 }
