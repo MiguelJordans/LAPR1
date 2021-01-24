@@ -3,9 +3,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * @author Miguel Jordão
+ * @author Eduardo Sousa
+ * @author Beatriz Ferreira
+ * @author José Pereira
+ *
+ *Classe para dar run ao programa
+ */
+
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException { //Módulo para que o programa consiga dar run, tanto no modo interativo como no modo não interativo
 
         Path path = Paths.get("Output\\");
         Files.createDirectories(path);
@@ -24,13 +33,13 @@ public class Main {
 
             }else {
 
-                NaoInterativo.main(args);
+                NaoInterativo.main(args); //Caso existam argumentos dar run ao modo interativo com os respetivos parâmetros
 
             }
 
         } else {
 
-            Menu.Menu(nomeFicheiro,f);
+            Menu.Menu(nomeFicheiro,f); //Caso não exista argumentos na linha de comandos dar run ao modo interativo sem alterações nenhumas
 
         }
 

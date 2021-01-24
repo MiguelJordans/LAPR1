@@ -1,3 +1,8 @@
+
+/**
+ * Classe respetiva à mensagem inicial quando se liga o programa
+ */
+
 public class Welcome {
 
     public static void Welcome(){

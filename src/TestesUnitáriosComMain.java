@@ -1,3 +1,7 @@
+/**
+ * Classe dos testes unitários, a única diferença com a outra é que esta apresenta um main para ser possível dar run aos testes de forma individual
+ */
+
 public class TestesUnitáriosComMain {
 
     public static void main(String[] args) {
