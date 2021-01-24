@@ -1,4 +1,3 @@
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +29,7 @@ public class Grava {
 
 
     }
+
 
     public static void total(double[] total,String ficheirosaida, int k) throws IOException {
         File saida = new File("OutPut\\"+ ficheirosaida);
@@ -63,6 +63,7 @@ public class Grava {
 
     }
 
+
     public static void naonormalizado(double[][] naonormalizada,String ficheirosaida,int k,int classes) throws IOException {
 
         File saida = new File("OutPut\\"+ficheirosaida);
@@ -91,6 +92,7 @@ public class Grava {
 
     }
 
+
     public static void normalizado(double[][] normalizada,String ficheirosaida, int k,int classes) throws IOException {
 
         File saida = new File("OutPut\\"+ficheirosaida);
@@ -118,6 +120,7 @@ public class Grava {
 
     }
 
+
     public static void valorproprio(double valorproprio,String ficheirosaida) throws IOException {
         File saida = new File("OutPut\\"+ficheirosaida);
         FileWriter grava=new FileWriter(saida,true);
@@ -129,6 +132,7 @@ public class Grava {
         grava.close();
 
     }
+
 
     public static void vetorproprio(double[] vetorproprio,String ficheirosaida) throws IOException {
         File saida = new File("OutPut\\"+ficheirosaida);
@@ -147,43 +151,6 @@ public class Grava {
 
     }
 
-
-    public static void UpdateFicheiro(String ficheiroSaida, String vTexto){
-
-        try {
-            FileWriter escrever = new FileWriter(ficheiroSaida, true);
-            BufferedWriter update = new BufferedWriter(escrever);
-
-            update.write(vTexto);
-            update.newLine();
-            update.close();
-
-            System.out.println("Escrito no Ficheiro com sucesso.");
-
-        } catch (IOException e) {
-            System.out.println("Occureu um erro.");
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public static void CriarFicheiro(String saida){
-        try {
-            File myObj = new File("saída.txt");
-            if (myObj.createNewFile()) {
-
-                System.out.println("Ficheiro Criado. " + myObj.getName());
-            } else {
-
-                System.out.println("Ficheiro já existe. ");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-
-    }
 
     public static void graficototal(int k, double[] total) {
         try {
@@ -204,6 +171,7 @@ public class Grava {
 
     }
 
+
     public static void graficovariacao(int k, double[] variacao){
         try {
             File fich= new File("Output\\variacao.txt");
@@ -222,6 +190,7 @@ public class Grava {
         }
 
     }
+
 
     public static void graficonormalizada(int k, double[][] normalizada, int classes){
         try {
@@ -252,6 +221,7 @@ public class Grava {
         }
     }
 
+
     public static void graficoNaoNormalizada(int k, double[][] naonormalizada, int classes){
         try {
             File fich= new File("Output\\nao_normalizada.txt");
@@ -281,7 +251,4 @@ public class Grava {
         }
     }
 
-
-
 }
-

@@ -1,7 +1,24 @@
 import java.io.IOException;
 
+/**
+ * Classe encarregue à distribuição(normalizada e não normalizada), crescimento da população e dimensão da mesma por geração (do modo não interativo)
+ */
+
 public class DistribuiçãoNãoInterativa {
 
+
+    /**
+     * Esta classe funciona exatamente da mesma maneira que a classe "Distribuição", só que neste caso estes cálculos apenas acontecem no modo não interativo, e para não haver conflitos de variáveis na mesma classe optou-se criar uma classe à parte para a realização dos cálculos para o modo não interativo, com condições específicas consoante o comando introduzido na linha de comandos(guardar informações/apresentar as mesmas consoante o comando introduzido)
+     * @param matriz
+     * @param k
+     * @param X
+     * @param l
+     * @param nomeFicheiroSaida
+     * @param vecProprio
+     * @param dimPopulacao
+     * @param varPopGeracoes
+     * @throws IOException
+     */
     public static void ApresentarDist(double[][] matriz, int k, double[] X, int l, String nomeFicheiroSaida, boolean vecProprio, boolean dimPopulacao, boolean varPopGeracoes) throws IOException {
 
 
@@ -119,7 +136,7 @@ public class DistribuiçãoNãoInterativa {
 
         }
 
-        Grava.matriz(k, matriz, nomeFicheiroSaida);
+        Grava.matriz(k, matriz, nomeFicheiroSaida); //Condições para guardar nos respetivos ficheiros as informações necessárias para apresentar os gráficos(os 4 diferentes gráficos)
         if (dimPopulacao) {
             Grava.total(guardaDimensão, nomeFicheiroSaida, k + 1);
         }

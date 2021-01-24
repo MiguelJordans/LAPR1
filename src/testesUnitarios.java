@@ -1,3 +1,8 @@
+
+/**
+ * Classe encarregue aos testes unitários
+ */
+
 public class testesUnitarios {
 
     public static void testes() {
@@ -30,7 +35,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste de multiplicar matrizes:\n\n");
         System.out.print(">");
-        System.out.println(test_multiplicarMatrizes(matrizTCasoM, matriz2TCasoM, resultadoEsperadoTCasoM) ? "Certo" : "ERRO");
+        System.out.println(test_multiplicarMatrizes(matrizTCasoM, matriz2TCasoM, resultadoEsperadoTCasoM) ? "Certo" : "ERRO"); //Verificação aos módulos de multiplicação de matrizes
         System.out.println();
 
         //caso 1
@@ -60,7 +65,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3ª Teste da multiplicação de uma matriz por vetor:\n\n");
         System.out.print(">");
-        System.out.println(test_multiplicarMatrizporVetor(matrizTCasoMV, vetorTCasoMV, resultadoTCasoMV) ? "Certo" : "ERRO");
+        System.out.println(test_multiplicarMatrizporVetor(matrizTCasoMV, vetorTCasoMV, resultadoTCasoMV) ? "Certo" : "ERRO"); //Verificação aos módulos de multiplicação de uma matriz por um vetor
         System.out.println();
 
         //caso 1
@@ -87,7 +92,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste da dimensão:\n\n");
         System.out.print(">");
-        System.out.println(test_dimensao(vetorTCasoDim, resultadoEsperadoTCasoDim) ? "Certo" : "ERRO");
+        System.out.println(test_dimensao(vetorTCasoDim, resultadoEsperadoTCasoDim) ? "Certo" : "ERRO"); //Verificação ao módulo respetivo ao cálculo da dimensão da população numa geração
         System.out.println();
 
         //caso 1
@@ -117,7 +122,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste da Taxa de Variação:\n\n");
         System.out.print(">");
-        System.out.println(test_taxaVariacao(produtoTCaso, produto1TCaso, resultadoEsperadoTCaso) ? "Certo" : "ERRO");
+        System.out.println(test_taxaVariacao(produtoTCaso, produto1TCaso, resultadoEsperadoTCaso) ? "Certo" : "ERRO"); //Verificação ao módulo respetivo ao cálculo da taxa de variação (crescimento populacional) numa geração
         System.out.println();
 
         //caso 1
@@ -144,7 +149,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste da Distribuição Normalizada:\n\n");
         System.out.print(">");
-        System.out.println(test_distribuiçaoNormalizada(vetorTCasoDN,resultadoEsperadoTCasoDN) ? "Certo" : "ERRO");
+        System.out.println(test_distribuiçaoNormalizada(vetorTCasoDN,resultadoEsperadoTCasoDN) ? "Certo" : "ERRO"); //Verificação ao módulo respetivo ao cálculo da distribuição normalizada numa geração
         System.out.println();
 
         //caso 1
@@ -173,7 +178,7 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste do Vetor Próprio:\n");
         System.out.print(">");
-        System.out.println(test_vetorproprio(matrizTCasoVeP,l3,resultadoTCasoVeP) ? "Certo" : "ERRO");
+        System.out.println(test_vetorproprio(matrizTCasoVeP,l3,resultadoTCasoVeP) ? "Certo" : "ERRO"); //Verificação ao módulo respetivo ao cálculo do vetor próprio
         System.out.println();
 
         //caso 1
@@ -200,12 +205,20 @@ public class testesUnitarios {
 
         System.out.printf("\n3º Teste do maior Valor Próprio:\n\n");
         System.out.print(">");
-        System.out.println(test_maiorValorProprio(matrizTCasoVP,resultadoTCasoVP) ? "Certo" : "ERRO");
+        System.out.println(test_maiorValorProprio(matrizTCasoVP,resultadoTCasoVP) ? "Certo" : "ERRO"); //Verificação ao módulo respetivo ao cálculo do valor próprio
 
 
     }
 
-    public static boolean test_multiplicarMatrizes(double[][] firstMatrix, double[][] secondMatrix, double[][] resultadoEsperado) {
+    /**
+     * @param firstMatrix primeira matriz que vai ser utilizada na multiplicação de matrizes
+     * @param secondMatrix segunda matriz que vai ser utilizada na multiplicação de matrizes
+     * @param resultadoEsperado produto da multiplicação das duas matrizes
+     * @return à veracidade da comparação entre os dois valores
+     */
+
+
+    public static boolean test_multiplicarMatrizes(double[][] firstMatrix, double[][] secondMatrix, double[][] resultadoEsperado) { //Módulo para verificar o cálculo de matrizes
 
         double[][] aux = Calculos.multiplicarMatrizes(firstMatrix, secondMatrix);
 
@@ -229,19 +242,26 @@ public class testesUnitarios {
 
                 if (resultado[i][j] != resultadoEsperado[i][j]){
 
-                    return false;
+                    return false; //Caso o resultado expectado seja diferente ao valor calculado , isto significa que o programa esta a calcular mal o produto das duas matrizes
                 }
 
             }
 
         }
 
-        return true;
+        return true; //Caso o resultado expectado seja igual ao valor calculado , isto significa que o programa esta a calcular bem produto das duas matrizes
 
     }
 
+    /**
+     * @param matriz matriz utilizada na multiplicação
+     * @param vetor vetor ultizado na multiplicação
+     * @param resultadoEsperado resultado que se espera que seja calculado nesta multiplicação
+     * @return à veracidade da comparação entre os dois valores
+     */
 
-    public static boolean test_multiplicarMatrizporVetor(double[][] matriz, double[] vetor, double[] resultadoEsperado) {
+
+    public static boolean test_multiplicarMatrizporVetor(double[][] matriz, double[] vetor, double[] resultadoEsperado) { //Módulo para verificar o produto entre uma matriz e um vetor
 
         double[] aux = Calculos.multiplicarMatrizporVetor(matriz, vetor);
 
@@ -259,18 +279,24 @@ public class testesUnitarios {
 
             if (resultado[i] != resultadoEsperado[i]){
 
-                return false;
+                return false; //Caso o resultado expectado seja diferente ao valor calculado , isto significa que o programa esta a calcular mal o produto da matriz com o vetor
 
             }
 
         }
 
-        return true;
+        return true; //Caso o resultado expectado seja igual ao valor calculado , isto significa que o programa esta a calcular bem o produto da matriz com o vetor
 
     }
 
+    /**
+     * @param vetor vetor do qual se vai calcular a dimensão(soma de todas as entradas do vetor)
+     * @param resultadoEsperado  resultado esperado da dimensão do vetor
+     * @return ao valor calculado
+     */
 
-    public static boolean test_dimensao(double[] vetor, double resultadoEsperado) { //Compor isto1
+
+    public static boolean test_dimensao(double[] vetor, double resultadoEsperado) { //Módulo para verificar a dimensão
 
         double aux = Distribuição.dimensao(vetor);
 
@@ -281,8 +307,15 @@ public class testesUnitarios {
 
     }
 
+    /**
+     * @param produto vetor resultante do produto da matriz de leslie (elevada a k-1) pelo vetor inicial (número de indivíduos por geração)
+     * @param produto1 vetor resultante do produto da matriz de leslie (elevada a k) pelo vetor inicial (número de indivíduos por geração)
+     * @param resultadoEsperado valor esperado da divisão entre o vetor "produto1" e o vetor "produto" (produto1/produto)
+     * @return ao valor calculado
+     */
 
-    public static boolean test_taxaVariacao(double[] produto,double[] produto1, double resultadoEsperado) { //Compor isto
+
+    public static boolean test_taxaVariacao(double[] produto,double[] produto1, double resultadoEsperado) { //Módulo para verificar a taxa de variação
 
         double aux = Distribuição.taxaVariacao(produto, produto1,10);
 
@@ -293,8 +326,14 @@ public class testesUnitarios {
 
     }
 
+    /**
+     * @param vetor vetor correspondente à distribuição não normalizada
+     * @param resultadoEsperado vetor esperado após os respetivos cálculos no vetor anterior
+     * @return à veracidade da comparação entre os dois valores
+     */
 
-    public static boolean test_distribuiçaoNormalizada(double[] vetor, double[] resultadoEsperado) { //Compor isto
+
+    public static boolean test_distribuiçaoNormalizada(double[] vetor, double[] resultadoEsperado) { //Módulo para verificar a distribuição normalizada
 
         double numero = Distribuição.dimensao(vetor);
 
@@ -314,17 +353,23 @@ public class testesUnitarios {
 
             if (resultado[i] != resultadoEsperado[i]){
 
-                return false;
+                return false; //Caso o resultado expectado seja diferente ao valor calculado , isto significa que o programa esta a calcular mal a distribuição normalizada
 
             }
 
         }
 
-        return true;
+        return true; //Caso o resultado expectado seja igual ao valor calculado , isto significa que o programa esta a calcular bem a distribuição normalizada
     }
 
+    /**
+     * @param matriz matriz da qual se vai calcular o vetor próprio
+     * @param l (Variável de controlo utilizada nas outras classes neste caso não é necessário utilizar a mesma)
+     * @param resultadoEsperado resultado esperado após o cálculo do vetor próprio
+     * @return à veracidade da comparação entre os dois valores
+     */
 
-    public static boolean test_vetorproprio(double[][] matriz, int l, double resultadoEsperado) { //Compor isto
+    public static boolean test_vetorproprio(double[][] matriz, int l, double resultadoEsperado) { //Módulo para verificar o vetor próprio
 
         double aux = Vectores.vetorproprioTesteUnitario(matriz);
 
@@ -335,8 +380,13 @@ public class testesUnitarios {
 
     }
 
+    /**
+     * @param matriz
+     * @param resultadoEsperado
+     * @return à veracidade da comparação entre os dois valores
+     */
 
-    public static boolean test_maiorValorProprio(double[][] matriz, double resultadoEsperado) {
+    public static boolean test_maiorValorProprio(double[][] matriz, double resultadoEsperado) { //Módulo para verificar o valor próprio
 
         double aux = Vectores.maiorValorProprio(matriz);
 
